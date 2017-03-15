@@ -1,5 +1,6 @@
 # Webpack stuff
 bundle.js
+bundle.js.map
 
 # Logs
 logs
