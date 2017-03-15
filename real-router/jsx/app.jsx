@@ -17,9 +17,9 @@ ReactDOM.render((
     <Route path="/" component={Content}>
       <Route path="/about" component={About}/>
       <Route path="/posts" component={Posts} posts={posts}/>
-      <Route path="/posts:id" component={Post} posts={posts}/>
+      <Route path="/posts/:id" component={Post}  posts={posts}/>
       <Route path="/contact" component={withRouter(Contact)}/>
     </Route>
-    <Router path="/login" component={Login}/>
+    <Route path="/login" component={Login}/>
   </Router>
 ), document.getElementById('content'));

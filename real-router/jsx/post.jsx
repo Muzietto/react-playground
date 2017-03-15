@@ -1,6 +1,6 @@
 const React = require('react');
 
-module.exports = function Product(props) {
+module.exports = function Post(props) {
   let post = props.route.posts.find(el => (el.slug === props.params.id));
   return (
     <div>
