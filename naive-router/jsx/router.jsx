@@ -3,7 +3,10 @@ const React = require('react');
 module.exports = class Router extends React.Component {
   constructor(props) { // in app.jsx we see that props is {mapping}
     super(props);
-    this.state = {hash: window.location.hash}; // this.state is a reserved name
+    this.state = {
+      hash: window.location.hash, 
+      giamby: this.props.giambirillo
+    }; // this.state is a reserved name
     this.updateHash = this.updateHash.bind(this);
   }
   render() {
@@ -13,7 +16,10 @@ module.exports = class Router extends React.Component {
     return this.props.mapping['*'];
   }
   updateHash(event) {
-    this.setState({hash: window.location.hash}); // setState will always trigger a re-render, unless conditional rendering logic is implemented in shouldComponentUpdate
+    this.setState({
+      hash: window.location.hash,
+      giamby: ++this.state.giamby
+    }); // setState will always trigger a re-render, unless conditional rendering logic is implemented in shouldComponentUpdate
   }
   componentDidMount() { // invoked immediately after this.render
     window.addEventListener('hashchange', this.updateHash, false);
