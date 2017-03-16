@@ -1,6 +1,8 @@
 const {Link} = require('react-router');
 const React = require('react');
 
+// wrapped by a Route in App.js
+// Route owns property 'posts'
 module.exports = function Posts(props) {
   return (
     <div>Posts

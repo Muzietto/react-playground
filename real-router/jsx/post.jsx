@@ -1,5 +1,7 @@
 const React = require('react');
 
+// wrapped by a Route in App.js
+// Route owns property 'posts'
 module.exports = function Post(props) {
   let post = props.route.posts.find(el => (el.slug === props.params.id));
   return (
