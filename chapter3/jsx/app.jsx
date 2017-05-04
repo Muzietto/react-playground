@@ -6,7 +6,7 @@ const DateTimeNow = require('./DateTimeNow.jsx');
 ReactDOM.render((
     <div>
       <HelloWorld avverbio="cautiously"/>
-      <DateTimeNow/>
+      <DateTimeNow size="3"/>
     </div>
   ),
   document.getElementById('content')
