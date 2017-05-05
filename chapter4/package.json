@@ -1,0 +1,40 @@
+{
+  "name": "chapter4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clock": "./node_modules/.bin/babel ./the_clock/jsx -o ./the_clock/js/bundle.js",
+    "build": "./node_modules/.bin/webpack -w"
+  },
+  "author": "Marco Faustinelli",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      [
+        "transform-decorators-legacy"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "6.18.2",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "6.2.4",
+    "babel-plugin-react-transform": "^2.0.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-react": "6.5.0",
+    "babel-preset-react-hmre": "^1.0.1",
+    "babel-preset-stage-0": "^6.3.13",
+    "webpack": "1.12.9"
+  },
+  "dependencies": {
+    "react": "15.2.1",
+    "react-dom": "15.2.1"
+  }
+}
