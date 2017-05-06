@@ -1,3 +1,5 @@
+*.lnk
+
 # Webpack stuff
 bundle.js
 bundle.js.map
