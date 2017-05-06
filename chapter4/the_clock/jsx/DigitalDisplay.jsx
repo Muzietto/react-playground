@@ -1,5 +1,5 @@
 class DigitalDisplay extends React.Component {
   render() {
-    return <div>DIGITAL{this.props.time}</div>
+    return <div>STATELESS_DIGITAL{this.props.time}</div>
   }
 }
