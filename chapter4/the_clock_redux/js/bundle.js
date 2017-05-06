@@ -1,3 +1,31 @@
+// NB: only webpack understands requires,
+// while here we'll be building with naked Babel
+
+// these are all the ACTIONS
+
+let startTimeString = new Date().toString(); // closing in...
+
+// action types
+const ActionTypes = {
+  INCREASE_TIME: 'INCREASE_TIME'
+};
+
+// actually this fun is an ACTION CREATOR
+let newTime = timeString => {
+  return {
+    type: ActionTypes.INCREASE_TIME,
+    newTime: timeString
+  };
+};
+
+const ActionCreators = {
+  newTime: newTime
+};
+
+// start the clock here (here? someplace else?)
+setInterval(function () {
+  store.dispatch(ActionCreators.newTime(new Date().toString()));
+}, 1000);
 let AnalogDisplay = class AnalogDisplay extends React.Component {
   render() {
     return React.createElement(
@@ -22,27 +50,18 @@ let DigitalDisplay = class DigitalDisplay extends React.Component {
 //const React = require('react');
 
 let TheClock = class TheClock extends React.Component {
-  constructor(params) {
-    super(params);
-    intervalla(this);
-    this.state = { currentTime: new Date().toString() };
-    function intervalla(self) {
-      setInterval(() => {
-        self.setState({ currentTime: new Date().toString() });
-      }, 1000);
-    }
-  }
   render() {
+    var currentTime = store.getState();
     return React.createElement(
       "div",
       null,
       React.createElement(
         "div",
         null,
-        this.state.currentTime
+        currentTime
       ),
-      React.createElement(AnalogDisplay, { time: this.state.currentTime }),
-      React.createElement(DigitalDisplay, { time: this.state.currentTime })
+      React.createElement(AnalogDisplay, { time: currentTime }),
+      React.createElement(DigitalDisplay, { time: currentTime })
     );
   }
 };
@@ -53,4 +72,18 @@ let TheClock = class TheClock extends React.Component {
 //const ReactDOM = require('react-dom');
 //const TheClock = require('./TheClock.jsx');
 
-ReactDOM.render(React.createElement(TheClock, null), document.getElementById('content'));
+function clock(state = startTimeString, action) {
+  switch (action.type) {
+    case ActionTypes.INCREASE_TIME:
+      return action.newTime;
+    default:
+      return state;
+  }
+}
+
+var store = Redux.createStore(clock);
+
+const render = () => ReactDOM.render(React.createElement(TheClock, null), document.getElementById('content'));
+
+render();
+store.subscribe(render);

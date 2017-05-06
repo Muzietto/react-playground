@@ -2,19 +2,12 @@
 //const React = require('react');
 
 class TheClock extends React.Component {
-  constructor(params) {
-    super(params);
-    intervalla(this);
-    this.state = {currentTime: (new Date()).toString()};
-    function intervalla(self) {
-      setInterval(() => {self.setState({currentTime: (new Date()).toString()});}, 1000);
-    }
-  }
   render() {
+    var currentTime = store.getState();
     return <div>
-      <div>{this.state.currentTime}</div>
-      <AnalogDisplay time={this.state.currentTime}/>
-      <DigitalDisplay time={this.state.currentTime}/>
+      <div>{currentTime}</div>
+      <AnalogDisplay time={currentTime}/>
+      <DigitalDisplay time={currentTime}/>
     </div>
   }
 }
