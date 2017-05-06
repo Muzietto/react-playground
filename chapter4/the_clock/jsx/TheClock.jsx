@@ -11,7 +11,11 @@ class TheClock extends React.Component {
     }
   }
   render() {
-    return <div>{this.state.currentTime}</div>
+    return <div>
+      <div>{this.state.currentTime}</div>
+      <AnalogDisplay time={this.state.currentTime}/>
+      <DigitalDisplay time={this.state.currentTime}/>
+    </div>
   }
 }
 
