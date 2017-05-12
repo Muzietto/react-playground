@@ -1,4 +1,4 @@
-var chosen_things = [];
+var chosen_items = [];
 
 var options = [
     {
@@ -24,6 +24,7 @@ var dropDownOnChange = function(change) {
             change.oldValue + 
             '\nnewValue: ' 
             + change.newValue);
+    chosen_items.push({id:code,name:description})
 };
 
 ReactDOM.render(
