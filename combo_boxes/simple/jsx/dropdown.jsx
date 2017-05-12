@@ -1,5 +1,4 @@
 var Dropdown = React.createClass({
-
     propTypes: {
         id: React.PropTypes.string.isRequired,
         options: React.PropTypes.array.isRequired,
