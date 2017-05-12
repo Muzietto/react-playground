@@ -1,3 +1,5 @@
+var chosen_things = [];
+
 var options = [
     {
         description: 'This is option A',
