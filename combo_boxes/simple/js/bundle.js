@@ -1,7 +1,6 @@
 var Dropdown = React.createClass({
     displayName: 'Dropdown',
 
-
     propTypes: {
         id: React.PropTypes.string.isRequired,
         options: React.PropTypes.array.isRequired,
@@ -73,8 +72,43 @@ var Dropdown = React.createClass({
         }
         this.setState({ selected: e.target.value });
     }
-
 });
+//import React from 'react'
+//import PropTypes from 'prop-types'
+
+//var TodoList = ({ todos, onTodoClick }) => (
+var ItemsList = React.createClass({
+  displayName: "ItemsList",
+
+  propTypes: {
+    items: React.PropTypes.arrayOf(React.PropTypes.shape({
+      id: React.PropTypes.number.isRequired,
+      name: React.PropTypes.string.isRequired
+    }).isRequired).isRequired,
+    onItemClick: React.PropTypes.func.isRequired
+  },
+  render: function () {
+    var self = this;
+    var items = this.props.items.map(function (item) {
+      return React.createElement(
+        "li",
+        null,
+        item.id,
+        ",",
+        item.name
+      );
+    });
+
+    return React.createElement(
+      "ul",
+      null,
+      items
+    );
+  }
+});
+//export default ItemsList
+var chosen_items = [];
+
 var options = [{
     description: 'This is option A',
     code: 'a'
@@ -90,7 +124,13 @@ var options = [{
 }];
 
 var dropDownOnChange = function (change) {
-    alert('onChangeForSelect:\noldValue: ' + change.oldValue + '\nnewValue: ' + change.newValue);
+    var newOption = this.options.find(op => op.code === change.newValue);
+    //  alert('onChangeForSelect:\noldValue: ' + 
+    //          change.oldValue + 
+    //          '\nnewValue: ' 
+    //          + change.newValue);
+    debugger;
+    chosen_items.push({ id: newOption.code, name: newOption.description });
 };
 
 ReactDOM.render(React.createElement(Dropdown, { id: 'myDropdown',

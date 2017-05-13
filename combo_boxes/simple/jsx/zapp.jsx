@@ -20,11 +20,13 @@ var options = [
 ];
 
 var dropDownOnChange = function(change) {
-    alert('onChangeForSelect:\noldValue: ' + 
-            change.oldValue + 
-            '\nnewValue: ' 
-            + change.newValue);
-    chosen_items.push({id:code,name:description})
+  var newOption = this.options.find(op=>op.code===change.newValue);
+//  alert('onChangeForSelect:\noldValue: ' + 
+//          change.oldValue + 
+//          '\nnewValue: ' 
+//          + change.newValue);
+          debugger;
+  chosen_items.push({id:newOption.code,name:newOption.description})
 };
 
 ReactDOM.render(
