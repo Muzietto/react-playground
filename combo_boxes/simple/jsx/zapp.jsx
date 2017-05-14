@@ -33,7 +33,7 @@ var dropDownOnChange = function(change) {
 };
 
 ReactDOM.render(
-  <div className="wrapper">
+  <Shell>
     <Dropdown id='myDropdown' 
               options={options} 
               value='b'
@@ -41,6 +41,6 @@ ReactDOM.render(
               valueField='code'
               onChange={dropDownOnChange}/>
     <ItemsList items={chosen_items}/>
-  </div>,
+  </Shell>,
     document.getElementById('container')
 );

@@ -95,8 +95,8 @@ var ItemsList = React.createClass({
     var items = this.state.items.map(function (item) {
       return React.createElement(
         "li",
-        null,
-        item.id,
+        { key: item.id },
+        item.code,
         ",\xA0",
         item.name
       );
@@ -110,6 +110,32 @@ var ItemsList = React.createClass({
   }
 });
 //export default ItemsList
+//import React from 'react'
+//import PropTypes from 'prop-types'
+
+//var TodoList = ({ todos, onTodoClick }) => (
+var Shell = React.createClass({
+  displayName: "Shell",
+
+  propTypes: {
+    //items: React.PropTypes.arrayOf(React.PropTypes.shape({
+    //  id: React.PropTypes.number.isRequired,
+    //  name: React.PropTypes.string.isRequired,
+    //}).isRequired).isRequired,
+    //onItemClick: React.PropTypes.func.isRequired
+  },
+  getInitialState: function () {
+    return {};
+  },
+  render: function () {
+    return React.createElement(
+      "div",
+      { className: "wrapper" },
+      this.props.children
+    );
+  }
+});
+//export default Shell
 var chosen_items = [{ id: 1, code: 'a', name: 'qeqeqeqe' }];
 
 var options = [{
@@ -140,8 +166,8 @@ var dropDownOnChange = function (change) {
 };
 
 ReactDOM.render(React.createElement(
-    'div',
-    { className: 'wrapper' },
+    Shell,
+    null,
     React.createElement(Dropdown, { id: 'myDropdown',
         options: options,
         value: 'b',
