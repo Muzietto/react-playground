@@ -21,15 +21,13 @@ var options = [
 
 var dropDownOnChange = function(change) {
   var newOption = this.options.find(op=>op.code===change.newValue);
-//  alert('onChangeForSelect:\noldValue: ' + 
-//          change.oldValue + 
-//          '\nnewValue: ' 
-//          + change.newValue);
-  chosen_items.push({
+  var newItem = {
     id: new Date().getTime(),
     code: newOption.code,
     name: newOption.description
-    });
+    };
+  //chosen_items.push(newItem);
+  this.parentElement().broadcast(newItem);
 };
 
 ReactDOM.render(

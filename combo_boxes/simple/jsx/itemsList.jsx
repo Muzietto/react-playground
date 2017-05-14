@@ -1,7 +1,3 @@
-//import React from 'react'
-//import PropTypes from 'prop-types'
-
-//var TodoList = ({ todos, onTodoClick }) => (
 var ItemsList = React.createClass({
   propTypes: {
     items: React.PropTypes.arrayOf(React.PropTypes.shape({
@@ -12,6 +8,9 @@ var ItemsList = React.createClass({
   },
   getInitialState: function() {
     return {items: this.props.items};
+  },
+  run(value) {
+    this.setState(this.getState().concat(value));
   },
   render: function() {
     //debugger;
@@ -28,4 +27,3 @@ var ItemsList = React.createClass({
     );
   },
 });
-//export default ItemsList

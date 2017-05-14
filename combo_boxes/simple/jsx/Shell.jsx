@@ -1,19 +1,21 @@
-//import React from 'react'
-//import PropTypes from 'prop-types'
-
-//var TodoList = ({ todos, onTodoClick }) => (
 var Shell = React.createClass({
-  propTypes: {
-    //items: React.PropTypes.arrayOf(React.PropTypes.shape({
-    //  id: React.PropTypes.number.isRequired,
-    //  name: React.PropTypes.string.isRequired,
-    //}).isRequired).isRequired,
-    //onItemClick: React.PropTypes.func.isRequired
-  },
+  propTypes: {},
   getInitialState: function() {
     return {};
   },
+  parentElement: function() {
+    return this;
+  },
+  broadcast: function(value) {
+    this.props.children.forEach(child => child.run(value));
+  },
   render: function() {
+    this.props.children.forEach(child => {
+      if (!child.props.parentElement) {
+        child.props.parentElement = this.parentElement;
+        var a = 12;
+      }
+    });
     return (
       <div className="wrapper">
         {this.props.children}
@@ -21,4 +23,3 @@ var Shell = React.createClass({
     );
   },
 });
-//export default Shell

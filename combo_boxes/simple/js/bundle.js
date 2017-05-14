@@ -44,6 +44,9 @@ var Dropdown = React.createClass({
         return selected;
     },
 
+    run(value) {// do nothing;
+    },
+
     render: function () {
         var self = this;
         var options = self.props.options.map(function (option) {
@@ -74,10 +77,6 @@ var Dropdown = React.createClass({
         this.setState({ selected: e.target.value });
     }
 });
-//import React from 'react'
-//import PropTypes from 'prop-types'
-
-//var TodoList = ({ todos, onTodoClick }) => (
 var ItemsList = React.createClass({
   displayName: "ItemsList",
 
@@ -89,6 +88,9 @@ var ItemsList = React.createClass({
   },
   getInitialState: function () {
     return { items: this.props.items };
+  },
+  run(value) {
+    this.setState(this.getState().concat(value));
   },
   render: function () {
     //debugger;
@@ -109,25 +111,26 @@ var ItemsList = React.createClass({
     );
   }
 });
-//export default ItemsList
-//import React from 'react'
-//import PropTypes from 'prop-types'
-
-//var TodoList = ({ todos, onTodoClick }) => (
 var Shell = React.createClass({
   displayName: "Shell",
 
-  propTypes: {
-    //items: React.PropTypes.arrayOf(React.PropTypes.shape({
-    //  id: React.PropTypes.number.isRequired,
-    //  name: React.PropTypes.string.isRequired,
-    //}).isRequired).isRequired,
-    //onItemClick: React.PropTypes.func.isRequired
-  },
+  propTypes: {},
   getInitialState: function () {
     return {};
   },
+  parentElement: function () {
+    return this;
+  },
+  broadcast: function (value) {
+    this.props.children.forEach(child => child.run(value));
+  },
   render: function () {
+    this.props.children.forEach(child => {
+      if (!child.props.parentElement) {
+        child.props.parentElement = this.parentElement;
+        var a = 12;
+      }
+    });
     return React.createElement(
       "div",
       { className: "wrapper" },
@@ -135,7 +138,6 @@ var Shell = React.createClass({
     );
   }
 });
-//export default Shell
 var chosen_items = [{ id: 1, code: 'a', name: 'qeqeqeqe' }];
 
 var options = [{
@@ -154,15 +156,13 @@ var options = [{
 
 var dropDownOnChange = function (change) {
     var newOption = this.options.find(op => op.code === change.newValue);
-    //  alert('onChangeForSelect:\noldValue: ' + 
-    //          change.oldValue + 
-    //          '\nnewValue: ' 
-    //          + change.newValue);
-    chosen_items.push({
+    var newItem = {
         id: new Date().getTime(),
         code: newOption.code,
         name: newOption.description
-    });
+    };
+    //chosen_items.push(newItem);
+    this.parentElement().broadcast(newItem);
 };
 
 ReactDOM.render(React.createElement(

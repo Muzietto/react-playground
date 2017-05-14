@@ -47,6 +47,9 @@ var Dropdown = React.createClass({
         return selected;
     },
 
+    run(value) { // do nothing;
+    },
+
     render: function() {
         var self = this;
         var options = self.props.options.map(function(option) {
