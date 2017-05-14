@@ -1,6 +1,12 @@
 body {
-    margin-top: 10px;
-    margin-left: 10px;
+}
+
+div.wrapper {
+  width: 400px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: lightgrey;
 }
 
 select.form-control {
