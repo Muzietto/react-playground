@@ -1,3 +1,4 @@
+// cfr. http://jsfiddle.net/davidwaterston/7a3xxLtw/
 var Dropdown = React.createClass({
     propTypes: {
         id: React.PropTypes.string.isRequired,
