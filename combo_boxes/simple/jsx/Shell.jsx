@@ -13,7 +13,7 @@ var Shell = React.createClass({
     this.props.children.forEach(child => {
       if (!child.props.parentElement) {
         child.props.parentElement = this.parentElement;
-        var a = 12;
+        var dummy = 'dummy';
       }
     });
     return (
