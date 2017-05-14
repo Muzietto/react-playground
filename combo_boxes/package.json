@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watchsimple": "./node_modules/.bin/babel ./simple/jsx -o ./simple/js/bundle.js -w",
     "simple": "./node_modules/.bin/babel ./simple/jsx -o ./simple/js/bundle.js",
     "simpleredux": "./node_modules/.bin/babel ./simple_redux/jsx -o ./simple_redux/js/bundle.js",
     "build": "./node_modules/.bin/webpack -w"
