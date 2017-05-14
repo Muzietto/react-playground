@@ -1,3 +1,4 @@
+// cfr. http://jsfiddle.net/davidwaterston/7a3xxLtw/
 var Dropdown = React.createClass({
     displayName: 'Dropdown',
 
@@ -84,17 +85,19 @@ var ItemsList = React.createClass({
     items: React.PropTypes.arrayOf(React.PropTypes.shape({
       id: React.PropTypes.number.isRequired,
       name: React.PropTypes.string.isRequired
-    }).isRequired).isRequired,
-    onItemClick: React.PropTypes.func.isRequired
+    }).isRequired).isRequired
+  },
+  getInitialState: function () {
+    return { items: this.props.items };
   },
   render: function () {
-    var self = this;
-    var items = this.props.items.map(function (item) {
+    debugger;
+    var items = this.state.items.map(function (item) {
       return React.createElement(
         "li",
         null,
         item.id,
-        ",",
+        ",\xA0",
         item.name
       );
     });
@@ -129,13 +132,21 @@ var dropDownOnChange = function (change) {
     //          change.oldValue + 
     //          '\nnewValue: ' 
     //          + change.newValue);
-    debugger;
-    chosen_items.push({ id: newOption.code, name: newOption.description });
+    chosen_items.push({
+        id: new Date().getTime(),
+        code: newOption.code,
+        name: newOption.description
+    });
 };
 
-ReactDOM.render(React.createElement(Dropdown, { id: 'myDropdown',
-    options: options,
-    value: 'b',
-    labelField: 'description',
-    valueField: 'code',
-    onChange: dropDownOnChange }), document.getElementById('container'));
+ReactDOM.render(React.createElement(
+    'div',
+    { className: 'wrapper' },
+    React.createElement(Dropdown, { id: 'myDropdown',
+        options: options,
+        value: 'b',
+        labelField: 'description',
+        valueField: 'code',
+        onChange: dropDownOnChange }),
+    React.createElement(ItemsList, { items: chosen_items })
+), document.getElementById('container'));

@@ -8,14 +8,17 @@ var ItemsList = React.createClass({
       id: React.PropTypes.number.isRequired,
       name: React.PropTypes.string.isRequired,
     }).isRequired).isRequired,
-    onItemClick: React.PropTypes.func.isRequired
+    //onItemClick: React.PropTypes.func.isRequired
+  },
+  getInitialState: function() {
+    return {items: this.props.items};
   },
   render: function() {
-    var self = this;
-    var items = this.props.items.map(function(item) {
-      return <li>{item.id},{item.name}</li>
+    debugger;
+    var items = this.state.items.map(function(item) {
+      return <li>{item.id},&nbsp;{item.name}</li>
     });
-    
+
     return (
       <ul>
         {items}

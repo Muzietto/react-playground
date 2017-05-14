@@ -25,16 +25,22 @@ var dropDownOnChange = function(change) {
 //          change.oldValue + 
 //          '\nnewValue: ' 
 //          + change.newValue);
-          debugger;
-  chosen_items.push({id:newOption.code,name:newOption.description})
+  chosen_items.push({
+    id: new Date().getTime(),
+    code: newOption.code,
+    name: newOption.description
+    });
 };
 
 ReactDOM.render(
+  <div className="wrapper">
     <Dropdown id='myDropdown' 
               options={options} 
               value='b'
               labelField='description'
               valueField='code'
-              onChange={dropDownOnChange}/>,
+              onChange={dropDownOnChange}/>
+    <ItemsList items={chosen_items}/>
+  </div>,
     document.getElementById('container')
 );
