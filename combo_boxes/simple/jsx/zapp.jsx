@@ -1,4 +1,4 @@
-var chosen_items = [];
+var chosen_items = [{id:1,code:'a',name:'qeqeqeqe'}];
 
 var options = [
     {

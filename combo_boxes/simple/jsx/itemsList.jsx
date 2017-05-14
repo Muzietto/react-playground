@@ -14,7 +14,7 @@ var ItemsList = React.createClass({
     return {items: this.props.items};
   },
   render: function() {
-    debugger;
+    //debugger;
     var items = this.state.items.map(function(item) {
       return <li>{item.id},&nbsp;{item.name}</li>
     });

@@ -91,7 +91,7 @@ var ItemsList = React.createClass({
     return { items: this.props.items };
   },
   render: function () {
-    debugger;
+    //debugger;
     var items = this.state.items.map(function (item) {
       return React.createElement(
         "li",
@@ -110,7 +110,7 @@ var ItemsList = React.createClass({
   }
 });
 //export default ItemsList
-var chosen_items = [];
+var chosen_items = [{ id: 1, code: 'a', name: 'qeqeqeqe' }];
 
 var options = [{
     description: 'This is option A',
