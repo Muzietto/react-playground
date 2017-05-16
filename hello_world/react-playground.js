@@ -1,4 +1,4 @@
-
+'use strict';
 let h1 = React.createElement('h1', null, 'Hello, World!');
 
 // fake ES6 'classes' => crap
@@ -78,4 +78,3 @@ function PippoConst() {
 // two ways of instantiating
 var instanzia = Object.create(Pippo); // best
 var instanziaNew = new PippoConst();  // worst
-
