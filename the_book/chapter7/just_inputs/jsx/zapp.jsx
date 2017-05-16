@@ -1,7 +1,10 @@
 
 class Input01 extends React.Component {
   render() {
-    return <input type="text" name="title" value="Mr." />
+    return <input 
+      type="text" 
+      name="input02" 
+      value="Mr." />
   }
 }
 
@@ -16,8 +19,8 @@ class Input02 extends React.Component {
   render() {
     return <input 
       type="text" 
-      name="title" 
-      value={this.state.title} 
+      name="input02" 
+      value={this.state.title}
       onChange={this.handleChange.bind(this)}/>
   }
 }
