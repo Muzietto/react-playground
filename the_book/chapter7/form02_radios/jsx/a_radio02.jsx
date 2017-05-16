@@ -1,12 +1,5 @@
 
 class Radio02 extends React.Component {
-  constructor(params) {
-    super(params);
-    this.state = {title: 'Misster'}
-  }
-  handleChange(event) {
-    this.setState({title: event.target.value});
-  }
   render() {
     return <label><input 
       type="radio" 
