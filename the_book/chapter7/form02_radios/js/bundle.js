@@ -42,7 +42,8 @@ let Form02 = class Form02 extends React.Component {
         spaghetti: true,
         steak: false,
         cauliflower: false
-      }
+      },
+      selectedLanguage: 'ruby'
     };
   }
   handleRadio(event) {
@@ -55,6 +56,9 @@ let Form02 = class Form02 extends React.Component {
     newStateMember[event.target.value] = event.target.checked;
     this.setState({ foods: newStateMember });
   }
+  handleSelect(event) {
+    this.setState({ selectedLanguage: event.target.value });
+  }
   render() {
     return React.createElement(
       "form",
@@ -66,7 +70,38 @@ let Form02 = class Form02 extends React.Component {
       React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "pizza", checked: this.state.foods['pizza'] }),
       React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "spaghetti", checked: this.state.foods['spaghetti'] }),
       React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "steak", checked: this.state.foods['steak'] }),
-      React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "cauliflower", checked: this.state.foods['cauliflower'] })
+      React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "cauliflower", checked: this.state.foods['cauliflower'] }),
+      React.createElement("br", null),
+      React.createElement(
+        "select",
+        { name: "language", value: this.state.selectedValue,
+          onChange: this.handleSelect.bind(this) },
+        React.createElement(
+          "option",
+          { value: "ruby" },
+          "Ruby"
+        ),
+        React.createElement(
+          "option",
+          { value: "node" },
+          "Node.js"
+        ),
+        React.createElement(
+          "option",
+          { value: "java" },
+          "Java"
+        ),
+        React.createElement(
+          "option",
+          { value: "python" },
+          "Python"
+        )
+      ),
+      React.createElement("br", null),
+      React.createElement("textarea", { name: "de_staat",
+        readOnly: "true",
+        style: { width: '400px', height: '220px' },
+        value: JSON.stringify(this.state, null, 2) })
     );
   }
 };

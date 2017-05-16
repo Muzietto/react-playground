@@ -13,7 +13,8 @@ class Form02 extends React.Component {
         spaghetti: true,
         steak: false,
         cauliflower: false,
-      }
+      },
+      selectedLanguage: 'ruby',
     };
   }
   handleRadio(event) {
@@ -47,6 +48,11 @@ class Form02 extends React.Component {
       <option value="java">Java</option>
       <option value="python">Python</option>
     </select>
+    <br/>
+    <textarea name="de_staat" 
+      readOnly="true"
+      style={{width:'400px',height:'220px'}} 
+      value={JSON.stringify(this.state, null, 2)}/>
   </form>
   }
 }
