@@ -2,7 +2,7 @@
 //const ReactDOM = require('react-dom');
 //const StatefulParent = require('./StatefulParent.jsx');
 
-var store = Redux.createStore(stateful);
+var store = Redux.createStore(statefulReducer);
 
 const render = () => ReactDOM.render(
   <StatefulParent/>,
@@ -12,7 +12,7 @@ const render = () => ReactDOM.render(
 render();
 store.subscribe(render);
 
-function stateful(state = startCounterValue, action) {
+function statefulReducer(state = startCounterValue, action) {
   switch (action.type) {
     case ActionTypes.INCREASE_COUNTER:
     case ActionTypes.DECREASE_COUNTER:
