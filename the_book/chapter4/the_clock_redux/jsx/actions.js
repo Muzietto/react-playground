@@ -8,19 +8,19 @@ let startTimeString = new Date().toString(); // closing in...
 // action types
 const ActionTypes = {
   INCREASE_TIME: 'INCREASE_TIME',
-}
+};
 
 // actually this fun is an ACTION CREATOR
 let newTime = timeString => { 
   return {
     type: ActionTypes.INCREASE_TIME,
     newTime: timeString,
-  }
-}
+  };
+};
 
 const ActionCreators = {
   newTime: newTime,
-}
+};
 
 // start the clock here (here? someplace else?)
 setInterval(function() {

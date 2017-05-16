@@ -5,9 +5,9 @@
 function clock(state = startTimeString, action) {
   switch (action.type) {
     case ActionTypes.INCREASE_TIME:
-      return action.newTime
+      return action.newTime;
     default:
-      return state
+      return state;
   }
 }
 
