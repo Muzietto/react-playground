@@ -32,12 +32,23 @@ let StatefulParent = class StatefulParent extends React.Component {
   increaseCounter() {
     store.dispatch(ActionCreators.increasedCounter(store.getState()));
   }
+  decreaseCounter() {
+    store.dispatch(ActionCreators.decreasedCounter(store.getState()));
+  }
   render() {
     var currentCounter = store.getState();
-    return React.createElement(StatelessButton, {
-      clicker: this.increaseCounter.bind(this),
-      labella: 'Increase Volume (currently ' + currentCounter + ')'
-    });
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(StatelessButton, {
+        clicker: this.increaseCounter.bind(this),
+        labella: 'Increase Volume (currently ' + currentCounter + ')'
+      }),
+      React.createElement(StatelessButton, {
+        clicker: this.decreaseCounter.bind(this),
+        labella: 'Decrease Volume (currently ' + currentCounter + ')'
+      })
+    );
   }
 };
 let StatelessButton = class StatelessButton extends React.Component {
