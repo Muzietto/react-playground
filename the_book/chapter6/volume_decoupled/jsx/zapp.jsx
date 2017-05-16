@@ -1,0 +1,1 @@
+ReactDOM.render(<StatefulParent/>,document.getElementById('content'));
