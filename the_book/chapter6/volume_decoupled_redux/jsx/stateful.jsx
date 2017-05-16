@@ -15,11 +15,12 @@ class StatefulParent extends React.Component {
     return <div>
         <StatelessButton
           clicker={this.increaseCounter.bind(this)}
-          labella={'Increase Volume (currently ' + currentCounter + ')'}
+          labella={'Increase Volume'}
         />
+        <label>{'(currently ' + currentCounter + ')'}</label>
         <StatelessButton
           clicker={this.decreaseCounter.bind(this)}
-          labella={'Decrease Volume (currently ' + currentCounter + ')'}
+          labella={'Decrease Volume'}
         />
       </div>
   }

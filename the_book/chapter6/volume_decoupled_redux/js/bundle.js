@@ -42,11 +42,16 @@ let StatefulParent = class StatefulParent extends React.Component {
       null,
       React.createElement(StatelessButton, {
         clicker: this.increaseCounter.bind(this),
-        labella: 'Increase Volume (currently ' + currentCounter + ')'
+        labella: 'Increase Volume'
       }),
+      React.createElement(
+        'label',
+        null,
+        '(currently ' + currentCounter + ')'
+      ),
       React.createElement(StatelessButton, {
         clicker: this.decreaseCounter.bind(this),
-        labella: 'Decrease Volume (currently ' + currentCounter + ')'
+        labella: 'Decrease Volume'
       })
     );
   }
