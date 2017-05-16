@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "form02": "./node_modules/.bin/babel ./chapter7/form02_radios/jsx -o ./chapter7/form02_radios/js/bundle.js -w",
     "form01": "./node_modules/.bin/babel ./chapter7/form01/jsx -o ./chapter7/form01/js/bundle.js -w",
     "inputs": "./node_modules/.bin/babel ./chapter7/just_inputs/jsx -o ./chapter7/just_inputs/js/bundle.js -w",
     "clock": "./node_modules/.bin/babel ./chapter4/the_clock/jsx -o ./chapter4/the_clock/js/bundle.js -w",
