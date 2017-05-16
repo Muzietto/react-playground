@@ -9,6 +9,7 @@
     "mouseover": "./node_modules/.bin/babel ./chapter6/mouseover/jsx -o ./chapter6/mouseover/js/bundle.js -w",
     "volume": "./node_modules/.bin/babel ./chapter6/volume_controller/jsx -o ./chapter6/volume_controller/js/bundle.js -w",
     "volumedec": "./node_modules/.bin/babel ./chapter6/volume_decoupled/jsx -o ./chapter6/volume_decoupled/js/bundle.js -w",
+    "volumedecred": "./node_modules/.bin/babel ./chapter6/volume_decoupled_redux/jsx -o ./chapter6/volume_decoupled_redux/js/bundle.js -w",
     "build": "./node_modules/.bin/webpack -w"
   },
   "author": "Marco Faustinelli",
