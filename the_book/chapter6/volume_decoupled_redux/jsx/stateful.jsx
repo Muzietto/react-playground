@@ -4,24 +4,22 @@ class StatefulParent extends React.Component {
 //    super(params);
 //    this.state = {volume:0};
 //  }
-  increaseCounter() {
-    store.dispatch(ActionCreators.increasedCounter(store.getState()));
-  }
-  decreaseCounter() {
-    store.dispatch(ActionCreators.decreasedCounter(store.getState()));
-  }
   render() {
     var currentCounter = store.getState();
     return <div>
         <StatelessButton
-          clicker={this.increaseCounter.bind(this)}
+          clicker={dispatcher(ActionCreators.increasedCounter).bind(this)}
           labella={'Increase Volume'}
         />
         <label>{'(currently ' + currentCounter + ')'}</label>
         <StatelessButton
-          clicker={this.decreaseCounter.bind(this)}
+          clicker={dispatcher(ActionCreators.decreasedCounter).bind(this)}
           labella={'Decrease Volume'}
         />
       </div>
   }
+}
+
+function dispatcher(creator) {
+  return () => store.dispatch(creator(store.getState()))
 }
