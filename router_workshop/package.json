@@ -4,19 +4,8 @@
   "description": "doing it without webpack",
   "main": "index.js",
   "scripts": {
-    "task01": "./node_modules/.bin/babel ./01-setting-up/modules --out-dir ./01-setting-up/dist --copy-files",
-    "form02": "./node_modules/.bin/babel ./chapter7/form02/jsx -o ./chapter7/form02/js/bundle.js -w",
-    "form01": "./node_modules/.bin/babel ./chapter7/form01/jsx -o ./chapter7/form01/js/bundle.js -w",
-    "inputs": "./node_modules/.bin/babel ./chapter7/just_inputs/jsx -o ./chapter7/just_inputs/js/bundle.js -w",
-    "clock": "./node_modules/.bin/babel ./chapter4/the_clock/jsx -o ./chapter4/the_clock/js/bundle.js -w",
-    "clockredux": "./node_modules/.bin/babel ./chapter4/the_clock_redux/jsx -o ./chapter4/the_clock_redux/js/bundle.js -w",
-    "mouseover": "./node_modules/.bin/babel ./chapter6/mouseover/jsx -o ./chapter6/mouseover/js/bundle.js -w",
-    "volume": "./node_modules/.bin/babel ./chapter6/volume_controller/jsx -o ./chapter6/volume_controller/js/bundle.js -w",
-    "volumedec": "./node_modules/.bin/babel ./chapter6/volume_decoupled/jsx -o ./chapter6/volume_decoupled/js/bundle.js -w",
-    "volumedecred": "./node_modules/.bin/babel ./chapter6/volume_decoupled_redux/jsx -o ./chapter6/volume_decoupled_redux/js/bundle.js -w",
-    "volumedeces6": "./node_modules/.bin/babel ./chapter6/volume_decoupled_redux_es6/jsx --out-dir ./chapter6/volume_decoupled_redux_es6/dist",
-    "volumedecredes6": "./node_modules/.bin/babel ./chapter6/volume_decoupled_es6/jsx --out-dir ./chapter6/volume_decoupled_es6/dist",
-    "volumedecredes6": "./node_modules/.bin/babel ./chapter6/volume_decoupled_redux_es6/jsx --out-dir ./chapter6/volume_decoupled_redux_es6/dist",
+    "task01": "./node_modules/.bin/babel ./01-setting-up/modules --out-dir ./01-setting-up/dist",
+    "task02": "./node_modules/.bin/babel ./02-rendering-a-route/modules --out-dir ./02-rendering-a-route/dist",
     "build": "./node_modules/.bin/webpack -w"
   },
   "author": "Marco Faustinelli",
@@ -49,6 +38,7 @@
   "dependencies": {
     "react": "15.2.1",
     "react-dom": "15.2.1",
+    "react-router": "^2.6.0",
     "requirejs": "^2.2.0"
   }
 }
