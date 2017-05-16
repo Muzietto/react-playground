@@ -35,7 +35,7 @@ let StatefulParent = class StatefulParent extends React.Component {
       'div',
       null,
       React.createElement(StatelessButton, {
-        clicker: dispatcher(ActionCreators.increasedCounter).bind(this),
+        clicker: dispatcher(ActionCreators.increasedCounter),
         labella: 'Increase Volume'
       }),
       React.createElement(
@@ -44,7 +44,7 @@ let StatefulParent = class StatefulParent extends React.Component {
         '(currently ' + currentCounter + ')'
       ),
       React.createElement(StatelessButton, {
-        clicker: dispatcher(ActionCreators.decreasedCounter).bind(this),
+        clicker: dispatcher(ActionCreators.decreasedCounter),
         labella: 'Decrease Volume'
       })
     );
