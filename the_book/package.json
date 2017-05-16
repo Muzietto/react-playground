@@ -1,11 +1,14 @@
 {
-  "name": "chapter4",
+  "name": "the_book",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clock": "./node_modules/.bin/babel ./the_clock/jsx -o ./the_clock/js/bundle.js",
-    "clockredux": "./node_modules/.bin/babel ./the_clock_redux/jsx -o ./the_clock_redux/js/bundle.js",
+    "clock": "./node_modules/.bin/babel ./chapter4/the_clock/jsx -o ./chapter4/the_clock/js/bundle.js -w",
+    "clockredux": "./node_modules/.bin/babel ./chapter4/the_clock_redux/jsx -o ./chapter4/the_clock_redux/js/bundle.js -w",
+    "mouseover": "./node_modules/.bin/babel ./chapter6/mouseover/jsx -o ./chapter6/mouseover/js/bundle.js -w",
+    "volume": "./node_modules/.bin/babel ./chapter6/volume_controller/jsx -o ./chapter6/volume_controller/js/bundle.js -w",
+    "volumedec": "./node_modules/.bin/babel ./chapter6/volume_decoupled/jsx -o ./chapter6/volume_decoupled/js/bundle.js -w",
     "build": "./node_modules/.bin/webpack -w"
   },
   "author": "Marco Faustinelli",
