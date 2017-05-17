@@ -1,7 +1,7 @@
 {
   "name": "the_book",
   "version": "1.0.0",
-  "description": "",
+  "description": "doing it without webpack",
   "main": "index.js",
   "scripts": {
     "form02red": "./node_modules/.bin/babel ./chapter7/form02_redux/jsx -o ./chapter7/form02_redux/js/bundle.js -w",
@@ -49,6 +49,8 @@
   "dependencies": {
     "react": "15.2.1",
     "react-dom": "15.2.1",
-    "requirejs": "^2.2.0"
+    "react-router": "^2.6.0",
+    "requirejs": "^2.2.0",
+    "redux-actions": "^0.10.1"
   }
 }
