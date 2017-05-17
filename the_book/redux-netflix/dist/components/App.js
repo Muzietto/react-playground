@@ -79,6 +79,6 @@ define(['module', 'react', 'react-redux'], function (module, React, _require) {
 
   ;
 
-  module.exports = App;
-  //module.exports = connect()(App);
+  //module.exports = App;
+  module.exports = connect()(App);
 });

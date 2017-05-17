@@ -104,6 +104,7 @@ define(['module', 'react', 'react-redux', 'react-router', '../../movies.json', '
     return Movies;
   }(React.Component);
 
+  // NB: connect is from react-redux
   module.exports = connect(function (_ref) {
     var movies = _ref.movies;
     return {

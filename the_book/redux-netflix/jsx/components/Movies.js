@@ -46,6 +46,7 @@ class Movies extends React.Component {
   }
 }
 
+// NB: connect is from react-redux
 module.exports = connect(({movies}) => ({
   movies: movies.all
 }), {

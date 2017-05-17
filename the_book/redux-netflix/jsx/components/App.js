@@ -16,5 +16,5 @@ class App extends React.Component {
   }
 };
 
-module.exports = App;
-//module.exports = connect()(App);
+//module.exports = App;
+module.exports = connect()(App);

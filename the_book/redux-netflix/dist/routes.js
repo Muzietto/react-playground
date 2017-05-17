@@ -16,8 +16,10 @@ define(['module', 'react', 'react-router', 'components/App', 'components/Movies'
       React.createElement(IndexRoute, { component: Movies }),
       React.createElement(
         Route,
-        { path: 'movies', component: Movies },
-        React.createElement(Route, { path: ':id', component: Movie })
+        { path: '/movies', component: Movies },
+        ' ',
+        React.createElement(Route, { path: '/movies/:id', component: Movie }),
+        ' '
       )
     )
   );
