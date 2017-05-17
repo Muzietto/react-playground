@@ -1,6 +1,19 @@
 'use strict';
 
-var initialState = {};
+var initialState = {
+  frameworks: {
+    angular: false,
+    react: true,
+    muziettos: false
+  },
+  foods: {
+    pizza: false,
+    spaghetti: true,
+    steak: false,
+    cauliflower: false
+  },
+  selectedLanguage: 'ruby'
+};
 
 var ActionTypes = {
   CHANGE_RADIO: 'CHANGE_RADIO',
@@ -8,7 +21,36 @@ var ActionTypes = {
   CHANGE_SELECT: 'CHANGE_SELECT'
 };
 
-var ActionCreators = {};
+var changedRadio = function changedRadio(event) {
+  var newStateMember = {};
+  newStateMember[event.target.value] = true;
+  return {
+    type: ActionTypes.CHANGE_RADIO,
+    newValue: { frameworks: newStateMember }
+  };
+};
+
+var changedCheckbox = function changedCheckbox(event) {
+  var newStateMember = {};
+  newStateMember[event.target.value] = event.target.checked;
+  return {
+    type: ActionTypes.CHANGE_CHECKBOX,
+    newValue: { foods: newStateMember }
+  };
+};
+
+var changedSelect = function changedSelect(event) {
+  return {
+    type: ActionTypes.CHANGE_SELECT,
+    newValue: { selectedLanguage: event.target.value }
+  };
+};
+
+var ActionCreators = {
+  changedRadio: changedRadio,
+  changedCheckbox: changedCheckbox,
+  changedSelect: changedSelect
+};
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -98,65 +140,46 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Form03 = function (_React$Component) {
   _inherits(Form03, _React$Component);
 
-  function Form03(params) {
+  function Form03() {
     _classCallCheck(this, Form03);
 
-    var _this = _possibleConstructorReturn(this, (Form03.__proto__ || Object.getPrototypeOf(Form03)).call(this, params));
-
-    _this.state = {
-      frameworks: {
-        angular: false,
-        react: true,
-        muziettos: false
-      },
-      foods: {
-        pizza: false,
-        spaghetti: true,
-        steak: false,
-        cauliflower: false
-      },
-      selectedLanguage: 'ruby'
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (Form03.__proto__ || Object.getPrototypeOf(Form03)).apply(this, arguments));
   }
 
   _createClass(Form03, [{
     key: "handleRadio",
     value: function handleRadio(event) {
-      var newStateMember = {};
-      newStateMember[event.target.value] = true;
-      this.setState({ frameworks: newStateMember });
+      store.dispatch(ActionCreators.changedRadio(event));
     }
   }, {
     key: "handleCheckbox",
     value: function handleCheckbox(event) {
-      var newStateMember = Object.assign({}, this.state.foods);
-      newStateMember[event.target.value] = event.target.checked;
-      this.setState({ foods: newStateMember });
+      store.dispatch(ActionCreators.changedCheckbox(event));
     }
   }, {
     key: "handleSelect",
     value: function handleSelect(event) {
-      this.setState({ selectedLanguage: event.target.value });
+      store.dispatch(ActionCreators.changedSelect(event));
     }
   }, {
     key: "render",
     value: function render() {
+      var state = store.getState();
       return React.createElement(
         "form",
         null,
-        React.createElement(Radio02, { handler: this.handleRadio.bind(this), name: "frameworks", value: "angular", checked: this.state.frameworks.angular }),
-        React.createElement(Radio02, { handler: this.handleRadio.bind(this), name: "frameworks", value: "react", checked: this.state.frameworks.react }),
-        React.createElement(Radio02, { handler: this.handleRadio.bind(this), name: "frameworks", value: "muziettos", checked: this.state.frameworks.muziettos }),
+        React.createElement(Radio02, { handler: this.handleRadio.bind(this), name: "frameworks", value: "angular", checked: state.frameworks.angular }),
+        React.createElement(Radio02, { handler: this.handleRadio.bind(this), name: "frameworks", value: "react", checked: state.frameworks.react }),
+        React.createElement(Radio02, { handler: this.handleRadio.bind(this), name: "frameworks", value: "muziettos", checked: state.frameworks.muziettos }),
         React.createElement("br", null),
-        React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "pizza", checked: this.state.foods['pizza'] }),
-        React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "spaghetti", checked: this.state.foods['spaghetti'] }),
-        React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "steak", checked: this.state.foods['steak'] }),
-        React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "cauliflower", checked: this.state.foods['cauliflower'] }),
+        React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "pizza", checked: state.foods['pizza'] }),
+        React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "spaghetti", checked: state.foods['spaghetti'] }),
+        React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "steak", checked: state.foods['steak'] }),
+        React.createElement(Checkbox02, { handler: this.handleCheckbox.bind(this), name: "foods", value: "cauliflower", checked: state.foods['cauliflower'] }),
         React.createElement("br", null),
         React.createElement(
           "select",
-          { name: "language", value: this.state.selectedValue,
+          { name: "language", value: state.selectedValue,
             onChange: this.handleSelect.bind(this) },
           React.createElement(
             "option",
@@ -183,7 +206,7 @@ var Form03 = function (_React$Component) {
         React.createElement("textarea", { name: "de_staat",
           readOnly: "true",
           style: { width: '400px', height: '220px' },
-          value: JSON.stringify(this.state, null, 2) })
+          value: JSON.stringify(state, null, 2) })
       );
     }
   }]);
@@ -194,16 +217,27 @@ var Form03 = function (_React$Component) {
 
 var store = Redux.createStore(statefulReducer);
 
-ReactDOM.render(React.createElement(Form03, null), document.getElementById('content'));
+var render = function render() {
+  return ReactDOM.render(React.createElement(Form03, null), document.getElementById('content'));
+};
+
+render();
+store.subscribe(render);
 
 function statefulReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
 
   switch (action.type) {
-    case ActionTypes.INCREASE_COUNTER:
-    case ActionTypes.DECREASE_COUNTER:
-      return action.newValue;
+    case ActionTypes.CHANGE_RADIO:
+      state.frameworks = action.newValue.frameworks;
+      return state;
+    case ActionTypes.CHANGE_CHECKBOX:
+      state.foods = Object.assign({}, state.foods, action.newValue.foods);
+      return state;
+    case ActionTypes.CHANGE_SELECT:
+      state.selectedLanguage = action.newValue.selectedLanguage;
+      return state;
     default:
       return state;
   }
