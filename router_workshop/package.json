@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "task01": "./node_modules/.bin/babel ./01-setting-up/modules --out-dir ./01-setting-up/dist",
-    "task02": "./node_modules/.bin/babel ./02-rendering-a-route/modules --out-dir ./02-rendering-a-route/dist",
+    "task02": "./node_modules/.bin/babel ./02-rendering-a-route/modules --out-dir ./02-rendering-a-route/dist -w",
+    "task04": "./node_modules/.bin/babel ./04-nested-routes/modules --out-dir ./04-nested-routes/dist -w",
     "build": "./node_modules/.bin/webpack -w"
   },
   "author": "Marco Faustinelli",
