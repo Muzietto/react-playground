@@ -8,6 +8,7 @@ const {
 
 class Movie extends React.Component {
   componentWillMount() {
+    // without magic: this.props.dispatch(fetchMovie(this.props.params.id))
     this.props.fetchMovie(this.props.params.id);
   }
 

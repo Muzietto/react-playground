@@ -39,16 +39,18 @@ define(['module', 'redux-actions'], function (module, _require) {
   var FETCH_MOVIE = 'movies/FETCH_MOVIE';
 
   module.exports = {
+    // action creator
     fetchMovies: function fetchMovies(movies) {
       return {
         type: FETCH_MOVIES,
         movies: movies
       };
     },
-    fetchMovie: function fetchMovie(index) {
+    // action creator
+    fetchMovie: function fetchMovie(id) {
       return {
         type: FETCH_MOVIE,
-        index: index
+        id: id
       };
     },
     reducer: handleActions((_handleActions = {}, _defineProperty(_handleActions, FETCH_MOVIES, function (state, action) {

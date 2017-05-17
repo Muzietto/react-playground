@@ -4,13 +4,15 @@ const FETCH_MOVIES = 'movies/FETCH_MOVIES';
 const FETCH_MOVIE = 'movies/FETCH_MOVIE';
 
 module.exports = {
+  // action creator
   fetchMovies: (movies) => ({
     type: FETCH_MOVIES,
     movies
   }),
-  fetchMovie: (index) => ({
+  // action creator
+  fetchMovie: (id) => ({
     type: FETCH_MOVIE,
-    index
+    id
   }),
   reducer: handleActions({
     [FETCH_MOVIES]: (state, action) => ({

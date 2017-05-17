@@ -65,6 +65,7 @@ define(['module', 'react', 'react-redux', 'react-router', 'json!../../movies.jso
     _createClass(Movies, [{
       key: 'componentWillMount',
       value: function componentWillMount() {
+        // NB: fetchMovies is an action creator
         this.props.fetchMovies(movies);
       }
     }, {
@@ -105,12 +106,12 @@ define(['module', 'react', 'react-redux', 'react-router', 'json!../../movies.jso
   }(React.Component);
 
   // NB: connect is from react-redux
+  // { movies } = extract member movies from object state
+  // i.e. state => ({ movies: state.movies.all })
   module.exports = connect(function (_ref) {
     var movies = _ref.movies;
     return {
       movies: movies.all
     };
-  }, {
-    fetchMovies: fetchMovies
-  })(Movies);
+  }, { fetchMovies: fetchMovies })(Movies);
 });

@@ -65,6 +65,7 @@ define(['module', 'react', 'react-redux', 'react-router', 'reducers/movies'], fu
     _createClass(Movie, [{
       key: 'componentWillMount',
       value: function componentWillMount() {
+        // without magic: this.props.dispatch(fetchMovie(this.props.params.id))
         this.props.fetchMovie(this.props.params.id);
       }
     }, {

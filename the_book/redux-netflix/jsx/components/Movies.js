@@ -2,13 +2,12 @@ const React = require('react');
 const { connect } = require('react-redux');
 const { Link } = require('react-router');
 const movies = require('json!../../movies.json');
-const {
-  fetchMovies
-} = require('reducers/movies');
+const { fetchMovies } = require('reducers/movies');
 //const styles = require('./Movies.css');
 
 class Movies extends React.Component {
   componentWillMount() {
+    // NB: fetchMovies is an action creator
     this.props.fetchMovies(movies);
   }
   // Comment componentWillMount() and uncomment componentDidMount to use async fetch
@@ -47,8 +46,8 @@ class Movies extends React.Component {
 }
 
 // NB: connect is from react-redux
-module.exports = connect(({movies}) => ({
+// { movies } = extract member movies from object state
+// i.e. state => ({ movies: state.movies.all })
+module.exports = connect(({ movies }) => ({
   movies: movies.all
-}), {
-  fetchMovies
-})(Movies);
+}), { fetchMovies })(Movies);
