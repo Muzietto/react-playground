@@ -1,4 +1,4 @@
-define(['react', 'react-dom', 'react-router', './App', './About', './Repos', './Repo', './Home1', './Home2'], function (_react, _reactDom, _reactRouter, _App, _About, _Repos, _Repo, _Home, _Home3) {
+define(['react', 'react-dom', 'react-router', './App', './About', './Repos', './Repo'], function (_react, _reactDom, _reactRouter, _App, _About, _Repos, _Repo) {
   'use strict';
 
   var _react2 = _interopRequireDefault(_react);
@@ -11,17 +11,11 @@ define(['react', 'react-dom', 'react-router', './App', './About', './Repos', './
 
   var _Repo2 = _interopRequireDefault(_Repo);
 
-  var _Home2 = _interopRequireDefault(_Home);
-
-  var _Home4 = _interopRequireDefault(_Home3);
-
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
       default: obj
     };
   }
-
-  // independent component, handled directly by Router
 
   /* To render some default UI you could easily do {this.props.children || <Home2/>}
      inside App. Instead, this way now App can render {this.props.children} 
@@ -37,7 +31,6 @@ define(['react', 'react-dom', 'react-router', './App', './About', './Repos', './
     _react2.default.createElement(
       _reactRouter.Route,
       { path: '/', component: _App2.default },
-      _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home4.default }),
       _react2.default.createElement(
         _reactRouter.Route,
         { path: '/repos', component: _Repos2.default },
@@ -45,5 +38,5 @@ define(['react', 'react-dom', 'react-router', './App', './About', './Repos', './
       ),
       _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
     )
-  ), document.getElementById('app')); // rendered inside App
+  ), document.getElementById('app'));
 });

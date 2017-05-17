@@ -20,6 +20,11 @@ define(['exports', 'react'], function (exports, _react) {
         'div',
         null,
         _react2.default.createElement(
+          'h3',
+          null,
+          'link of Repos remains active because Repo is nested in Repos and Repos is nested in /'
+        ),
+        _react2.default.createElement(
           'h6',
           null,
           'here under comes the repo name'

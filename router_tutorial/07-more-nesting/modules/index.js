@@ -5,8 +5,6 @@ import App from './App';
 import About from './About';
 import Repos from './Repos';
 import Repo from './Repo';
-import Home1 from './Home1'; // rendered inside App
-import Home2 from './Home2'; // independent component, handled directly by Router
 
 /* To render some default UI you could easily do {this.props.children || <Home2/>}
    inside App. Instead, this way now App can render {this.props.children} 
@@ -19,7 +17,6 @@ import Home2 from './Home2'; // independent component, handled directly by Route
 render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Home2}/>
       <Route path="/repos" component={Repos}>
         <Route path="/repos/:userName/:repoName" component={Repo}/>
       </Route>

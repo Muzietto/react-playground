@@ -50,7 +50,7 @@ define(['exports', 'react', './NavLink', './Home1'], function (exports, _react, 
             )
           )
         ),
-        this.props.children || _react2.default.createElement(_Home2.default, { birillo: 'prillo' })
+        this.props.children
       );
     }
   });
