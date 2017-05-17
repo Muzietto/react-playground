@@ -4,21 +4,6 @@ define(['exports'], function (exports) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  var initialState = {
-    frameworks: {
-      angular: false,
-      react: true,
-      muziettos: false
-    },
-    foods: {
-      pizza: false,
-      spaghetti: true,
-      steak: false,
-      cauliflower: false
-    },
-    selectedLanguage: 'ruby'
-  };
-
   var ActionTypes = {
     CHANGE_RADIO: 'CHANGE_RADIO',
     CHANGE_CHECKBOX: 'CHANGE_CHECKBOX',
@@ -56,7 +41,6 @@ define(['exports'], function (exports) {
     changedSelect: changedSelect
   };
 
-  exports.initialState = initialState;
   exports.ActionTypes = ActionTypes;
   exports.ActionCreators = ActionCreators;
 });

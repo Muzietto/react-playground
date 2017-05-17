@@ -1,20 +1,5 @@
 'use strict';
 
-let initialState = {
-    frameworks: {
-      angular: false,
-      react: true,
-      muziettos: false,
-    },
-    foods: {
-      pizza: false,
-      spaghetti: true,
-      steak: false,
-      cauliflower: false,
-    },
-    selectedLanguage: 'ruby',
-  };
-
 const ActionTypes = {
   CHANGE_RADIO: 'CHANGE_RADIO',
   CHANGE_CHECKBOX: 'CHANGE_CHECKBOX',
@@ -53,7 +38,6 @@ const ActionCreators = {
 };
 
 export {
-  initialState,
   ActionTypes,
   ActionCreators,
 };

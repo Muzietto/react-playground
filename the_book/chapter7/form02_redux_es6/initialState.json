@@ -1,0 +1,14 @@
+{
+  "frameworks": {
+    "angular": false,
+    "react": true,
+    "muziettos": false
+  },
+  "foods": {
+    "pizza": false,
+    "spaghetti": true,
+    "steak": false,
+    "cauliflower": false
+  },
+  "selectedLanguage": "ruby"
+}

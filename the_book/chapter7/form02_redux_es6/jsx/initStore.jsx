@@ -1,6 +1,8 @@
 'use strict';
 import { createStore } from 'redux'
-import { initialState, ActionTypes } from './actions'
+import { ActionTypes } from './actions'
+// resolved with Babel plugin inline-json-import
+import initialState from '../initialState.json';
 
 var store = createStore(statefulReducer);
 
