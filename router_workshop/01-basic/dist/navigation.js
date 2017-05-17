@@ -48,6 +48,15 @@ define(["exports", "react", "react-router-dom"], function (exports, _react, _rea
           null,
           _react2.default.createElement(
             _reactRouterDom.Link,
+            { to: "/about2" },
+            "About2"
+          )
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          _react2.default.createElement(
+            _reactRouterDom.Link,
             { to: "/missing" },
             "Missing"
           )

@@ -11,6 +11,7 @@ import {
 import Navigation from './navigation';
 import Home from './home';
 import About from './aboutus';
+import About2 from './aboutus2';
 import NotFound from './notfound';
 
 var App = () => {
@@ -26,6 +27,7 @@ var App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
+          <Route path="/about2" component={About2} />
           <Route component={NotFound} />
         </Switch>
         </div>

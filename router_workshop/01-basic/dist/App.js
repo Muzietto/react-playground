@@ -1,4 +1,4 @@
-define(['exports', 'react', 'react-router-dom', './navigation', './home', './aboutus', './notfound'], function (exports, _react, _reactRouterDom, _navigation, _home, _aboutus, _notfound) {
+define(['exports', 'react', 'react-router-dom', './navigation', './home', './aboutus', './aboutus2', './notfound'], function (exports, _react, _reactRouterDom, _navigation, _home, _aboutus, _aboutus3, _notfound) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -13,6 +13,8 @@ define(['exports', 'react', 'react-router-dom', './navigation', './home', './abo
 
   var _aboutus2 = _interopRequireDefault(_aboutus);
 
+  var _aboutus4 = _interopRequireDefault(_aboutus3);
+
   var _notfound2 = _interopRequireDefault(_notfound);
 
   function _interopRequireDefault(obj) {
@@ -20,6 +22,9 @@ define(['exports', 'react', 'react-router-dom', './navigation', './home', './abo
       default: obj
     };
   }
+
+  //import logo from './logo.svg';
+  //import './App.css';
 
   var App = function App() {
     return _react2.default.createElement(
@@ -47,14 +52,13 @@ define(['exports', 'react', 'react-router-dom', './navigation', './home', './abo
             null,
             _react2.default.createElement(_reactRouterDom.Route, { path: '/', exact: true, component: _home2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _aboutus2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/about2', component: _aboutus4.default }),
             _react2.default.createElement(_reactRouterDom.Route, { component: _notfound2.default })
           )
         )
       )
     );
   };
-  //import logo from './logo.svg';
-  //import './App.css';
 
   exports.default = App;
 });
