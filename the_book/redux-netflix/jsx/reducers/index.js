@@ -1,6 +1,6 @@
 const { combineReducers } = require('redux');
 const {
-  reducer: movies
+  reducer: movies // that's [] in movies.js
 } = require('./movies');
 
 module.exports = combineReducers({

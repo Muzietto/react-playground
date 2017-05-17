@@ -1,4 +1,4 @@
-define(['module', 'react', 'react-redux', 'react-router', '../../movies.json', 'reducers/movies'], function (module, React, _require, _require2, movies, _require3) {
+define(['module', 'react', 'react-redux', 'react-router', 'json!../../movies.json', 'reducers/movies'], function (module, React, _require, _require2, movies, _require3) {
   'use strict';
 
   function _classCallCheck(instance, Constructor) {

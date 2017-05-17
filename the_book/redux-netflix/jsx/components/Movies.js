@@ -1,7 +1,7 @@
 const React = require('react');
 const { connect } = require('react-redux');
 const { Link } = require('react-router');
-const movies = require('../../movies.json');
+const movies = require('json!../../movies.json');
 const {
   fetchMovies
 } = require('reducers/movies');
