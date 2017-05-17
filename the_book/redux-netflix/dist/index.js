@@ -1,4 +1,4 @@
-define(['react', 'react-dom', 'react-redux', 'redux', './reducers/index', './routes'], function (React, _require, _require2, _require3, reducers, routes) {
+define(['module', 'react', 'react-dom', 'react-redux', 'redux', './reducers/index', './routes'], function (module, React, _require, _require2, _require3, reducers, routes) {
   'use strict';
 
   var render = _require.render;
@@ -6,7 +6,7 @@ define(['react', 'react-dom', 'react-redux', 'redux', './reducers/index', './rou
   var createStore = _require3.createStore;
 
 
-  /*module.exports = */render(React.createElement(
+  module.exports = render(React.createElement(
     Provider,
     { store: createStore(reducers) },
     routes

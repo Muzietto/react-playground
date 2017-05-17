@@ -8,7 +8,7 @@ const { createStore } = require('redux');
 const reducers = require('./reducers/index');
 const routes = require('./routes');
 
-/*module.exports = */render((
+module.exports = render((
   <Provider store={createStore(reducers)}>
     {routes}
   </Provider>

@@ -16,8 +16,8 @@ module.exports = (
       {/* show Movies also on path "/" */}
       <IndexRoute component={Movies} />
         {/* show Movies on path */}
-      <Route path="/movies" component={Movies}> {/* added a / */}
-        <Route path="/movies/:id" component={Movie} /> {/* added /movies/ */}
+      <Route path="movies" component={Movies}> {/* added a / */}
+        <Route path=":id" component={Movie} /> {/* added /movies/ */}
       </Route>
     </Route>
   </Router>
