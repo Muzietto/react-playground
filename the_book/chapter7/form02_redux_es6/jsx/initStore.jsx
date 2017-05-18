@@ -4,7 +4,7 @@ import { ActionTypes } from './actions'
 // resolved with Babel plugin inline-json-import
 import initialState from '../initialState.json';
 
-var store = createStore(statefulReducer);
+var store = createStore(statefulReducer/*, initialState*/);
 
 function statefulReducer(state = initialState, action) {
   switch (action.type) {
