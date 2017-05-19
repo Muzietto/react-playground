@@ -1,3 +1,4 @@
+// completely stateless
 var ItemsList = React.createClass({
   propTypes: {
     items: React.PropTypes.arrayOf(React.PropTypes.shape({
@@ -6,15 +7,9 @@ var ItemsList = React.createClass({
     }).isRequired).isRequired,
     //onItemClick: React.PropTypes.func.isRequired
   },
-  getInitialState: function() {
-    return {items: this.props.items};
-  },
-  run(value) {
-    this.setState(this.getState().concat(value));
-  },
   render: function() {
     //debugger;
-    var items = this.state.items.map(function(item) {
+    var items = this.props.items.map(function(item) {
       return <li key={item.id}>
         {item.code},&nbsp;{item.name}
       </li>

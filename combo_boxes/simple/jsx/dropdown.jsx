@@ -25,16 +25,12 @@ var Dropdown = React.createClass({
 
   getInitialState: function() {
     var selected = this.getSelectedFromProps(this.props);
-    return {
-      selected: selected
-    }
+    return { selected: selected }; // this is the state
   },
   
   componentWillReceiveProps: function(nextProps) {
     var selected = this.getSelectedFromProps(nextProps);
-    this.setState({
-     selected: selected
-    });
+    this.setState({ selected: selected });
   },
   
   getSelectedFromProps(props) {
@@ -69,14 +65,10 @@ var Dropdown = React.createClass({
     )
   },
 
-  handleChange: function(e) {
+  handleChange: function(event) {
     if (this.props.onChange) {
-      var change = {
-        oldValue: this.state.selected,
-        newValue: e.target.value
-      }
-      this.props.onChange(change);
+      this.props.onChange(event);
     }
-    this.setState({selected: e.target.value});
+    this.setState({selected: event.target.value});
   }
 });

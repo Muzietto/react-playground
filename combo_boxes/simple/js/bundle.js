@@ -1,3 +1,4 @@
+
 // cfr. http://jsfiddle.net/davidwaterston/7a3xxLtw/
 var Dropdown = React.createClass({
   displayName: 'Dropdown',
@@ -22,16 +23,12 @@ var Dropdown = React.createClass({
 
   getInitialState: function () {
     var selected = this.getSelectedFromProps(this.props);
-    return {
-      selected: selected
-    };
+    return { selected: selected }; // this is the state
   },
 
   componentWillReceiveProps: function (nextProps) {
     var selected = this.getSelectedFromProps(nextProps);
-    this.setState({
-      selected: selected
-    });
+    this.setState({ selected: selected });
   },
 
   getSelectedFromProps(props) {
@@ -66,17 +63,14 @@ var Dropdown = React.createClass({
     );
   },
 
-  handleChange: function (e) {
+  handleChange: function (event) {
     if (this.props.onChange) {
-      var change = {
-        oldValue: this.state.selected,
-        newValue: e.target.value
-      };
-      this.props.onChange(change);
+      this.props.onChange(event);
     }
-    this.setState({ selected: e.target.value });
+    this.setState({ selected: event.target.value });
   }
 });
+// completely stateless
 var ItemsList = React.createClass({
   displayName: "ItemsList",
 
@@ -86,15 +80,9 @@ var ItemsList = React.createClass({
       name: React.PropTypes.string.isRequired
     }).isRequired).isRequired
   },
-  getInitialState: function () {
-    return { items: this.props.items };
-  },
-  run(value) {
-    this.setState(this.getState().concat(value));
-  },
   render: function () {
     //debugger;
-    var items = this.state.items.map(function (item) {
+    var items = this.props.items.map(function (item) {
       return React.createElement(
         "li",
         { key: item.id },
@@ -111,68 +99,38 @@ var ItemsList = React.createClass({
     );
   }
 });
-var Shell = React.createClass({
-  displayName: "Shell",
-
-  propTypes: {},
-  getInitialState: function () {
-    return {};
-  },
-  parentElement: function () {
-    return this;
-  },
-  broadcast: function (value) {
-    this.props.children.forEach(child => child.run(value));
-  },
-  render: function () {
-    this.props.children.forEach(child => {
-      if (!child.props.parentElement) {
-        child.props.parentElement = this.parentElement;
-        var dummy = 'dummy';
-      }
-    });
+let Shell = class Shell extends React.Component {
+  constructor(params) {
+    super(params);
+    this.state = {
+      options: [{ description: 'option A', code: 'a' }, { description: 'option B', code: 'b' }, { description: 'option C', code: 'c' }, { description: 'option D', code: 'd' }],
+      selecteds: []
+    };
+  }
+  dropDownOnChange(event) {
+    var selectedValue = event.target.value;
+    // put selected option inside this.state.selecteds
+    var selectedItem = this.state.options.filter(opt => opt.code === selectedValue).map(opt => ({
+      id: new Date().getTime(),
+      code: opt.code,
+      name: opt.description
+    }))[0];
+    this.setState({ selecteds: this.state.selecteds.concat(selectedItem) });
+  }
+  render() {
     return React.createElement(
-      "div",
-      { className: "wrapper" },
-      this.props.children
+      'div',
+      null,
+      React.createElement(Dropdown, { id: 'dropdown01',
+        options: this.state.options,
+        labelField: 'description',
+        valueField: 'code',
+        value: 'b',
+        onChange: this.dropDownOnChange.bind(this) }),
+      React.createElement(ItemsList, { items: this.state.selecteds })
     );
   }
-});
-var chosen_items = [{ id: 1, code: 'a', name: 'qeqeqeqe' }];
-
-var options = [{
-  description: 'This is option A',
-  code: 'a'
-}, {
-  description: 'This is option B',
-  code: 'b'
-}, {
-  description: 'This is option C',
-  code: 'c'
-}, {
-  description: 'This is option D',
-  code: 'd'
-}];
-
-var dropDownOnChange = function (change) {
-  var newOption = this.options.find(op => op.code === change.newValue);
-  var newItem = {
-    id: new Date().getTime(),
-    code: newOption.code,
-    name: newOption.description
-  };
-  //chosen_items.push(newItem);
-  this.parentElement().broadcast(newItem);
 };
+;
 
-ReactDOM.render(React.createElement(
-  Shell,
-  null,
-  React.createElement(Dropdown, { id: 'myDropdown',
-    options: options,
-    value: 'b',
-    labelField: 'description',
-    valueField: 'code',
-    onChange: dropDownOnChange }),
-  React.createElement(ItemsList, { items: chosen_items })
-), document.getElementById('container'));
+ReactDOM.render(React.createElement(Shell, null), document.getElementById('container'));
