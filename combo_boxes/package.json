@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "compositees6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./composite_es6/jsx --out-dir ./composite_es6/dist -w",
     "simplees6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./simple_es6/jsx --out-dir ./simple_es6/dist -w",
     "watchsimple": "./node_modules/.bin/babel ./simple/jsx -o ./simple/js/bundle.js -w",
     "simple": "./node_modules/.bin/babel ./simple/jsx -o ./simple/js/bundle.js",
