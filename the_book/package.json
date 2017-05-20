@@ -29,6 +29,20 @@
       "es2015"
     ]
   },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "6.18.2",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "6.2.4",
+    "babel-plugin-react-transform": "^2.0.0",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-react": "6.5.0",
+    "babel-preset-react-hmre": "^1.0.1",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-plugin-transform-es2015-modules-amd": "^6.6.5",
+    "react-redux": "^5.0.2",
+    "redux": "^3.5.2"
+  },
   "dependencies": {
     "react": "15.2.1",
     "react-dom": "15.2.1",
