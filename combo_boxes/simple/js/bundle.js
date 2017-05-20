@@ -115,18 +115,28 @@ let Shell = class Shell extends React.Component {
     var selectedValue = event.target.value;
     // put selected option inside this.state.selecteds
     var selectedItem = this.state.options.find(opt => opt.id == selectedValue);
+    var newSets = this.displacedItem(this.state.options, this.state.selecteds, selectedItem);
     this.setState({
-      selecteds: this.addedItemToSet(selectedItem, this.state.selecteds),
-      options: this.removedItemFromSet(selectedItem, this.state.options)
+      selecteds: newSets.augmented,
+      options: newSets.filtered
     });
   }
-  addedItemToSet(item, set) {
+  displacedItem(from, to, item) {
+    return {
+      augmented: this.addedItemToSet(to, item),
+      filtered: this.removedItemFromSet(from, item)
+    };
+  }
+  addedItemToSet(set, item) {
     var cloned = JSON.parse(JSON.stringify(set));
     return cloned.concat([item]);
   }
-  removedItemFromSet(item, set) {
+  removedItemFromSet(set, item) {
     var cloned = JSON.parse(JSON.stringify(set));
     return cloned.filter(it => it.id != item.id);
+  }
+  userMapper(item) {
+    return React.createElement(User, { data: item, callbacks: { delete: removedItemFromSet.bind() } });
   }
   render() {
     return React.createElement(
@@ -138,7 +148,7 @@ let Shell = class Shell extends React.Component {
         valueField: 'id',
         value: '0',
         onChange: this.dropDownOnChange.bind(this) }),
-      React.createElement(ItemsList, { items: this.state.selecteds })
+      React.createElement(ItemsList, { items: this.state.selecteds, mapper: this.userMapper })
     );
   }
 };
