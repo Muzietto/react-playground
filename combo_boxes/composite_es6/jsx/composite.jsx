@@ -9,25 +9,10 @@ import util from 'misc/util';
 
 const DeletableUser = DeletableComponent(User);
 
-class Shell extends React.Component {
-  constructor(params) {
-    super(params);
-    this.state = {
-      users: [
-        {name: 'Armando', id: 1},
-        {name: 'Bruno', id: 2},
-        {name: 'Carlo', id: 3},
-        {name: 'Daniele', id: 4},
-      ],
-      selecteds: [],
-    }
+class Composite extends React.Component {
+  dropDown1OnChange(event) { // changes state
   }
-  dropDownOnChange(event) { // changes state
-    var selectedValue = event.target.value;
-    // put selected option inside this.state.selecteds
-    var selectedItem = this.state.users
-      .find(opt => (opt.id == selectedValue));
-    this.optionToList(selectedItem);
+  dropDown2OnChange(event) { // changes state
   }
   optionToList(item) {
     var newSets = util.displacedItem(this.state.users, this.state.selecteds, item);
@@ -48,14 +33,21 @@ class Shell extends React.Component {
     return item => <DeletableUser data={item} callbacks={{delete: () => self.listItemToOptions(item)}}/>
   }
   render() {
-    return <div>
-      <Dropdown id="dropdown01"
-        options={this.state.users}
-        labelField='name'
-        valueField='id'
+    return <div id={'compositeDiv' + this.props.data.id} className="composite-div">
+      <Dropdown id={'compositeDiv' + this.props.data.id + 'dropdown1'}
+        options={this.props.options1}
+        labelField={this.props.labelField1}
+        valueField={this.props.valueField1}
         value="0"
-        onChange={this.dropDownOnChange.bind(this)}/>
-      <ItemsList id="list01" items={this.state.selecteds} mapper={this.deletableUserMapperFactory()}/>
+        onChange={this.dropDown1OnChange.bind(this)}/>
+      <Dropdown id={'compositeDiv' + this.props.data.id + 'dropdown2'}
+        options={this.props.options2}
+        labelField={this.props.labelField2}
+        valueField={this.props.valueField2}
+        value="0"
+        onChange={this.dropDown2OnChange.bind(this)}/>
+      <ItemsList id={'compositeDiv' + this.props.data.id + 'itemsList'}
+        items={this.state.selecteds} mapper={this.deletableUserMapperFactory()}/>
     </div>
   }
 };
