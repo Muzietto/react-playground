@@ -8,8 +8,8 @@ var ItemsList = React.createClass({
     //onItemClick: React.PropTypes.func.isRequired
   },
   render: function() {
-    //debugger;
-    var items = this.props.items.map(function(item) {
+    var self = this; 
+    var items = this.props.items.sort((a,b) => a.id-b.id).map(function(item) {
       return <li key={item.id}>
         {item.id},&nbsp;{item.name}
       </li>
