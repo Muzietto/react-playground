@@ -1,4 +1,4 @@
-define(['exports', 'react'], function (exports, _react) {
+define(['exports', 'react', 'util'], function (exports, _react, _util) {
   // cfr. http://jsfiddle.net/davidwaterston/7a3xxLtw/
   'use strict';
 
@@ -7,6 +7,8 @@ define(['exports', 'react'], function (exports, _react) {
   });
 
   var _react2 = _interopRequireDefault(_react);
+
+  var _util2 = _interopRequireDefault(_util);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -60,7 +62,7 @@ define(['exports', 'react'], function (exports, _react) {
 
     render: function () {
       var self = this;
-      var options = self.props.options.sort((a, b) => a.id - b.id).map(function (option) {
+      var options = self.props.options.sort(_util2.default.asc).map(function (option) {
         return _react2.default.createElement(
           'option',
           { key: option[self.props.valueField], value: option[self.props.valueField] },

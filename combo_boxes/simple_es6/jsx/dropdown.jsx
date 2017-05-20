@@ -2,6 +2,7 @@
 'use strict';
 
 import React from 'react';
+import util from 'util';
 
 const Dropdown = React.createClass({
   propTypes: {
@@ -52,7 +53,7 @@ const Dropdown = React.createClass({
 
   render: function() {
     var self = this;
-    var options = self.props.options.sort((a,b) => a.id-b.id).map(function(option) {
+    var options = self.props.options.sort(util.asc).map(function(option) {
       return (
         <option key={option[self.props.valueField]} value={option[self.props.valueField]}>
           {option[self.props.labelField]}

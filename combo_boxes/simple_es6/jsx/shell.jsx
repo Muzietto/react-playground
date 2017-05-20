@@ -4,6 +4,7 @@ import React from 'react';
 import Dropdown from 'dropdown';
 import ItemsList from 'itemsList';
 import User from 'user';
+import util from 'util';
 
 class Shell extends React.Component {
   constructor(params) {
@@ -26,32 +27,18 @@ class Shell extends React.Component {
     this.optionToList(selectedItem);
   }
   optionToList(item) {
-    var newSets = this.displacedItem(this.state.options, this.state.selecteds, item);
+    var newSets = util.displacedItem(this.state.options, this.state.selecteds, item);
     this.setState({
       selecteds: newSets.augmented,
       options: newSets.filtered
     });
   }
   listItemToOptions(item) {
-    var newSets = this.displacedItem(this.state.selecteds, this.state.options, item);
+    var newSets = util.displacedItem(this.state.selecteds, this.state.options, item);
     this.setState({
       options: newSets.augmented,
       selecteds: newSets.filtered
     });
-  }
-  displacedItem(from, to, item) {
-    return {
-      augmented: this.addedItemToSet(to, item),
-      filtered: this.removedItemFromSet(from, item),
-    };
-  }
-  addedItemToSet(set, item) {
-    var cloned = JSON.parse(JSON.stringify(set));
-    return cloned.concat([item]);
-  }
-  removedItemFromSet(set, item) {
-    var cloned = JSON.parse(JSON.stringify(set));
-    return cloned.filter(it => (it.id != item.id));
   }
   userMapperFactory() {
     var self = this;

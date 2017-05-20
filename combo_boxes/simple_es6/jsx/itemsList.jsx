@@ -2,6 +2,7 @@
 'use strict';
 
 import React from 'react';
+import util from 'util';
 
 const ItemsList = React.createClass({
   propTypes: {
@@ -12,7 +13,7 @@ const ItemsList = React.createClass({
   },
   render: function() {
     var self = this; 
-    var items = this.props.items.sort((a,b) => a.id-b.id).map(function(item) {
+    var items = this.props.items.sort(util.asc).map(function(item) {
       return <li key={item.id}>
         {self.props.mapper(item)}
       </li>

@@ -1,4 +1,4 @@
-define(['exports', 'react', 'dropdown', 'itemsList', 'user', 'util'], function (exports, _react, _dropdown, _itemsList, _user, _util) {
+define(['exports', 'react', 'dropdown', 'itemsList', 'user'], function (exports, _react, _dropdown, _itemsList, _user) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -12,8 +12,6 @@ define(['exports', 'react', 'dropdown', 'itemsList', 'user', 'util'], function (
   var _itemsList2 = _interopRequireDefault(_itemsList);
 
   var _user2 = _interopRequireDefault(_user);
-
-  var _util2 = _interopRequireDefault(_util);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -37,18 +35,32 @@ define(['exports', 'react', 'dropdown', 'itemsList', 'user', 'util'], function (
       this.optionToList(selectedItem);
     }
     optionToList(item) {
-      var newSets = _util2.default.displacedItem(this.state.options, this.state.selecteds, item);
+      var newSets = this.displacedItem(this.state.options, this.state.selecteds, item);
       this.setState({
         selecteds: newSets.augmented,
         options: newSets.filtered
       });
     }
     listItemToOptions(item) {
-      var newSets = _util2.default.displacedItem(this.state.selecteds, this.state.options, item);
+      var newSets = this.displacedItem(this.state.selecteds, this.state.options, item);
       this.setState({
         options: newSets.augmented,
         selecteds: newSets.filtered
       });
+    }
+    displacedItem(from, to, item) {
+      return {
+        augmented: this.addedItemToSet(to, item),
+        filtered: this.removedItemFromSet(from, item)
+      };
+    }
+    addedItemToSet(set, item) {
+      var cloned = JSON.parse(JSON.stringify(set));
+      return cloned.concat([item]);
+    }
+    removedItemFromSet(set, item) {
+      var cloned = JSON.parse(JSON.stringify(set));
+      return cloned.filter(it => it.id != item.id);
     }
     userMapperFactory() {
       var self = this;
