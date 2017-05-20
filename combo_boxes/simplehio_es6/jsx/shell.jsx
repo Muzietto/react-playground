@@ -4,7 +4,7 @@ import React from 'react';
 import Dropdown from 'controls/dropdown';
 import ItemsList from 'collections/itemsList';
 import User from 'user';
-import DeletableComponent from 'deletableComponent';
+import DeletableComponent from 'high-order/deletableComponent';
 import util from 'misc/util';
 
 const DeletableUser = DeletableComponent(User);
