@@ -48,7 +48,7 @@ var Dropdown = React.createClass({
 
   render: function() {
     var self = this;
-    var options = self.props.options.map(function(option) {
+    var options = self.props.options.sort((a,b) => a.id-b.id).map(function(option) {
       return (
         <option key={option[self.props.valueField]} value={option[self.props.valueField]}>
           {option[self.props.labelField]}
