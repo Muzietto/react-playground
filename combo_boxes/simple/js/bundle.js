@@ -59,6 +59,11 @@ var Dropdown = React.createClass({
         className: 'form-control',
         value: this.state.selected,
         onChange: this.handleChange },
+      React.createElement(
+        'option',
+        { value: '0' },
+        'pick one'
+      ),
       options
     );
   },
@@ -76,8 +81,7 @@ var ItemsList = React.createClass({
 
   propTypes: {
     items: React.PropTypes.arrayOf(React.PropTypes.shape({
-      id: React.PropTypes.number.isRequired,
-      name: React.PropTypes.string.isRequired
+      id: React.PropTypes.number.isRequired
     }).isRequired).isRequired
   },
   render: function () {
@@ -86,7 +90,7 @@ var ItemsList = React.createClass({
       return React.createElement(
         "li",
         { key: item.id },
-        item.code,
+        item.id,
         ",\xA0",
         item.name
       );
@@ -103,19 +107,26 @@ let Shell = class Shell extends React.Component {
   constructor(params) {
     super(params);
     this.state = {
-      options: [{ description: 'option A', code: 'a' }, { description: 'option B', code: 'b' }, { description: 'option C', code: 'c' }, { description: 'option D', code: 'd' }],
+      options: [{ name: 'option A', id: 1 }, { name: 'option B', id: 2 }, { name: 'option C', id: 3 }, { name: 'option D', id: 4 }],
       selecteds: []
     };
   }
   dropDownOnChange(event) {
     var selectedValue = event.target.value;
     // put selected option inside this.state.selecteds
-    var selectedItem = this.state.options.filter(opt => opt.code === selectedValue).map(opt => ({
-      id: new Date().getTime(),
-      code: opt.code,
-      name: opt.description
-    }))[0];
-    this.setState({ selecteds: this.state.selecteds.concat(selectedItem) });
+    var selectedItem = this.state.options.find(opt => opt.id == selectedValue);
+    this.setState({
+      selecteds: this.addedItemToSet(selectedItem, this.state.selecteds),
+      options: this.removedItemFromSet(selectedItem, this.state.options)
+    });
+  }
+  addedItemToSet(item, set) {
+    var cloned = JSON.parse(JSON.stringify(set));
+    return cloned.concat([item]);
+  }
+  removedItemFromSet(item, set) {
+    var cloned = JSON.parse(JSON.stringify(set));
+    return cloned.filter(it => it.id != item.id);
   }
   render() {
     return React.createElement(
@@ -123,9 +134,9 @@ let Shell = class Shell extends React.Component {
       null,
       React.createElement(Dropdown, { id: 'dropdown01',
         options: this.state.options,
-        labelField: 'description',
-        valueField: 'code',
-        value: 'b',
+        labelField: 'name',
+        valueField: 'id',
+        value: '0',
         onChange: this.dropDownOnChange.bind(this) }),
       React.createElement(ItemsList, { items: this.state.selecteds })
     );

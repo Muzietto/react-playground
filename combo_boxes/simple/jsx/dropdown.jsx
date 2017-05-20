@@ -60,6 +60,7 @@ var Dropdown = React.createClass({
           className='form-control' 
           value={this.state.selected} 
           onChange={this.handleChange}>
+        <option value="0">pick one</option>
         {options}
       </select>
     )

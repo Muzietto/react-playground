@@ -3,7 +3,7 @@ var ItemsList = React.createClass({
   propTypes: {
     items: React.PropTypes.arrayOf(React.PropTypes.shape({
       id: React.PropTypes.number.isRequired,
-      name: React.PropTypes.string.isRequired,
+      //name: React.PropTypes.string.isRequired,
     }).isRequired).isRequired,
     //onItemClick: React.PropTypes.func.isRequired
   },
@@ -11,7 +11,7 @@ var ItemsList = React.createClass({
     //debugger;
     var items = this.props.items.map(function(item) {
       return <li key={item.id}>
-        {item.code},&nbsp;{item.name}
+        {item.id},&nbsp;{item.name}
       </li>
     });
 
