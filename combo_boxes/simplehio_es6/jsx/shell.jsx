@@ -4,7 +4,10 @@ import React from 'react';
 import Dropdown from 'controls/dropdown';
 import ItemsList from 'collections/itemsList';
 import User from 'user';
+import DeletableComponent from 'deletableComponent';
 import util from 'misc/util';
+
+const DeletableUser = DeletableComponent(User);
 
 class Shell extends React.Component {
   constructor(params) {
@@ -40,9 +43,9 @@ class Shell extends React.Component {
       selecteds: newSets.filtered
     });
   }
-  userMapperFactory() {
+  deletableUserMapperFactory() {
     var self = this;
-    return item => <User data={item} callbacks={{delete: () => self.listItemToOptions(item)}}/>
+    return item => <DeletableUser data={item} callbacks={{delete: () => self.listItemToOptions(item)}}/>
   }
   render() {
     return <div>
@@ -52,7 +55,7 @@ class Shell extends React.Component {
         valueField='id'
         value="0"
         onChange={this.dropDownOnChange.bind(this)}/>
-      <ItemsList id="list01" items={this.state.selecteds} mapper={this.userMapperFactory()}/>
+      <ItemsList id="list01" items={this.state.selecteds} mapper={this.deletableUserMapperFactory()}/>
     </div>
   }
 };
