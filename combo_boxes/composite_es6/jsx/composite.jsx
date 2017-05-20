@@ -1,7 +1,10 @@
 'use strict';
 
 import React from 'react';
-import Composite from 'composite';
+import Dropdown from 'dropdown';
+import ItemsList from 'itemsList';
+import User from 'user';
+import util from 'util';
 
 class Shell extends React.Component {
   constructor(params) {
@@ -42,10 +45,7 @@ class Shell extends React.Component {
     return item => <User data={item} callbacks={{delete: () => self.listItemToOptions(item)}}/>
   }
   render() {
-    return <div id="shell01">
-      <Composite id="composite01"
-        source={this.state.options}
-        sink={this.state.selecteds}/>
+    return <div>
       <Dropdown id="dropdown01"
         options={this.state.options}
         labelField='name'
