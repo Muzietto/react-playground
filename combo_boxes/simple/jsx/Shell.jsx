@@ -11,15 +11,25 @@ class Shell extends React.Component {
       selecteds: [],
     }
   }
-  dropDownOnChange(event) {
+  dropDownOnChange(event) { // changes state
     var selectedValue = event.target.value;
     // put selected option inside this.state.selecteds
     var selectedItem = this.state.options
       .find(opt => (opt.id == selectedValue));
-    var newSets = this.displacedItem(this.state.options, this.state.selecteds, selectedItem);
+    this.optionToList(selectedItem);
+  }
+  optionToList(item) {
+    var newSets = this.displacedItem(this.state.options, this.state.selecteds, item);
     this.setState({
       selecteds: newSets.augmented,
       options: newSets.filtered
+    });
+  }
+  listItemToOptions(item) {
+    var newSets = this.displacedItem(this.state.selecteds, this.state.options, item);
+    this.setState({
+      options: newSets.augmented,
+      selecteds: newSets.filtered
     });
   }
   displacedItem(from, to, item) {
@@ -36,8 +46,9 @@ class Shell extends React.Component {
     var cloned = JSON.parse(JSON.stringify(set));
     return cloned.filter(it => (it.id != item.id));
   }
-  userMapper(item) {
-    return <User data={item} callbacks={{delete: removedItemFromSet.bind()}}/>
+  userMapperFactory() {
+    var self = this;
+    return item => <User data={item} callbacks={{delete: () => self.listItemToOptions(item)}}/>
   }
   render() {
     return <div>
@@ -47,7 +58,7 @@ class Shell extends React.Component {
         valueField='id'
         value="0"
         onChange={this.dropDownOnChange.bind(this)}/>
-      <ItemsList items={this.state.selecteds} mapper={this.userMapper}/>
+      <ItemsList id="list01" items={this.state.selecteds} mapper={this.userMapperFactory()}/>
     </div>
   }
 };

@@ -46,7 +46,7 @@ var Dropdown = React.createClass({
 
   render: function () {
     var self = this;
-    var options = self.props.options.map(function (option) {
+    var options = self.props.options.sort((a, b) => a.id - b.id).map(function (option) {
       return React.createElement(
         'option',
         { key: option[self.props.valueField], value: option[self.props.valueField] },
@@ -82,17 +82,16 @@ var ItemsList = React.createClass({
   propTypes: {
     items: React.PropTypes.arrayOf(React.PropTypes.shape({
       id: React.PropTypes.number.isRequired
-    }).isRequired).isRequired
+    }).isRequired).isRequired,
+    mapper: React.PropTypes.func.isRequired
   },
   render: function () {
-    //debugger;
-    var items = this.props.items.map(function (item) {
+    var self = this;
+    var items = this.props.items.sort((a, b) => a.id - b.id).map(function (item) {
       return React.createElement(
         "li",
         { key: item.id },
-        item.id,
-        ",\xA0",
-        item.name
+        self.props.mapper(item)
       );
     });
 
@@ -103,6 +102,29 @@ var ItemsList = React.createClass({
     );
   }
 });
+let User = class User extends React.Component {
+  render() {
+    return React.createElement(
+      "div",
+      { id: "userDiv{this.props.data.id}" },
+      React.createElement(
+        "span",
+        { className: "separated-span" },
+        this.props.data.id
+      ),
+      React.createElement(
+        "span",
+        { className: "separated-span" },
+        this.props.data.name
+      ),
+      React.createElement(
+        "a",
+        { onClick: this.props.callbacks.delete },
+        "REMOVE"
+      )
+    );
+  }
+};
 let Shell = class Shell extends React.Component {
   constructor(params) {
     super(params);
@@ -112,13 +134,24 @@ let Shell = class Shell extends React.Component {
     };
   }
   dropDownOnChange(event) {
+    // changes state
     var selectedValue = event.target.value;
     // put selected option inside this.state.selecteds
     var selectedItem = this.state.options.find(opt => opt.id == selectedValue);
-    var newSets = this.displacedItem(this.state.options, this.state.selecteds, selectedItem);
+    this.optionToList(selectedItem);
+  }
+  optionToList(item) {
+    var newSets = this.displacedItem(this.state.options, this.state.selecteds, item);
     this.setState({
       selecteds: newSets.augmented,
       options: newSets.filtered
+    });
+  }
+  listItemToOptions(item) {
+    var newSets = this.displacedItem(this.state.selecteds, this.state.options, item);
+    this.setState({
+      options: newSets.augmented,
+      selecteds: newSets.filtered
     });
   }
   displacedItem(from, to, item) {
@@ -135,8 +168,9 @@ let Shell = class Shell extends React.Component {
     var cloned = JSON.parse(JSON.stringify(set));
     return cloned.filter(it => it.id != item.id);
   }
-  userMapper(item) {
-    return React.createElement(User, { data: item, callbacks: { delete: removedItemFromSet.bind() } });
+  userMapperFactory() {
+    var self = this;
+    return item => React.createElement(User, { data: item, callbacks: { delete: () => self.listItemToOptions(item) } });
   }
   render() {
     return React.createElement(
@@ -148,7 +182,7 @@ let Shell = class Shell extends React.Component {
         valueField: 'id',
         value: '0',
         onChange: this.dropDownOnChange.bind(this) }),
-      React.createElement(ItemsList, { items: this.state.selecteds, mapper: this.userMapper })
+      React.createElement(ItemsList, { id: 'list01', items: this.state.selecteds, mapper: this.userMapperFactory() })
     );
   }
 };
