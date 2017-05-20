@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import util from 'util';
+import util from '../misc/util';
 
 const ItemsList = React.createClass({
   propTypes: {

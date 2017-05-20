@@ -1,7 +1,0 @@
-- leggi esercizio
-- elimina chosen options
-- elimina items da itemslist -> restore option
-
-poi:
-- redux
-- redux ES6
