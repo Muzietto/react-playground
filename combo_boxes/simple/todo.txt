@@ -1,6 +1,12 @@
 - leggi esercizio
 - elimina chosen options
 - elimina items da itemslist -> restore option
+- es6
+
+
+- read from json
+- read/write from localstorage
+
 
 poi:
 - redux
