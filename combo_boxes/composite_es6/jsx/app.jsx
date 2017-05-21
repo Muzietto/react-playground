@@ -37,9 +37,11 @@ const render = () => {
 render();
 store.subscribe(render);
 
-function listItemsDisplayMapper(item) {
-  return <DeletableUser
-    id={item.id}
-    data={item}
-    callbacks={{delete: () => store.dispatch(ActionCreators.userLeavesGroup(item.id))}}/>
+function listItemsDisplayMapper(idGroup) {
+  return function(item) {
+    return <DeletableUser
+      id={item.id}
+      data={item}
+      callbacks={{delete: () => store.dispatch(ActionCreators.userLeavesGroup(item.id, idGroup))}}/>
+  }
 }

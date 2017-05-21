@@ -42,11 +42,11 @@ function mainReducer(state, action) {
         state.group_no_user,
         {[action.idGroup]:  state.group_no_user[action.idGroup].concat([action.idUser])}
       );
-      return { 
+      return Object.assign({}, state, { 
         user_group: updatedUserGroup,
         group_user: updatedGroupUser,
         group_no_user: updatedGroupNoUser,
-      };
+      });
     default:
       return state;
   }

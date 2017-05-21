@@ -46,7 +46,8 @@ class DoubleSelectList extends React.Component {
           ? this.props.listItems
           : this.props.listItems[this.state.firstSelection]}
         listItemsMapper={this.props.listItemsMapper}
-        listItemsDisplayMapper={this.props.listItemsDisplayMapper}/>
+        listItemsDisplayMapper={this.props.listItemsDisplayMapper(this.state.firstSelection)}
+        />
     </div>
   }
 };
