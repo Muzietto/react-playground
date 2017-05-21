@@ -29,7 +29,7 @@ class DoubleSelectList extends React.Component {
         options={this.props.selectOptions1}
         labelField={this.props.selectLabelField1}
         valueField={this.props.selectValueField1}
-        value="0"
+        value={this.state.firstSelection}
         onChange={this.dropDownOnChange.bind(this)}/>
       <SelectList
         id={'doubleSelectListDiv' + this.props.id + 'selectList'}
