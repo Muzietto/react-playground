@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compositees6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./composite_es6/jsx --out-dir ./composite_es6/dist -w",
+    "compositees6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./composite_es6/jsx --out-dir ./composite_es6/dist --source-maps inline -w",
+    "selectlist": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./selectlist_red_es6/jsx --out-dir ./selectlist_red_es6/dist --source-maps inline -w",
     "simplehioredes6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./simplehiored_es6/jsx --out-dir ./simplehiored_es6/dist --source-maps inline -w",
     "simplehioes6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./simplehio_es6/jsx --out-dir ./simplehio_es6/dist --source-maps inline -w",
     "simplees6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./simple_es6/jsx --out-dir ./simple_es6/dist -w",
