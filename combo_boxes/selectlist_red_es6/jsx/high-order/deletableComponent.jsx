@@ -5,7 +5,7 @@ import React from 'react';
 
 // ES6 arrow functions won't transpile correctly. Gotta use a standard function
 function DeletableComponent(Component) {
-  return class extends React.Component {
+  return class _deletableComponent extends React.Component {
     render() {
       return <div id={'deletableUserDiv' + this.props.data.id}>
         <Component {...this.props} />
