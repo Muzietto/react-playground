@@ -16,7 +16,7 @@ function mainReducer(state, action) {
       });
     case ActionTypes.USER_LEAVES_GROUP:
       var selectedUser = state.selecteds
-        .find(opt => (opt.id == action.user.id));
+        .find(opt => (opt.id == action.idUser));
       var newSets = util.displacedItem(state.selecteds, state.users, selectedUser);
       return Object.assign({}, state, {
         users: newSets.augmented,

@@ -12,7 +12,7 @@ class SelectList extends React.Component {
         labelField={this.props.labelField}
         valueField={this.props.valueField}
         value="0"
-        onChange={this.props.onSelectChangeActionCreator}
+        onChange={this.props.onSelectChange}
         optionsMapper={this.props.optionsMapper}/>
       <ItemsList id={'selectlist' + this.props.id + 'List'}
         items={this.props.listItems}

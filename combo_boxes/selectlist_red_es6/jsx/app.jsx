@@ -11,23 +11,27 @@ import DeletableComponent from 'high-order/deletableComponent';
 import util from 'misc/util';
 
 const DeletableUser = DeletableComponent(User);
-var state = store.getState();
 
-const render = () => ReactDOM.render(
-  <SelectList
-    id="1"
-    options={state.users}
-    labelField='name'
-    valueField='id'
-    optionsMapper={state.mappers.testMapper}
-    onSelectChangeActionCreator={ActionCreators.userEntersGroup}
-    
-    listItems={state.selecteds}
-    itemsMapper={state.mappers.testMapper}
-    listItemsDisplayMapper={listItemsDisplayMapper}
-  />,
-  document.getElementById('container')
-);
+const render = () => {
+  var state = store.getState();
+  ReactDOM.render(
+    <SelectList
+      id="1"
+      options={state.users}
+      labelField='name'
+      valueField='id'
+      optionsMapper={state.mappers.testMapper}
+      onSelectChange={id => store.dispatch(ActionCreators.userEntersGroup(id))}
+      
+      listItems={state.selecteds}
+      itemsMapper={state.mappers.testMapper}
+      listItemsDisplayMapper={listItemsDisplayMapper}
+    />,
+    document.getElementById('container')
+  );
+}
+
+window.store = store;
 
 render();
 store.subscribe(render);
