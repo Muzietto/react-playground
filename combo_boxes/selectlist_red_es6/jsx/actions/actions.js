@@ -12,10 +12,10 @@ function userEntersGroup(idUser) {
   };
 }
 
-function userLeavesGroup(user) {
+function userLeavesGroup(idUser) {
   return {
     type: ActionTypes.USER_LEAVES_GROUP,
-    user: user,
+    idUser: idUser,
   };
 }
 

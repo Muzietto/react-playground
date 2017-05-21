@@ -17,8 +17,9 @@ const initialState = {
     2: 'Uno',
     3: 'Cacio',
     4: 'Dany',
+    5: 'Elo',
   },
-  selecteds: [],
+  selecteds: [{name: 'Eleuterio', id: 5}],
   mappers: {}
 };
 

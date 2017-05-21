@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react';
-import util from '../misc/util';
+import util from 'misc/util';
 
 const Dropdown = React.createClass({
   propTypes: {
@@ -69,7 +69,7 @@ const Dropdown = React.createClass({
       <select id={this.props.id} 
           className='form-control' 
           value={this.state.selected} 
-          onChange={this.handleChange}>
+          onChange={event => this.props.onChange(event.target.value)}>
         <option value="0">pick one</option>
         {options}
       </select>
