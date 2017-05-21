@@ -22,7 +22,7 @@ const render = () => {
       valueField='id'
       optionsMapper={state.mappers.testMapper}
       onSelectChange={id => store.dispatch(ActionCreators.userEntersGroup(id))}
-      
+
       listItems={state.selecteds}
       itemsMapper={state.mappers.testMapper}
       listItemsDisplayMapper={listItemsDisplayMapper}
