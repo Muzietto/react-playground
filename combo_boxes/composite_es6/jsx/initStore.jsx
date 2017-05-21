@@ -1,7 +1,8 @@
 'use strict';
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux';
 import { mainReducer } from 'reducers/mainReducer'
+import parseIntMiddleware from 'middleware/parseIntMiddleware';
 // resolved with Babel plugin inline-json-import
 //import initialState from '../initialState.json';
 
@@ -47,6 +48,6 @@ initialState.mappers.userFromId = (function(userId) {
   return Object.assign({}, user);
 }).bind(initialState);
 
-const store = createStore(mainReducer, initialState);
+const store = createStore(mainReducer, initialState, applyMiddleware(parseIntMiddleware));
 
 export { store };
