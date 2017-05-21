@@ -10,16 +10,16 @@ function mainReducer(state, action) {
       var selectedItem = state.users
         .find(opt => (opt.id == action.idUser));
       var newSets = util.displacedItem(state.users, state.selecteds, selectedItem);
-      return {
+      return Object.assign({}, state, {
         selecteds: newSets.augmented,
         users: newSets.filtered
-      };
+      });
     case ActionTypes.USER_LEAVES_GROUP:
       var newSets = util.displacedItem(state.selecteds, state.users, action.user);
-      return {
+      return Object.assign({}, state, {
         users: newSets.augmented,
         selecteds: newSets.filtered
-      };
+      });
     default:
       return state;
   }
