@@ -9,13 +9,25 @@ const ItemsList = React.createClass({
     items: React.PropTypes.arrayOf(React.PropTypes.shape({
       id: React.PropTypes.number.isRequired,
     }).isRequired).isRequired,
-    mapper: React.PropTypes.func.isRequired
+    itemsMapper: React.PropTypes.func.isRequired,
+    displayMapper: React.PropTypes.func.isRequired,
   },
+
+  getDefaultProps: function() {
+    return {
+      items: [],
+      itemsMapper: x => x,
+      displayMapper: x => x,
+    };
+  },
+
   render: function() {
     var self = this; 
-    var items = this.props.items.sort(util.asc).map(function(item) {
+    var items = this.props.items
+      .sort(util.asc)
+      .map(function(item) {
       return <li key={item.id}>
-        {self.props.mapper(item)}
+        {self.props.displayMapper(self.props.itemsMapper(item))}
       </li>
     });
 

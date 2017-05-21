@@ -33,7 +33,10 @@ class Shell extends React.Component {
         value="0"
         onChange={this.dropDownOnChange.bind(this)}
         optionsMapper={state.mappers.testMapper}/>
-      <ItemsList id="list01" items={state.selecteds} mapper={this.deletableUserMapperFactory()}/>
+      <ItemsList id="list01"
+        items={state.selecteds}
+        itemsMapper={state.mappers.testMapper}
+        displayMapper={this.deletableUserMapperFactory()}/>
     </div>
   }
 };

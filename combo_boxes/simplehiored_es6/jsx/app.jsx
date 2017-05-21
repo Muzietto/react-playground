@@ -7,7 +7,7 @@ import { store } from './initStore';
 
 const render = () => ReactDOM.render(
   <Shell/>,
-    document.getElementById('container')
+  document.getElementById('container')
 );
 
 render();
