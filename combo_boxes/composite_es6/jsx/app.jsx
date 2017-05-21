@@ -3,26 +3,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { store } from 'initStore';
-import Composite from 'composite';
+import DoubleSelectList from 'controls/doubleselectList';
+import { ActionCreators } from 'actions/actions';
+import User from 'components/user';
+import DeletableComponent from 'high-order/deletableComponent';
+import util from 'misc/util';
 
-const state = store.getState();
+const DeletableUser = DeletableComponent(User);
 
-const render = () => ReactDOM.render(
-  <Composite
-    id='1'
-    options1={state.groups}
-    options2={state.group_user}
-    labelField1='name'
-    valueField1='id'
-    labelField2='name'
-    valueField2='id'
-    optionsMapper2={state.mappers.userInGroup}
-    
-    listItems={state.group_user}
-    itemsMapper={state.mappers.userInGroup}
-    />,
-    document.getElementById('container')
-);
+const render = () => {
+  const state = store.getState();
+  ReactDOM.render(
+    <DoubleSelectList
+      id='1'
+      selectOptions1={state.groups}
+      selectLabelField1='name'
+      selectValueField1='id'
+
+      selectOptions2={state.group_no_user}
+      selectLabelField2='name'
+      selectValueField2='id'
+      optionsMapper2={state.mappers.userFromId}
+      onSelectChange2={idGroup => idUser => store.dispatch(ActionCreators.userEntersGroup(idUser, idGroup))}
+      
+      listItems={state.group_user}
+      itemsMapper={state.mappers.userFromId}
+      listItemsDisplayMapper={listItemsDisplayMapper}
+      />,
+      document.getElementById('container')
+  );
+}
 
 render();
 store.subscribe(render);
+
+function listItemsDisplayMapper(item) {
+  return <DeletableUser
+    id={item.id}
+    callbacks={{delete: () => store.dispatch(ActionCreators.userLeavesGroup(item.id))}}/>
+}

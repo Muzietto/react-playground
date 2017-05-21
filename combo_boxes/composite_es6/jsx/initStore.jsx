@@ -19,28 +19,32 @@ var initialState = {
     {name: 'Cycling', id: 4},
   ],
   user_group: {
+    0: [],
     1: [1,2],
     2: [],
     3: [3],
     4: [1,4]
   },
   group_user: {
+    0: [],
     1: [1,4],
     2: [1],
     3: [3],
     4: [4]
   },
-  mappers: {}
+  group_no_user: {
+    0: [],
+    1: [2,3],
+    2: [2,3,4],
+    3: [1,2,4],
+    4: [1,2,3]
+  },
+  mappers: {},
 };
 
-initialState.mappers.userInGroup = (function(userId) {
-  debugger;
-  return Object.assign({}, user, {name:user.name + this.nicknames[user.id]});
-}).bind(initialState);
-
-initialState.mappers.userNotInGroup = (function(userId) {
-  debugger;
-  return Object.assign({}, user, {name:user.name + this.nicknames[user.id]});
+initialState.mappers.userFromId = (function(userId) {
+  var user = this.users.find(u => (u.id == userId));
+  return Object.assign({}, user);
 }).bind(initialState);
 
 const store = createStore(mainReducer, initialState);
