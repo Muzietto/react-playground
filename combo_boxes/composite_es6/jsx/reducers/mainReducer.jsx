@@ -16,9 +16,15 @@ function mainReducer(state, action) {
         state.group_user,
         {[action.idGroup]:  state.group_user[action.idGroup].concat([action.idUser])}
       );
+      var updatedGroupNoUser = Object.assign(
+        {},
+        state.group_no_user,
+        {[action.idGroup]: state.group_no_user[action.idGroup].filter(uId => (uId !== action.idUser))}
+      );
       return Object.assign({}, state, { 
         user_group: updatedUserGroup,
         group_user: updatedGroupUser,
+        group_no_user: updatedGroupNoUser,
       });
     case ActionTypes.USER_LEAVES_GROUP:
       var updatedUserGroup = Object.assign(
