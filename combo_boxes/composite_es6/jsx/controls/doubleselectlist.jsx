@@ -12,7 +12,6 @@ class DoubleSelectList extends React.Component {
 
   dropDownOnChange(value) {
     this.setState({firstSelection: value});
-    this.render();
   }
 
   dropDown2OnChange(value) {
@@ -46,7 +45,7 @@ class DoubleSelectList extends React.Component {
         listItems={(this.props.listItems.length)
           ? this.props.listItems
           : this.props.listItems[this.state.firstSelection]}
-        itemsMapper={this.props.itemsMapper}
+        listItemsMapper={this.props.listItemsMapper}
         listItemsDisplayMapper={this.props.listItemsDisplayMapper}/>
     </div>
   }

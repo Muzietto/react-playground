@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { store } from 'initStore';
-import DoubleSelectList from 'controls/doubleselectList';
+import DoubleSelectList from 'controls/doubleselectlist';
 import { ActionCreators } from 'actions/actions';
 import User from 'components/user';
 import DeletableComponent from 'high-order/deletableComponent';
@@ -27,7 +27,7 @@ const render = () => {
       onSelectChange2={idGroup => idUser => store.dispatch(ActionCreators.userEntersGroup(idUser, idGroup))}
       
       listItems={state.group_user}
-      itemsMapper={state.mappers.userFromId}
+      listItemsMapper={state.mappers.userFromId}
       listItemsDisplayMapper={listItemsDisplayMapper}
       />,
       document.getElementById('container')
@@ -40,5 +40,6 @@ store.subscribe(render);
 function listItemsDisplayMapper(item) {
   return <DeletableUser
     id={item.id}
+    data={item}
     callbacks={{delete: () => store.dispatch(ActionCreators.userLeavesGroup(item.id))}}/>
 }
