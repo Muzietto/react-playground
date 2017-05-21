@@ -30,16 +30,22 @@ function mainReducer(state, action) {
       var updatedUserGroup = Object.assign(
         {},
         state.user_group,
-        state.user_group[action.idUser].filter(gId => (gId !== action.idGroup))
+        {[action.idUser]: state.user_group[action.idUser].filter(gId => (gId !== action.idGroup))}
       );
       var updatedGroupUser = Object.assign(
         {},
         state.group_user,
-        state.group_user[action.idGroup].filter(uId => (uId !== action.idUser))
+        {[action.idGroup]: state.group_user[action.idGroup].filter(uId => (uId !== action.idUser))}
+      );
+      var updatedGroupNoUser = Object.assign(
+        {},
+        state.group_no_user,
+        {[action.idGroup]:  state.group_no_user[action.idGroup].concat([action.idUser])}
       );
       return { 
         user_group: updatedUserGroup,
         group_user: updatedGroupUser,
+        group_no_user: updatedGroupNoUser,
       };
     default:
       return state;
