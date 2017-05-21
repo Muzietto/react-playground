@@ -16,11 +16,13 @@ function removedItemFromSet(set, item) {
 }
 
 function asc(a, b) {
-  return a.id - b.id;
+  if (a.id) return a.id - b.id;
+  return a - b;
 }
 
 function desc(a, b) {
-  return b.id - a.id;
+  if (a.id) return b.id - a.id;
+  return b - a;
 }
 
 export default {
