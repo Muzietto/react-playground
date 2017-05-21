@@ -6,50 +6,52 @@ import ItemsList from 'collections/itemsList';
 import User from 'user';
 import DeletableComponent from 'high-order/deletableComponent';
 import util from 'misc/util';
+import { ActionCreators } from 'actions/actions';
+import { store } from 'initStore';
 
 const DeletableUser = DeletableComponent(User);
 
 class Composite extends React.Component {
-  dropDown1OnChange(event) { // changes state
+  constructor(params) {
+    super(params);
+    this.firstSelection = null;
   }
-  dropDown2OnChange(event) { // changes state
+  dropDown1OnChange(event) {
+    this.firstSelection = event.target.value;
   }
-  optionToList(item) {
-    var newSets = util.displacedItem(this.state.users, this.state.selecteds, item);
-    this.setState({
-      selecteds: newSets.augmented,
-      users: newSets.filtered
-    });
+  dropDown2OnChange(event) {
+    var selectedValue = event.target.value;
+    store.dispatch(ActionCreators.userEntersGroup(this.firstSelection, selectedValue));
   }
   listItemToOptions(item) {
-    var newSets = util.displacedItem(this.state.selecteds, this.state.users, item);
-    this.setState({
-      users: newSets.augmented,
-      selecteds: newSets.filtered
-    });
+    store.dispatch(ActionCreators.userLeavesGroup(this.firstSelection, item.id));
   }
   deletableUserMapperFactory() {
     var self = this;
     return item => <DeletableUser data={item} callbacks={{delete: () => self.listItemToOptions(item)}}/>
   }
   render() {
-    return <div id={'compositeDiv' + this.props.data.id} className="composite-div">
-      <Dropdown id={'compositeDiv' + this.props.data.id + 'dropdown1'}
+    return <div id={'compositeDiv' + this.props.id} className="composite-div">
+      <Dropdown id={'compositeDiv' + this.props.id + 'dropdown1'}
         options={this.props.options1}
         labelField={this.props.labelField1}
         valueField={this.props.valueField1}
         value="0"
         onChange={this.dropDown1OnChange.bind(this)}/>
-      <Dropdown id={'compositeDiv' + this.props.data.id + 'dropdown2'}
+      <Dropdown id={'compositeDiv' + this.props.id + 'dropdown2'}
         options={this.props.options2}
         labelField={this.props.labelField2}
         valueField={this.props.valueField2}
         value="0"
         onChange={this.dropDown2OnChange.bind(this)}/>
-      <ItemsList id={'compositeDiv' + this.props.data.id + 'itemsList'}
-        items={this.state.selecteds} mapper={this.deletableUserMapperFactory()}/>
+        optionsMapper={this.props.optionsMapper2}/>
+      <ItemsList id={'compositeDiv' + this.props.id + 'itemsList'}
+        items={this.props.listItems}
+        itemsMapper={state.mappers.testMapper}
+        displayMapper={this.deletableUserMapperFactory()}
+        />
     </div>
   }
 };
 
-export default Shell;
+export default Composite;

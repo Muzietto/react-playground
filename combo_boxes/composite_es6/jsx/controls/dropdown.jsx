@@ -16,7 +16,8 @@ const Dropdown = React.createClass({
     ),
     valueField: React.PropTypes.string,
     labelField: React.PropTypes.string,
-    onChange: React.PropTypes.func
+    onChange: React.PropTypes.func,
+    optionsMapper: React.PropTypes.func,
   },
 
   getDefaultProps: function() {
@@ -24,7 +25,8 @@ const Dropdown = React.createClass({
       value: null,
       valueField: 'value',
       labelField: 'label',
-      onChange: null
+      onChange: null,
+      optionsMapper: x => x,
     };
   },
 
@@ -53,7 +55,10 @@ const Dropdown = React.createClass({
 
   render: function() {
     var self = this;
-    var options = self.props.options.sort(util.asc).map(function(option) {
+    var options = self.props.options
+      .map(self.props.optionsMapper)
+      .sort(util.asc)
+      .map(function(option) {
       return (
         <option key={option[self.props.valueField]} value={option[self.props.valueField]}>
           {option[self.props.labelField]}

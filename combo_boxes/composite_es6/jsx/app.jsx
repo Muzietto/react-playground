@@ -2,40 +2,27 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Shell from 'shell';
+import { store } from 'initStore';
+import Composite from 'composite';
 
-var state = {
-  users: [
-    {name: 'Armando', id: 1},
-    {name: 'Bruno', id: 2},
-    {name: 'Carlo', id: 3},
-    {name: 'Daniele', id: 4},
-  ],
-  groups: [
-    {name: 'Music', id: 1},
-    {name: 'Dance', id: 2},
-    {name: 'Jogging', id: 3},
-    {name: 'Cycling', id: 4},
-  ],
-  user_group: {
-    1: [1,2],
-    2: [],
-    3: [3],
-    4: [1,4]
-  },
-};
+const state = store.getState();
 
-var mappers = {}
-
-ReactDOM.render(
+const render = () => ReactDOM.render(
   <Composite
     id='1'
-    options1={this.state.groups}
-    options2={this.state.groups}
+    options1={state.groups}
+    options2={state.group_user}
     labelField1='name'
     valueField1='id'
     labelField2='name'
     valueField2='id'
+    optionsMapper2={state.mappers.userInGroup}
+    
+    listItems={state.group_user}
+    itemsMapper={state.mappers.userInGroup}
     />,
     document.getElementById('container')
 );
+
+render();
+store.subscribe(render);
