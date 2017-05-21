@@ -39,7 +39,7 @@ class DoubleSelectList extends React.Component {
         labelField={this.props.selectLabelField2}
         valueField={this.props.selectValueField2}
         optionsMapper={this.props.optionsMapper2}
-        onSelectChange={this.dropDown2OnChange}
+        onSelectChange={this.dropDown2OnChange.bind(this)}
         //onSelectChange={this.props.onSelectChange2(this.state.firstSelection)} // try this
         
         listItems={(this.props.listItems.length)
