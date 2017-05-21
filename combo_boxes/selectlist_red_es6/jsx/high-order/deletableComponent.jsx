@@ -7,7 +7,7 @@ import React from 'react';
 function DeletableComponent(Component) {
   return class _deletableComponent extends React.Component {
     render() {
-      return <div id={'deletableComponentDiv' + this.props.id}>
+      return <div id={'deletableComponentDiv' + this.props.data.id}>
         <Component {...this.props} />
         <a style={{cursor:"pointer"}}
           onClick={this.props.callbacks.delete}>REMOVE</a>
