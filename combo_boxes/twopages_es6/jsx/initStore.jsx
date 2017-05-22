@@ -3,6 +3,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import { mainReducer } from 'reducers/mainReducer'
 import parseIntMiddleware from 'middleware/parseIntMiddleware';
+import entityAdderValidatingMiddleware from 'middleware/entityAdderValidatingMiddleware';
 // resolved with Babel plugin inline-json-import
 //import initialState from '../initialState.json';
 
@@ -48,6 +49,6 @@ initialState.mappers.userFromId = (function(userId) {
   return Object.assign({}, user);
 }).bind(initialState);
 
-const store = createStore(mainReducer, initialState, applyMiddleware(parseIntMiddleware));
+const store = createStore(mainReducer, initialState, applyMiddleware(parseIntMiddleware, entityAdderValidatingMiddleware));
 
 export { store };

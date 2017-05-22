@@ -16,6 +16,7 @@ const render = () => {
 
 render();
 store.subscribe(render);
+window.store = store;
 
 function entityAdder(type, id, name) {
   return function() {

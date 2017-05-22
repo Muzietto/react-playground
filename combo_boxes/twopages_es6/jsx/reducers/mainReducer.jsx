@@ -5,8 +5,20 @@ import util from '../misc/util';
 
 function mainReducer(state, action) {
   switch (action.type) {
+    case ActionTypes.ALERT_USER:
+      alert('ALERT_USER: ' + action.message);
+      return state;
     case ActionTypes.USER_IS_CREATED:
-      alert('name=' + action.name + '; id=' + action.idUser);
+      state.users.push({
+        name: action.name,
+        id: action.idUser,
+      });
+      return state;
+    case ActionTypes.GROUP_IS_CREATED:
+      state.groups.push({
+        name: action.name,
+        id: action.idGroup,
+      });
       return state;
     case ActionTypes.USER_ENTERS_GROUP:
       var updatedUserGroup = Object.assign(

@@ -7,6 +7,7 @@ const ActionTypes = {
   USER_IS_DELETED: 'USER_IS_DELETED',
   GROUP_IS_CREATED: 'GROUP_IS_CREATED',
   GROUP_IS_DELETED: 'GROUP_IS_DELETED',
+  ALERT_USER: 'ALERT_USER',
 }
 
 function userEntersGroup(idUser, idGroup) {
@@ -33,10 +34,18 @@ function userIsCreated(idUser, name) {
   };
 }
 
+function alertUser(message) {
+  return {
+    type: ActionTypes.ALERT_USER,
+    message: message,
+  }
+}
+
 const ActionCreators = {
   userEntersGroup: userEntersGroup,
   userLeavesGroup: userLeavesGroup,
   userIsCreated: userIsCreated,
+  alertUser: alertUser,
 };
 
 export {

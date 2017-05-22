@@ -6,8 +6,8 @@ class EntityAdder extends React.Component {
   constructor(params) {
     super(params);
     this.state = {
-      id: '123',
-      name: 'asdasdasd',
+      id: '',
+      name: '',
     }
   }
   onStateChange(type) {
@@ -17,6 +17,13 @@ class EntityAdder extends React.Component {
       newState[type] = newVal;
       this.setState(newState);
     }
+  }
+  onButtonClick(event) {
+    this.props.onAddEntityClick(this.props.type, this.state.id, this.state.name)();
+    this.setState({
+      id: '',
+      name: '',
+    });
   }
   render() {
     return <div className="entity-adder-div" id={'selectlistDiv' + this.props.id}>
@@ -37,7 +44,7 @@ class EntityAdder extends React.Component {
         </div>
         <input type="button" 
           id="input_button"
-          onClick={this.props.onAddEntityClick(this.props.type, this.state.id, this.state.name)}
+          onClick={this.onButtonClick.bind(this)}
           value="ADD"></input>
       </form>
     </div>
