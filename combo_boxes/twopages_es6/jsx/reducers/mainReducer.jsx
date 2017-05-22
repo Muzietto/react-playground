@@ -7,7 +7,7 @@ function mainReducer(state, action) {
   switch (action.type) {
     case ActionTypes.USER_IS_CREATED:
       alert('name=' + action.name + '; id=' + action.idUser);
-      break;
+      return state;
     case ActionTypes.USER_ENTERS_GROUP:
       var updatedUserGroup = Object.assign(
         {},

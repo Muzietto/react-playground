@@ -17,8 +17,8 @@ const render = () => {
 render();
 store.subscribe(render);
 
-function entityAdder(type) {
-  return function(event) {
-    store.dispatch(ActionCreators[type + 'IsCreated'](123,'asd'));
+function entityAdder(type, id, name) {
+  return function() {
+    store.dispatch(ActionCreators[type + 'IsCreated'](id, name));
   }
 }
