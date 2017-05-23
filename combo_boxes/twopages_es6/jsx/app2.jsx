@@ -3,10 +3,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { store } from 'initStore';
+import EntityCrud from 'controls/entitycrud';
 import EntityAdder from 'controls/entityadder';
 import { ActionCreators } from 'actions/actions';
 
-const render = () => {
+const render1 = () => {
   const state = store.getState();
   ReactDOM.render(
     <EntityAdder type="user" collection={state.users} id="1" onAddEntityClick={entityAdder} />,
@@ -14,12 +15,30 @@ const render = () => {
   );
 }
 
-render();
-store.subscribe(render);
+const render2 = () => {
+  const state = store.getState();
+  ReactDOM.render(
+    <EntityCrud id="1"
+      entityType="user" 
+      collection={state.users}
+      onAddEntityClick={entityAdder}
+      onDeleteEntityClick={entityDeleter} />,
+    document.getElementById('container')
+  );
+}
+
+render2();
+store.subscribe(render2);
 window.store = store;
 
 function entityAdder(type, id, name) {
   return function() {
     store.dispatch(ActionCreators[type + 'IsCreated'](id, name));
+  }
+}
+
+function entityDeleter(type, id) {
+  return function() {
+    store.dispatch(ActionCreators[type + 'IsDeleted'](id));
   }
 }

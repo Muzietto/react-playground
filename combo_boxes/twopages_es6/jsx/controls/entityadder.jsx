@@ -26,7 +26,7 @@ class EntityAdder extends React.Component {
     });
   }
   render() {
-    return <div className="entity-adder-div" id={'selectlistDiv' + this.props.id}>
+    return <div className="entity-adder-div" id={'entityAdderDiv' + this.props.id}>
       <form onSubmit={() => false}>
         <div>
         <label>ID</label><br/>

@@ -29,8 +29,34 @@ function userLeavesGroup(idUser, idGroup) {
 function userIsCreated(idUser, name) {
   return {
     type: ActionTypes.USER_IS_CREATED,
+    entityType: 'user',
     idUser: idUser,
     name: name,
+  };
+}
+
+function userIsDeleted(idUser) {
+  return {
+    type: ActionTypes.USER_IS_DELETED,
+    entityType: 'user',
+    idUser: idUser,
+  };
+}
+
+function groupIsCreated(idGroup, name) {
+  return {
+    type: ActionTypes.GROUP_IS_CREATED,
+    entityType: 'group',
+    idGroup: idGroup,
+    name: name,
+  };
+}
+
+function groupIsDeleted(idGroup) {
+  return {
+    type: ActionTypes.GROUP_IS_DELETED,
+    entityType: 'group',
+    idGroup: idGroup,
   };
 }
 
@@ -45,6 +71,9 @@ const ActionCreators = {
   userEntersGroup: userEntersGroup,
   userLeavesGroup: userLeavesGroup,
   userIsCreated: userIsCreated,
+  userIsDeleted: userIsDeleted,
+  groupIsCreated: groupIsCreated,
+  groupIsDeleted: groupIsDeleted,
   alertUser: alertUser,
 };
 
