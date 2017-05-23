@@ -18,11 +18,18 @@ const render1 = () => {
 const render2 = () => {
   const state = store.getState();
   ReactDOM.render(
-    <EntityCrud id="1"
-      entityType="user" 
-      collection={state.users}
-      onAddEntityClick={entityAdder}
-      onDeleteEntityClick={entityDeleter} />,
+    <div>
+      <EntityCrud id="1"
+        entityType="user" 
+        collection={state.users}
+        onAddEntityClick={entityAdder}
+        onDeleteEntityClick={entityDeleter} />
+      <EntityCrud id="2"
+        entityType="group" 
+        collection={state.groups}
+        onAddEntityClick={entityAdder}
+        onDeleteEntityClick={entityDeleter} />
+    </div>,
     document.getElementById('container')
   );
 }
