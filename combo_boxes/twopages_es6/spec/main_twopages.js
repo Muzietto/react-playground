@@ -1,13 +1,13 @@
 (function() {
 
   require.config({
-    baseUrl: './twopages_es6',
+    baseUrl: './twopages_es6/dist',
     paths: {
-      'reducer': './dist/reducers/mainReducer',
-      'actions': './dist/actions/actions',
-      'twopages_test': './spec/twopages_test',
-      'mocha': './spec/mocha/mocha',
-      'chai': './spec/mocha/chai',
+      //'reducer': './reducers/mainReducer',
+      //'actions': './actions/actions.js',
+      'twopages_test': '../spec/twopages_test',
+      'mocha': '../spec/mocha/mocha',
+      'chai': '../spec/mocha/chai',
     },
     shim: {
       mocha: {
