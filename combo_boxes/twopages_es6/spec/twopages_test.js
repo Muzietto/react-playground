@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  define(['reducer', 'chai'], function(QD, chai) {
+  define(['reducer', 'chai'], function(reducer, chai) {
     var expect  = chai.expect;
 
     describe('the main reducer', function() {
@@ -11,7 +11,7 @@
           type: 'ALERT_USER',
           message: 'test message',
         };
-        expect(reducer(state, action)).to.be.eql(state);
+        expect(reducer.mainReducer(state, action)).to.be.eql(state);
       });
     });
   });
