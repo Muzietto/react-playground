@@ -13,22 +13,31 @@ function mainReducer(state, action) {
         name: action.name,
         id: action.idUser,
       });
-      // TODO - add key in user_group
+      state.user_group[action.idUser] = [];
       return state;
     case ActionTypes.GROUP_IS_CREATED:
       state.groups.push({
         name: action.name,
         id: action.idGroup,
       });
-      // TODO - add key in group_user, group_no_user
+      state.group_user[action.idGroup] = [];
+      state.group_no_user[action.idGroup] = state.users.map(u => u.id);
       return state;
     case ActionTypes.USER_IS_DELETED:
       state.users = state.users.filter(u => u.id !== action.idUser);
-      // TODO - delete key from user_group
+      let newUg = Object.assign({}, state.user_group);
+      delete newUg[action.idUser];
+      state.user_group = newUg;
+      // TODO - remove user from group_no_user
       return state;
     case ActionTypes.GROUP_IS_DELETED:
       state.groups = state.groups.filter(g => g.id !== action.idGroup);
-      // TODO - delete key in group_user, group_no_user
+      let newGu = Object.assign({}, state.group_user);
+      delete newGu[action.idGroup];
+      state.group_user = newGu;
+      let newGnu = Object.assign({}, state.group_no_user);
+      delete newGnu[action.idGroup];
+      state.group_no_user = newGnu;
       return state;
     case ActionTypes.USER_ENTERS_GROUP:
       var updatedUserGroup = Object.assign(
