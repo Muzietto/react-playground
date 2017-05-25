@@ -1,4 +1,4 @@
-define(['exports', 'react', 'controls/dropdown', 'controls/selectList'], function (exports, _react, _dropdown, _selectList) {
+define(['exports', 'react', 'controls/dropdown', 'controls/selectlist'], function (exports, _react, _dropdown, _selectlist) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -9,7 +9,7 @@ define(['exports', 'react', 'controls/dropdown', 'controls/selectList'], functio
 
   var _dropdown2 = _interopRequireDefault(_dropdown);
 
-  var _selectList2 = _interopRequireDefault(_selectList);
+  var _selectlist2 = _interopRequireDefault(_selectlist);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -46,7 +46,7 @@ define(['exports', 'react', 'controls/dropdown', 'controls/selectList'], functio
           valueField: this.props.selectValueField1,
           value: this.state.firstSelection,
           onChange: this.dropDownOnChange.bind(this) }),
-        _react2.default.createElement(_selectList2.default, {
+        _react2.default.createElement(_selectlist2.default, {
           id: 'doubleSelectListDiv' + this.props.id + 'selectList',
           options: this.props.selectOptions2.length ? this.props.selectOptions2 : this.props.selectOptions2[this.state.firstSelection],
           labelField: this.props.selectLabelField2,

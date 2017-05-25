@@ -1,4 +1,4 @@
-define(['exports', 'react', './dropdown', 'collections/itemsList'], function (exports, _react, _dropdown, _itemsList) {
+define(['exports', 'react', 'controls/dropdown', 'collections/itemslist'], function (exports, _react, _dropdown, _itemslist) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -9,7 +9,7 @@ define(['exports', 'react', './dropdown', 'collections/itemsList'], function (ex
 
   var _dropdown2 = _interopRequireDefault(_dropdown);
 
-  var _itemsList2 = _interopRequireDefault(_itemsList);
+  var _itemslist2 = _interopRequireDefault(_itemslist);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -29,7 +29,7 @@ define(['exports', 'react', './dropdown', 'collections/itemsList'], function (ex
           value: '0',
           onChange: this.props.onSelectChange,
           optionsMapper: this.props.optionsMapper }),
-        _react2.default.createElement(_itemsList2.default, { id: 'selectlist' + this.props.id + 'List',
+        _react2.default.createElement(_itemslist2.default, { id: 'selectlist' + this.props.id + 'List',
           items: this.props.listItems,
           itemsMapper: this.props.listItemsMapper,
           displayMapper: this.props.listItemsDisplayMapper })

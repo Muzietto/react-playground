@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import Dropdown from './dropdown';
-import ItemsList from 'collections/itemsList';
+import Dropdown from 'controls/dropdown';
+import ItemsList from 'collections/itemslist';
 
 class SelectList extends React.Component {
   render() {

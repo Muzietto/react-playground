@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Dropdown from 'controls/dropdown';
-import SelectList from 'controls/selectList';
+import SelectList from 'controls/selectlist';
 
 class DoubleSelectList extends React.Component {
   constructor(params) {
