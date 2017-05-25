@@ -1,4 +1,4 @@
-define(['exports', 'react', 'controls/dropdown', 'collections/itemsList', 'user', 'high-order/deletableComponent', 'misc/util', 'actions/actions', 'initStore'], function (exports, _react, _dropdown, _itemsList, _user, _deletableComponent, _util, _actions, _initStore) {
+define(['exports', 'react', 'controls/dropdown', 'collections/itemslist', 'user', 'high-order/deletableComponent', 'misc/util', 'actions/actions', 'initStore'], function (exports, _react, _dropdown, _itemslist, _user, _deletableComponent, _util, _actions, _initStore) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -9,7 +9,7 @@ define(['exports', 'react', 'controls/dropdown', 'collections/itemsList', 'user'
 
   var _dropdown2 = _interopRequireDefault(_dropdown);
 
-  var _itemsList2 = _interopRequireDefault(_itemsList);
+  var _itemsList2 = _interopRequireDefault(_itemslist);
 
   var _user2 = _interopRequireDefault(_user);
 
