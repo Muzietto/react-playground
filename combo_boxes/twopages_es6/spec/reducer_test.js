@@ -136,7 +136,7 @@
             expect(window.alert().indexOf('duplicate group')).to.be.at.least(0);
           });
           it('by checking the names', () => {
-            var action = ActionCreators.groupIsCreated(123, 'Music');
+            var action = ActionCreators.groupIsCreated(123, 'Classical Music');
             store.dispatch(action);
             var endState = store.getState();
             expect(endState.groups.length).to.be.eql(4);
@@ -152,7 +152,7 @@
             expect(window.alert().indexOf('duplicate user')).to.be.at.least(0);
           });
           it('by checking the names', () => {
-            var action = ActionCreators.userIsCreated(123, 'Armando');
+            var action = ActionCreators.userIsCreated(123, 'Armando Trovajoli');
             store.dispatch(action);
             var endState = store.getState();
             expect(endState.users.length).to.be.eql(4);
