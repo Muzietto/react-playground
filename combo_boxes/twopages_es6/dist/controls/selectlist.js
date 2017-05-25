@@ -1,4 +1,4 @@
-define(['exports', 'react', './dropdown', 'collections/itemsList'], function (exports, _react, _dropdown, _itemsList) {
+define(['exports', 'react', './dropdown', 'collections/itemslist'], function (exports, _react, _dropdown, _itemsList) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
