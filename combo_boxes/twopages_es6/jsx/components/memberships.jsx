@@ -10,7 +10,7 @@ import DeletableComponent from 'high-order/deletableComponent';
 import util from 'misc/util';
 
 const DeletableUser = DeletableComponent(User);
-  const state = store.getState();
+const state = store.getState();
 
 class Memberships extends React.Component {
   constructor(params) {
