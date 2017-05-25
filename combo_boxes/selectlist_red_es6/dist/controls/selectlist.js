@@ -1,4 +1,4 @@
-define(['exports', 'react', './dropdown', 'collections/itemsList'], function (exports, _react, _dropdown, _itemsList) {
+define(['exports', 'react', './dropdown', 'collections/itemslist'], function (exports, _react, _dropdown, _itemslist) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -9,7 +9,7 @@ define(['exports', 'react', './dropdown', 'collections/itemsList'], function (ex
 
   var _dropdown2 = _interopRequireDefault(_dropdown);
 
-  var _itemsList2 = _interopRequireDefault(_itemsList);
+  var _itemsList2 = _interopRequireDefault(_itemslist);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
