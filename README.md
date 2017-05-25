@@ -1,6 +1,9 @@
 # react-playground
 just trying out thingies
 
+- [user/group management, React+React-Router+Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/twopages_es6.html)
+- [related Mocha tests, Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/twopages_Mocha.html)
+
 ![playground](https://raw.githubusercontent.com/Muzietto/react-playground/master/docs/giants_in_the_playground.jpg)
 
 - [form with controls, React+Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/the_book/chapter7/form02_redux_es6/form02_redux_es6.html)
