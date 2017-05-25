@@ -4,7 +4,7 @@ define(['exports', 'react', 'misc/util'], function (exports, _react, _util) {
 
   Object.defineProperty(exports, "__esModule", {
     value: true
-  });;
+  });
 
   var _react2 = _interopRequireDefault(_react);
 
