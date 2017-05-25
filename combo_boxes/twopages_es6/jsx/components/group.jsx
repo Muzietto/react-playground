@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-class User extends React.Component {
+class Group extends React.Component {
   render() {
     return <span id={'groupDiv' + this.props.data.id}>
       <h3>Details group</h3>
@@ -13,4 +13,4 @@ class User extends React.Component {
   }
 }
 
-export default User;
+export default Group;
