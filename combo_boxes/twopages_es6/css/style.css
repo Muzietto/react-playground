@@ -1,7 +1,10 @@
-body {
+
+body > p {
+  margin: 40px;
 }
 
 div#container {
+  font-size: 1.4em;
   width: 450px;
   margin: 0 auto;
 }
@@ -10,8 +13,33 @@ div.menu-div {
   height: 70px;
 }
 
+ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+ul a {
+  float: right;
+}
+
 span.separated-span {
   margin-right: 20px;
+}
+
+.entity-adder-div input {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.double-select-container select.form-control {
+  font-size: 1.2em;
+  width: 100%;
+  padding-top: 1px;
+  margin-bottom: 35px;
+}
+
+.double-select-container > select.form-control {
+  margin-bottom: 10px;
 }
 
 div.wrapper {
@@ -20,8 +48,4 @@ div.wrapper {
   margin: 0 auto;
   padding: 10px;
   background-color: lightgrey;
-}
-
-select.form-control {
-    width: 50%;
 }

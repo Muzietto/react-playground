@@ -24,7 +24,7 @@ class DoubleSelectList extends React.Component {
   }
 
   render() {
-    return <div id={'doubleSelectListDiv' + this.props.id}>
+    return <div className="double-select-container" id={'doubleSelectListDiv' + this.props.id}>
       <Dropdown id={'doubleSelectListDiv' + this.props.id + 'dropdown'}
         options={this.props.selectOptions1}
         labelField={this.props.selectLabelField1}
