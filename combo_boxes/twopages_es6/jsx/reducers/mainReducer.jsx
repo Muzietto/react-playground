@@ -16,8 +16,10 @@ function mainReducer(state, action) {
         id: action.idUser,
       });
       state.user_group[action.idUser] = [];
+      newGnu = Object.assign({}, state.group_no_user);
+      Object.keys(newGnu).forEach(key => { newGnu[key].push(action.idUser); });
+      state.group_no_user = newGnu;
       return state;
-      // TODO - update user_no_group
     case ActionTypes.GROUP_IS_CREATED:
       state.groups.push({
         name: action.name,
