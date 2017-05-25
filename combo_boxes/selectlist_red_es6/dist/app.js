@@ -1,4 +1,4 @@
-define(['react', 'react-dom', 'shell', 'initStore', 'actions/actions', 'user', 'controls/selectList', 'high-order/deletableComponent', 'misc/util'], function (_react, _reactDom, _shell, _initStore, _actions, _user, _selectList, _deletableComponent, _util) {
+define(['react', 'react-dom', 'shell', 'initStore', 'actions/actions', 'user', 'controls/selectlist', 'high-order/deletableComponent', 'misc/util'], function (_react, _reactDom, _shell, _initStore, _actions, _user, _selectlist, _deletableComponent, _util) {
   'use strict';
 
   var _react2 = _interopRequireDefault(_react);
@@ -9,7 +9,7 @@ define(['react', 'react-dom', 'shell', 'initStore', 'actions/actions', 'user', '
 
   var _user2 = _interopRequireDefault(_user);
 
-  var _selectList2 = _interopRequireDefault(_selectList);
+  var _selectList2 = _interopRequireDefault(_selectlist);
 
   var _deletableComponent2 = _interopRequireDefault(_deletableComponent);
 

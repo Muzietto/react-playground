@@ -6,7 +6,7 @@ import Shell from 'shell';
 import { store } from 'initStore';
 import { ActionCreators } from 'actions/actions';
 import User from 'user';
-import SelectList from 'controls/selectList';
+import SelectList from 'controls/selectlist';
 import DeletableComponent from 'high-order/deletableComponent';
 import util from 'misc/util';
 
