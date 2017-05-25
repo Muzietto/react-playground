@@ -1,47 +1,33 @@
-'use strict';
-
 import React from 'react';
+import ReactRouter from 'react-router';
 import ReactDOM from 'react-dom';
 import { store } from 'initStore';
-import DoubleSelectList from 'controls/doubleselectlist';
-import { ActionCreators } from 'actions/actions';
-import User from 'components/user';
-import DeletableComponent from 'high-order/deletableComponent';
-import util from 'misc/util';
+import { Menu } from 'components/menu';
+import { Users } from 'components/users';
+import { User } from 'components/user';
+import { Groups } from 'components/groups';
+import { Group } from 'components/group';
+import { Memberships } from 'components/memberships';
 
-const DeletableUser = DeletableComponent(User);
+let {Router, Route, Link, hashHistory, withRouter} = ReactRouter;
 
 const render = () => {
   const state = store.getState();
-  ReactDOM.render(
-    <DoubleSelectList
-      id='1'
-      selectOptions1={state.groups}
-      selectLabelField1='name'
-      selectValueField1='id'
-
-      selectOptions2={state.group_no_user}
-      selectLabelField2='name'
-      selectValueField2='id'
-      optionsMapper2={state.mappers.userFromId}
-      onSelectChange2={idGroup => idUser => store.dispatch(ActionCreators.userEntersGroup(idUser, idGroup))}
-      
-      listItems={state.group_user}
-      listItemsMapper={state.mappers.userFromId}
-      listItemsDisplayMapper={listItemsDisplayMapper}
-      />,
-      document.getElementById('container')
-  );
+  ReactDOM.render((
+    <Router history={hashHistory}>
+      <Route path="/" component={Menu}>
+        <Route path="/users" component={Users}>
+          <Route path="/user/:id" component={User}/>
+        </Route>
+        <Route path="/groups" component={Groups}>
+          <Route path="/group/:id" component={Group}/>
+        </Route>
+        <Route path="/memberships" component={Memberships}/>
+      </Route>
+    </Router>
+  ), document.getElementById('container'));
 }
 
 render();
 store.subscribe(render);
-
-function listItemsDisplayMapper(idGroup) {
-  return function(item) {
-    return <DeletableUser
-      id={item.id}
-      data={item}
-      callbacks={{delete: () => store.dispatch(ActionCreators.userLeavesGroup(item.id, idGroup))}}/>
-  }
-}
+window.store = store;
