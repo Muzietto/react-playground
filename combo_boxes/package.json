@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "twopages": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./twopages_es6/jsx --out-dir ./twopages_es6/dist --source-maps inline -w",
+    "twopages_sm": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./twopages_es6/jsx --out-dir ./twopages_es6/dist --source-maps inline -w",
+    "twopages": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./twopages_es6/jsx --out-dir ./twopages_es6/dist -w",
     "compositees6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./composite_es6/jsx --out-dir ./composite_es6/dist --source-maps inline -w",
     "selectlist": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./selectlist_red_es6/jsx --out-dir ./selectlist_red_es6/dist --source-maps inline -w",
     "simplehioredes6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./simplehiored_es6/jsx --out-dir ./simplehiored_es6/dist --source-maps inline -w",
