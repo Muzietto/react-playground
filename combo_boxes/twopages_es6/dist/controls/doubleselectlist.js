@@ -1,4 +1,4 @@
-define(['exports', 'react', 'controls/dropdown', 'controls/selectList'], function (exports, _react, _dropdown, _selectList) {
+define(['exports', 'react', 'controls/dropdown', 'controls/selectlist'], function (exports, _react, _dropdown, _selectList) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
