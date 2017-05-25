@@ -1,4 +1,4 @@
-define(['exports', 'react', 'controls/dropdown', 'controls/selectList'], function (exports, _react, _dropdown, _selectList) {
+define(['exports', 'react', 'controls/dropdown', 'controls/selectlist'], function (exports, _react, _dropdown, _selectlist) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -9,7 +9,7 @@ define(['exports', 'react', 'controls/dropdown', 'controls/selectList'], functio
 
   var _dropdown2 = _interopRequireDefault(_dropdown);
 
-  var _selectList2 = _interopRequireDefault(_selectList);
+  var _selectList2 = _interopRequireDefault(_selectlist);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {

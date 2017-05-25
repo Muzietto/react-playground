@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Dropdown from './dropdown';
-import ItemsList from 'collections/itemsList';
+import ItemsList from 'collections/itemslist';
 
 class SelectList extends React.Component {
   render() {
