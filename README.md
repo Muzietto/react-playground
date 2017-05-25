@@ -6,8 +6,11 @@ just trying out thingies
 
 ![playground](https://raw.githubusercontent.com/Muzietto/react-playground/master/docs/giants_in_the_playground.jpg)
 
-- [single select with list of choices, React+Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/selectlist_red_es6/selectlist_red_es6.html)
+### advanced experiments
+- [single select with list of choices, React+Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/composite_es6.html)
+- [double select with list of choices, React+Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/selectlist_red_es6.html)
 
+### initial experiments
 - [form with controls, React+Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/the_book/chapter7/form02_redux_es6/form02_redux_es6.html)
 - [form with controls, React+Redux](http://rawgit.com/Muzietto/react-playground/master/the_book/chapter7/form02_redux/lots_of_controls.html)
 - [form with controls, bare React](http://rawgit.com/Muzietto/react-playground/master/the_book/chapter7/form02/lots_of_controls.html)
