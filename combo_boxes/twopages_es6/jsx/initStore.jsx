@@ -10,14 +10,14 @@ import entityDeleteValidatingMiddleware from 'middleware/entityDeleteValidatingM
 
 var initialState = {
   users: [
-    {name: 'Armando', id: 1},
-    {name: 'Bruno', id: 2},
-    {name: 'Carlo', id: 3},
-    {name: 'Daniele', id: 4},
+    {name: 'Armando Trovajoli', id: 1},
+    {name: 'Bruno Carducci', id: 2},
+    {name: 'Carlo Pedersoli', id: 3},
+    {name: 'Daniele Luchetta', id: 4},
   ],
   groups: [
-    {name: 'Music', id: 1},
-    {name: 'Dance', id: 2},
+    {name: 'Classical Music', id: 1},
+    {name: 'Modern Dance', id: 2},
     {name: 'Jogging', id: 3},
     {name: 'Cycling', id: 4},
   ],
