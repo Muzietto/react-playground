@@ -7,19 +7,14 @@ import EntityCrud from 'controls/entitycrud';
 import EntityAdder from 'controls/entityadder';
 import { ActionCreators } from 'actions/actions';
 
-const state = store.getState();
-
 class Groups extends React.Component {
-  constructor(params) {
-    super(params);
-    this.state = state;
-  }
   render() {
+    let state = store.getState();
     return (
     <div>
       <EntityCrud id="1"
         entityType="group" 
-        collection={this.state.groups}
+        collection={state.groups}
         onAddEntityClick={entityAdder}
         onDeleteEntityClick={entityDeleter} />
     </div>

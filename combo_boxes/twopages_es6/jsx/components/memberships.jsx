@@ -10,30 +10,29 @@ import DeletableComponent from 'high-order/deletableComponent';
 import util from 'misc/util';
 
 const DeletableUser = DeletableComponent(User);
-const state = store.getState();
 
 class Memberships extends React.Component {
   constructor(params) {
     super(params);
-    this.state = state;
   }
   render() {
+    let state = store.getState();
     return (
       <div>
         <DoubleSelectList
           id='1'
-          selectOptions1={this.state.groups}
+          selectOptions1={state.groups}
           selectLabelField1='name'
           selectValueField1='id'
 
-          selectOptions2={this.state.group_no_user}
+          selectOptions2={state.group_no_user}
           selectLabelField2='name'
           selectValueField2='id'
-          optionsMapper2={this.state.mappers.userFromId}
+          optionsMapper2={state.mappers.userFromId}
           onSelectChange2={idGroup => idUser => store.dispatch(ActionCreators.userEntersGroup(idUser, idGroup))}
-          
-          listItems={this.state.group_user}
-          listItemsMapper={this.state.mappers.userFromId}
+
+          listItems={state.group_user}
+          listItemsMapper={state.mappers.userFromId}
           listItemsDisplayMapper={listItemsDisplayMapper}
           />
       </div>
