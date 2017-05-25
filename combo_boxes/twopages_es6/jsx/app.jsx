@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactRouter from 'react-router';
+import { Router, Route, Link, hashHistory, withRouter } from 'react-router';
 import ReactDOM from 'react-dom';
 import { store } from 'initStore';
 import { Menu } from 'components/menu';
@@ -8,8 +8,6 @@ import { User } from 'components/user';
 import { Groups } from 'components/groups';
 import { Group } from 'components/group';
 import { Memberships } from 'components/memberships';
-
-let {Router, Route, Link, hashHistory, withRouter} = ReactRouter;
 
 const render = () => {
   const state = store.getState();
