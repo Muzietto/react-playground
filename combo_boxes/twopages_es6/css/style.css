@@ -1,6 +1,19 @@
 body {
 }
 
+div#container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+div.menu-div {
+  height: 70px;
+}
+
+span.separated-span {
+  margin-right: 20px;
+}
+
 div.wrapper {
   width: 400px;
   min-height: 400px;

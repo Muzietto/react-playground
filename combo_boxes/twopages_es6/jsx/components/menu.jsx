@@ -20,7 +20,7 @@ class Menu extends React.Component {
               Groups
             </Link>
           </li>
-          <li className={(this.context.router.isActive('/contact')) ? 'active' : ''}>
+          <li className={(this.context.router.isActive('/memberships')) ? 'active' : ''}>
             <Link to="/memberships" activeClassName="active">
               Memberships
             </Link>

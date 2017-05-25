@@ -5,7 +5,7 @@ import React from 'react';
 
 class User extends React.Component {
   render() {
-    return <span id={'userDiv' + this.props.data.id}>
+    return <span className="list-row" id={'userDiv' + this.props.data.id}>
       <span className="separated-span">Details user</span>
       <span className="separated-span">{this.props.data.id}</span>
       <span className="separated-span">{this.props.data.name}</span>
