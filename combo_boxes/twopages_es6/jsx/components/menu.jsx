@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class Menu extends React.Component {
+  static contextTypes = {
+      router: React.PropTypes.object
+  };
   render() {
     return (
     <div>
