@@ -4,6 +4,8 @@ import { ActionTypes } from '../actions/actions'
 import util from '../misc/util';
 
 function mainReducer(state, action) {
+  var newUg, newGu, newGnu
+  ;
   switch (action.type) {
     case ActionTypes.ALERT_USER:
       alert('ALERT_USER: ' + action.message);
@@ -25,17 +27,20 @@ function mainReducer(state, action) {
       return state;
     case ActionTypes.USER_IS_DELETED:
       state.users = state.users.filter(u => u.id !== action.idUser);
-      let newUg = Object.assign({}, state.user_group);
+      newUg = Object.assign({}, state.user_group);
       delete newUg[action.idUser];
       state.user_group = newUg;
-      // TODO - remove user from group_no_user
+      newGnu = Object.assign({}, state.group_no_user);
+      Object.keys(newGnu).forEach(key => { newGnu[key] = newGnu[key]
+        .filter(id => (id !== action.idUser)); });
+      state.group_no_user = newGnu;
       return state;
     case ActionTypes.GROUP_IS_DELETED:
       state.groups = state.groups.filter(g => g.id !== action.idGroup);
-      let newGu = Object.assign({}, state.group_user);
+      newGu = Object.assign({}, state.group_user);
       delete newGu[action.idGroup];
       state.group_user = newGu;
-      let newGnu = Object.assign({}, state.group_no_user);
+      newGnu = Object.assign({}, state.group_no_user);
       delete newGnu[action.idGroup];
       state.group_no_user = newGnu;
       return state;
