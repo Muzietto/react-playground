@@ -17,6 +17,7 @@ function mainReducer(state, action) {
       });
       state.user_group[action.idUser] = [];
       return state;
+      // TODO - update user_no_group
     case ActionTypes.GROUP_IS_CREATED:
       state.groups.push({
         name: action.name,
