@@ -10,7 +10,8 @@ import { ActionCreators } from 'actions/actions';
 const state = store.getState();
 
 class Users extends React.Component {
-  constructor() {
+  constructor(params) {
+    super(params);
     this.state = state;
   }
   render() {
