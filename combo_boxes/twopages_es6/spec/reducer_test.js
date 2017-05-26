@@ -36,12 +36,15 @@
         });
         it('can create users, updating the administration to handle them', () => {
           expect(this.state.users.length).to.be.equal(4);
+          expect(this.state.user_group[5]).to.be.undefined;
           expect(Object.keys(this.state.user_group).length).to.be.equal(5); // it contains also fake key 0
+          expect(this.state.group_no_user[1].length).to.be.equal(2);
           var action = ActionCreators.userIsCreated(5, 'test5');
           var endState = reducer(this.state, action);
           expect(endState.users.length).to.be.eql(5);
           expect(Object.keys(endState.user_group).length).to.be.equal(6);
           expect(endState.user_group[5]).to.be.eql([]);
+          expect(this.state.group_no_user[1].length).to.be.equal(3);
         });
         it('can create groups, updating the administration to handle them', () => {
           expect(this.state.groups.length).to.be.equal(4);
@@ -111,40 +114,9 @@
         afterEach(() => {
           window.alert = this.temp;        
         });
-        describe('will forbid the deletion', () => {
-          it('of users still belonging to groups', () => {
-            var action = ActionCreators.userIsDeleted(1);
-            store.dispatch(action);
-            var endState = store.getState();
-            expect(endState.users.length).to.be.eql(4);
-            expect(window.alert().indexOf('cannot delete user')).to.be.at.least(0);
-          });
-          it('of groups containing still members', () => {
-            var action = ActionCreators.groupIsDeleted(1);
-            store.dispatch(action);
-            var endState = store.getState();
-            expect(endState.groups.length).to.be.eql(4);
-            expect(window.alert().indexOf('cannot delete group')).to.be.at.least(0);
-          });
-        });
-        describe('will avoid the creation of duplicate groups', () => {
+        describe('will loudly avoid the creation of duplicate users', () => {
           it('by checking the ids', () => {
-            var action = ActionCreators.groupIsCreated(1, 'again1');
-            store.dispatch(action);
-            var endState = store.getState();
-            expect(endState.groups.length).to.be.eql(4);
-            expect(window.alert().indexOf('duplicate group')).to.be.at.least(0);
-          });
-          it('by checking the names', () => {
-            var action = ActionCreators.groupIsCreated(123, 'Classical Music');
-            store.dispatch(action);
-            var endState = store.getState();
-            expect(endState.groups.length).to.be.eql(4);
-            expect(window.alert().indexOf('duplicate group')).to.be.at.least(0);
-          });
-        });
-        describe('will avoid the creation of duplicate users', () => {
-          it('by checking the ids', () => {
+            expect(store.getState().users.length).to.be.eql(4);
             var action = ActionCreators.userIsCreated(1, 'again1');
             store.dispatch(action);
             var endState = store.getState();
@@ -152,11 +124,48 @@
             expect(window.alert().indexOf('duplicate user')).to.be.at.least(0);
           });
           it('by checking the names', () => {
+            expect(store.getState().users.length).to.be.eql(4);
             var action = ActionCreators.userIsCreated(123, 'Armando Trovajoli');
             store.dispatch(action);
             var endState = store.getState();
             expect(endState.users.length).to.be.eql(4);
             expect(window.alert().indexOf('duplicate user')).to.be.at.least(0);
+          });
+        });
+        describe('will loudly avoid the creation of duplicate groups', () => {
+          it('by checking the ids', () => {
+            expect(store.getState().groups.length).to.be.eql(4);
+            var action = ActionCreators.groupIsCreated(1, 'again1');
+            store.dispatch(action);
+            var endState = store.getState();
+            expect(endState.groups.length).to.be.eql(4);
+            expect(window.alert().indexOf('duplicate group')).to.be.at.least(0);
+          });
+          it('by checking the names', () => {
+            expect(store.getState().groups.length).to.be.eql(4);
+            var action = ActionCreators.groupIsCreated(123, 'Classical Music');
+            store.dispatch(action);
+            var endState = store.getState();
+            expect(endState.groups.length).to.be.eql(4);
+            expect(window.alert().indexOf('duplicate group')).to.be.at.least(0);
+          });
+        });
+        describe('will loudly forbid the deletion', () => {
+          it('of users still belonging to groups', () => {
+            expect(store.getState().users.length).to.be.eql(4);
+            var action = ActionCreators.userIsDeleted(1);
+            store.dispatch(action);
+            var endState = store.getState();
+            expect(endState.users.length).to.be.eql(4);
+            expect(window.alert().indexOf('cannot delete user')).to.be.at.least(0);
+          });
+          it('of groups containing still members', () => {
+            expect(store.getState().groups.length).to.be.eql(4);
+            var action = ActionCreators.groupIsDeleted(1);
+            store.dispatch(action);
+            var endState = store.getState();
+            expect(endState.groups.length).to.be.eql(4);
+            expect(window.alert().indexOf('cannot delete group')).to.be.at.least(0);
           });
         });
         describe('will parseInt strings containing digits', () => {
