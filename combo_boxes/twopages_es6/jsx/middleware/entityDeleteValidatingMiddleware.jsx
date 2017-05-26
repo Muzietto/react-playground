@@ -21,7 +21,7 @@ const entityDeleteValidatingMiddleware = ({ getState, dispatch }) => next => act
         dispatch(ActionCreators.alertUser([
             'members ',
             JSON.stringify(state.group_user[action.idGroup]),
-            ' exists: cannot delete group - id=',
+            ' exist: cannot delete group - id=',
             action.idGroup,
           ].join('')));
         return;

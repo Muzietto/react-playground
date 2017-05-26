@@ -17,7 +17,7 @@ define(['exports', 'actions/actions'], function (exports, _actions) {
         break;
       case _actions.ActionTypes.GROUP_IS_DELETED:
         if (state.group_user[action.idGroup].length > 0) {
-          dispatch(_actions.ActionCreators.alertUser(['members ', JSON.stringify(state.group_user[action.idGroup]), ' exists: cannot delete group - id=', action.idGroup].join('')));
+          dispatch(_actions.ActionCreators.alertUser(['members ', JSON.stringify(state.group_user[action.idGroup]), ' exist: cannot delete group - id=', action.idGroup].join('')));
           return;
         }
         break;
