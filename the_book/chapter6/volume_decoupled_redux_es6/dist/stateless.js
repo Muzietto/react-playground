@@ -75,7 +75,7 @@ define(['exports', 'react'], function (exports, _react) {
       value: function render() {
         return _react2.default.createElement(
           'button',
-          { onClick: this.props.clicker },
+          { className: "button stateless " + this.props.className, onClick: this.props.clicker },
           this.props.labella
         );
       }
