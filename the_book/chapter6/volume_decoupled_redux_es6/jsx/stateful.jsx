@@ -12,15 +12,15 @@ class StatefulParent extends React.Component {
 //  }
   render() {
     var currentCounter = store.getState();
-    return <div className="stateful">
+    return <div className="stateful stateful--padding stateful--shadow">
         <StatelessButton
-          className="stateless--increase-volume"
+          className="stateful__item stateful__item--increase-volume"
           clicker={dispatcher(ActionCreators.increasedCounter)}
           labella={'Increase Volume'}
         />
         <label className="label">{'(currently ' + currentCounter + ')'}</label>
         <StatelessButton
-          className="stateless--decrease-volume"
+          className="stateful__item stateful__item--decrease-volume"
           clicker={dispatcher(ActionCreators.decreasedCounter)}
           labella={'Decrease Volume'}
         />

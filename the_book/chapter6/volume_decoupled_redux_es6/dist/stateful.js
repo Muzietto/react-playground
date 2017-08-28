@@ -78,9 +78,9 @@ define(['exports', 'react', './stateless', './actions', './initStore'], function
         var currentCounter = _initStore.store.getState();
         return _react2.default.createElement(
           'div',
-          { className: 'stateful' },
+          { className: 'stateful stateful--padding stateful--shadow' },
           _react2.default.createElement(_stateless2.default, {
-            className: 'stateless--increase-volume',
+            className: 'stateful__item stateful__item--increase-volume',
             clicker: dispatcher(_actions.ActionCreators.increasedCounter),
             labella: 'Increase Volume'
           }),
@@ -90,7 +90,7 @@ define(['exports', 'react', './stateless', './actions', './initStore'], function
             '(currently ' + currentCounter + ')'
           ),
           _react2.default.createElement(_stateless2.default, {
-            className: 'stateless--decrease-volume',
+            className: 'stateful__item stateful__item--decrease-volume',
             clicker: dispatcher(_actions.ActionCreators.decreasedCounter),
             labella: 'Decrease Volume'
           })
