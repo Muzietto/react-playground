@@ -9,9 +9,14 @@
 <div class="container-fluid">
     <h3>String Wizard - React+Redux+Babel-ES6</h3>
     <div id="content">
-        <input type="text" value="http://example.com/wizard?a=12&b=test" style="width:370px;">
+        <input id="test_input" type="text" value="http://example.com/wizard?a=12&b=test" style="width:370px;">
     </div>
-    <script src="dist/require.js" data-main="dist/app"></script>
+    <script src="dist/lib/require.js" data-main="dist/app"></script>
+    <!--script>
+        document.getElementById('test_input').addEventListener('click', function(ev) {
+            alert(ev.target.id);
+        });
+    </script-->
 </div>
 </body>
 
