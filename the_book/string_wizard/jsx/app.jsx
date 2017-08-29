@@ -1,12 +1,12 @@
 'use strict';
+import wrapper from 'input_wrapper.es6';
 
-var handler = sampleHandler;
-
-function sampleHandler(ev) {
-    console.log('whatever');
-    alert(ev.target.id);
+function wrappingHandler(ev) {
+    var wrapped = wrapper(ev.target);
+    wrapped.write('changed_text');
 }
 
 document
     .getElementById('test_input')
-    .addEventListener('click', handler);
+    .addEventListener('click', wrappingHandler);
+
