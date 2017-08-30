@@ -17,7 +17,7 @@
     "volumedecred": "./node_modules/.bin/babel ./chapter6/volume_decoupled_redux/jsx -o ./chapter6/volume_decoupled_redux/js/bundle.js -w",
     "volumedeces6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./chapter6/volume_decoupled_redux_es6/jsx --out-dir ./chapter6/volume_decoupled_redux_es6/dist",
     "volumedecredes6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./chapter6/volume_decoupled_redux_es6/jsx --out-dir ./chapter6/volume_decoupled_redux_es6/dist",
-    "stringwizard": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./string_wizard/jsx --out-dir ./string_wizard/dist",
+    "stringwizard": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./string_wizard/jsx --out-dir ./string_wizard/dist -w",
     "reduxnetflix": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./redux-netflix/jsx --out-dir ./redux-netflix/dist -w",
     "build": "./node_modules/.bin/webpack -w"
   },
