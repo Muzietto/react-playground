@@ -16,7 +16,7 @@ class App extends React.Component {
     // instance members - require Babel plugin "transform-class-properties"
     targetApi = this.props.targetApi;
 
-    saveToTarget = () => {
+    saveToTargetAndClosePopup = () => {
         this.targetApi.write(this.state.kvPairs);
         // close popup
         this.setState({
@@ -24,14 +24,40 @@ class App extends React.Component {
         });
     };
 
+    handleKeyChange = id => ev => {
+        var newKey = ev.target.value;
+        var currentValue = this.state.kvPairs
+            .find(kvp => (kvp.id === id)).value;
+        this.setState({
+            kvPairs: [
+                {id: id, key: newKey, value: currentValue},
+                ...this.state.kvPairs.filter(kvp => (kvp.id !== id)),
+            ]
+        });
+    };
+
+    handleValueChange = id => ev => {
+        var newValue = ev.target.value;
+        var currentKey = this.state.kvPairs
+            .find(kvp => (kvp.id === id)).key;
+        this.setState({
+            kvPairs: [
+                {id: id, key: currentKey, value: newValue},
+                ...this.state.kvPairs.filter(kvp => (kvp.id !== id)),
+            ]
+        });
+    };
+
     kvListHandlers = {
         add: () => {
             var newId = this.state.kvPairs.length; // 0-based
             this.setState({
-                kvPairs: [{id: newId, key: 'asd', value: '123'}, ...this.state.kvPairs]
+                kvPairs: [{id: newId, key: '', value: ''}, ...this.state.kvPairs]
             });
         },
-        save: this.saveToTarget
+        save: this.saveToTargetAndClosePopup,
+        handleKeyChange: this.handleKeyChange.bind(this),
+        handleValueChange: this.handleValueChange.bind(this),
     };
 
     kvPairDeleteCallback = id => () => (alert('deleting ' + id));

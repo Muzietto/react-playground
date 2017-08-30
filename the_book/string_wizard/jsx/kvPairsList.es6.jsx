@@ -14,6 +14,8 @@ class KvPairsList extends React.Component{
             .map(kvPairObj => (<KvPair
                 key={kvPairObj.id}
                 data={kvPairObj} // kvPairObj = {id, key, value}
+                onKeyChange={this.props.handlers.handleKeyChange(kvPairObj.id)}
+                onValueChange={this.props.handlers.handleValueChange(kvPairObj.id)}
                 deleteCallback={kvPairDeleteCallback(kvPairObj.id)}/>));
 
         return (
