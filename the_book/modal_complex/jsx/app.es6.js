@@ -8,11 +8,15 @@ class App extends Component {
     this.state = { isOpen: false };
   }
 
+  // instance member - requires Babel plugin "transform-class-properties"
   toggleModal = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
+  // static member - requires same Babel plugin as above
+  static membroStatico = () => (console.log('static member talking'))
 
   render() {
     return (
