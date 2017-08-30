@@ -3,7 +3,7 @@
 function aggregator() {
 
     var _compose = (baseUrl, kvList) => kvList
-        .map(kv => [kv[0], encodeURIComponent(kv[1])])
+        .map(kvObj => [kvObj.key, encodeURIComponent(kvObj.value)])
         .reduce((acc, kvPair) => acc + kvPair
             .join('=') + '&', baseUrl + '?')
         .slice(0, -1); // remove last &
@@ -12,7 +12,11 @@ function aggregator() {
         .split('?')[1]
         .split('&')
         .map(str => str.split('='))
-        .map(kv => [kv[0], decodeURIComponent(kv[1])]);
+        .map((kvString, index) => ({
+            id: index,
+            key: kvString[0],
+            value: decodeURIComponent(kvString[1])
+        }));
 
     return {
         compose: _compose,
