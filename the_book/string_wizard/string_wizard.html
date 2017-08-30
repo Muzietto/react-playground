@@ -5,6 +5,28 @@
     <title>String Wizard</title>
     <link rel="stylesheet" type="text/stylesheet" href="css/style.css">
     <style>
+        .modal {
+            z-index: 3;
+            display: none;
+            padding-top: 100px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4)
+        }
+
+        .modal__content {
+            margin: auto;
+            background-color: #fff;
+            position: relative;
+            padding: 0;
+            outline: 0;
+        }
+
         .kvpairs {
             margin: 50px;
             border: 1px solid red;
@@ -41,7 +63,7 @@
     </style>
 </head>
 <body style="font-family: sans-serif">
-<div class="container-fluid">
+<div class="container-fluid" id="horizon">
     <h3>String Wizard - React+Babel-ES6</h3>
     <div id="content2">
         <input
@@ -53,7 +75,6 @@
                 value="http://example.com/wizard?background=http%3A%2F%2Fec2-54-171-172-95.eu-west-1.compute.amazonaws.com%2Ftransparent-png%2F1200%2F680&a=12&b=test&textbox5_fontColor=%23FEFFCDff"
                 style="width:1400px;">
     </div>
-    <div id="anchor_div"></div>
     <script src="dist/lib/require.js" data-main="dist/app.es6"></script>
 </div>
 </body>

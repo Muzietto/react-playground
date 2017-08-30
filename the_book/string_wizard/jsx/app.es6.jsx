@@ -2,7 +2,7 @@
 import comms from 'comms.es6';
 import wrapper from 'input_wrapper.es6';
 import aggregator from 'aggregator.es6';
-import KvPairsList from 'kvPairsList.es6';
+import ModalPopup from 'modalPopup.es6';
 import React from 'lib/react';
 import ReactDOM from 'lib/react-dom';
 
@@ -18,7 +18,7 @@ function blob(ev) {
 
 function kvListHandler2(ev) {
 
-    var THE_ANCHOR = document.getElementById('anchor_div');
+    var THE_ANCHOR = document.getElementById('horizon');
 
     var kvList = blob(ev);
     var kvListData = kvList.read();
@@ -29,9 +29,8 @@ function kvListHandler2(ev) {
 
     var kvPairDeleteCallback = id => () => (alert('deleting ' + id));
 
-
     ReactDOM.render(
-        <KvPairsList
+        <ModalPopup
             kvPairs={kvListData}
             deleteCallback={kvPairDeleteCallback}
             handlers={kvListHandlers}
