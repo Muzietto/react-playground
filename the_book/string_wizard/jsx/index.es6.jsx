@@ -20,7 +20,6 @@ function api(elem) {
 
 function modalPopupHandler(ev) {
     var target = ev.target;
-    if (!target.classList.contains('input')) return;
     var targetLeft = target.offsetLeft + 30;
     var targetTop = target.offsetTop - 70;
 
