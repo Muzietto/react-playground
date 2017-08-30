@@ -13,23 +13,25 @@ class App extends React.Component {
         };
     }
 
-    // instance member - requires Babel plugin "transform-class-properties"
-    toggleModal = () => {
+    // instance members - require Babel plugin "transform-class-properties"
+    targetApi = this.props.targetApi;
+
+    saveToTarget = () => {
+        this.targetApi.write(this.state.kvPairs);
+        // close popup
         this.setState({
             isOpen: !this.state.isOpen
         });
     };
 
-    targetApi = this.props.targetApi;
-
     kvListHandlers = {
         add: () => {
             var newId = this.state.kvPairs.length; // 0-based
             this.setState({
-                kvPairs: [{id: newId, key: '', value: ''}, ...this.state.kvPairs]
+                kvPairs: [{id: newId, key: 'asd', value: '123'}, ...this.state.kvPairs]
             });
         },
-        save: this.toggleModal
+        save: this.saveToTarget
     };
 
     kvPairDeleteCallback = id => () => (alert('deleting ' + id));

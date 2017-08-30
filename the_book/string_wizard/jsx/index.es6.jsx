@@ -9,10 +9,12 @@ function api(elem) {
     var elemWrapper = wrapper(elem);
 
     return {
-        baseUrl: () => elemWrapper.read().split('?')[0],
         read: () => aggregator.decompose(elemWrapper.read()),
-        write: (baseUrl, kvList) => elemWrapper
-            .write(aggregator.compose(baseUrl, kvList)),
+        write: (kvList) => {
+            var baseUrl = elemWrapper.read().split('?')[0];
+            elemWrapper
+                .write(aggregator.compose(baseUrl, kvList));
+        },
     };
 }
 
