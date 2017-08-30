@@ -6,8 +6,8 @@ import ModalPopup from 'modalPopup.es6';
 import React from 'lib/react';
 import ReactDOM from 'lib/react-dom';
 
-function blob(ev) {
-    var communicating = comms(wrapper(ev.target));
+function api(elem) {
+    var communicating = comms(wrapper(elem));
 
     return {
         read: () => aggregator.decompose(communicating.read()),
@@ -16,11 +16,12 @@ function blob(ev) {
     };
 }
 
-function kvListHandler2(ev) {
+function modalPopupHandler(ev) {
+    var target = ev.target;
 
     var THE_ANCHOR = document.getElementById('horizon');
 
-    var kvList = blob(ev);
+    var kvList = api(target);
     var kvListData = kvList.read();
     var kvListHandlers = {
         add: () => (alert('adding!')),
@@ -39,6 +40,6 @@ function kvListHandler2(ev) {
     );
 }
 
-document
-    .getElementById('test_input2')
-    .addEventListener('click', kvListHandler2);
+// Vladimir wanted to see the spread operator at work :-)
+[...document.querySelectorAll('.url_input')]
+    .forEach(elem => elem.addEventListener('click', modalPopupHandler));
