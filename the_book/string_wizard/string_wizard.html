@@ -4,6 +4,36 @@
     <meta charset="UTF-8">
     <title>String Wizard</title>
     <link rel="stylesheet" type="text/stylesheet" href="css/style.css">
+    <style>
+        .kvpairs {
+            margin: 50px;
+            border: 1px solid red;
+            display: inline-block;
+        }
+
+        .kvpair {
+            margin: 10px;
+            padding: 5px;
+            border: 1px solid green;
+        }
+
+        .kvpair__input {
+
+        }
+
+        .kvpair__label--separator {
+
+        }
+
+        .kvpair__button {
+
+        }
+
+        .kvpairs__button--add {
+            width: 50%;
+            float: right;
+        }
+    </style>
 </head>
 <body style="font-family: sans-serif">
 <div class="container-fluid">
@@ -12,6 +42,25 @@
         <input id="test_input" type="text" value="http://example.com/wizard?a=12&b=test" style="width:1400px;">
     </div>
     <script src="dist/lib/require.js" data-main="dist/app"></script>
+</div>
+
+
+<div class="kvpairs">
+    <div class="kvpair">
+        <input id="kvpair0key" class="kvpair__input kvpair__input--key">
+        <label class="label kvpair__label--separator">:</label>
+        <input id="kvpair0value" class="kvpair__input kvpair__input--value">
+        <button class="button kvpair__button">DEL</button>
+    </div>
+    <div class="kvpair">
+        <input id="kvpair1key" class="kvpair__input kvpair__input--key">
+        <label class="label kvpair--separator">:</label>
+        <input id="kvpair1value" class="kvpair__input kvpair__input--value">
+        <button class="button kvpair__button">DEL</button>
+    </div>
+    <div class="kvpairs__buttons">
+        <button class="button kvpairs__button kvpairs__button--add">ADD</button>
+    </div>
 </div>
 </body>
 
