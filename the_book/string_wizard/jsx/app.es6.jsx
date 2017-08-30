@@ -22,15 +22,19 @@ function kvListHandler2(ev) {
 
     var kvList = blob(ev);
     var kvListData = kvList.read();
-    var kvListCallbacks = {
+    var kvListHandlers = {
         add: () => (alert('adding!')),
         save: () => (alert('saving!'))
     };
 
+    var kvPairDeleteCallback = id => () => (alert('deleting ' + id));
+
+
     ReactDOM.render(
         <KvPairsList
             kvPairs={kvListData}
-            callbacks={kvListCallbacks}
+            deleteCallback={kvPairDeleteCallback}
+            handlers={kvListHandlers}
         />,
         THE_ANCHOR
     );
