@@ -1,11 +1,16 @@
-import React, {Component} from 'lib/react';
+// NB - this one is STATEFUL!
+import React from 'lib/react';
 import ModalPopup from 'modalPopup.es6';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {isOpen: props.popupVisible};
+        // initialize state
+        this.state = {
+            isOpen: props.popupVisible,
+            kvPairs: props.targetApi.read(),
+        };
     }
 
     // instance member - requires Babel plugin "transform-class-properties"
@@ -15,8 +20,15 @@ class App extends React.Component {
         });
     };
 
+    targetApi = this.props.targetApi;
+
     kvListHandlers = {
-        add: () => (alert('adding!')),
+        add: () => {
+            var newId = this.state.kvPairs.length; // 0-based
+            this.setState({
+                kvPairs: [{id: newId, key: '', value: ''}, ...this.state.kvPairs]
+            });
+        },
         save: this.toggleModal
     };
 
@@ -26,6 +38,7 @@ class App extends React.Component {
         var theProps = Object.assign({}, this.props);
         theProps.deleteCallback = this.kvPairDeleteCallback;
         theProps.handlers = this.kvListHandlers;
+        theProps.kvPairs = this.state.kvPairs;
 
         return <ModalPopup
             show={this.state.isOpen}

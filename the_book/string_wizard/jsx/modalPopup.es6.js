@@ -1,3 +1,4 @@
+// completely stateless
 'use strict';
 
 import React from 'lib/react';

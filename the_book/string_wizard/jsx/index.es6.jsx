@@ -22,19 +22,16 @@ function modalPopupHandler(ev) {
     var targetTop = target.offsetTop - 70;
 
     var POPUP_ANCHOR = document.getElementById('horizon');
-    POPUP_ANCHOR.innerHTML = '';
+    POPUP_ANCHOR.innerHTML = ''; // wipe out any previous KvPairsList
 
     var targetApi = api(target);
-    var baseUrl = targetApi.baseUrl();
-    var kvListData = targetApi.read();
 
     ReactDOM.render(
         <App
             popupLeft={targetLeft}
             popupTop={targetTop}
             popupVisible={true}
-            saveData={() => (targetApi.write(baseUrl, kvListData))}
-            kvPairs={kvListData}
+            targetApi={targetApi}
         />,
         POPUP_ANCHOR
     );
