@@ -18,6 +18,8 @@ function api(elem) {
 
 function modalPopupHandler(ev) {
     var target = ev.target;
+    var targetLeft = target.offsetLeft + 30;
+    var targetTop = target.offsetTop - 70;
 
     var THE_ANCHOR = document.getElementById('horizon');
 
@@ -32,6 +34,8 @@ function modalPopupHandler(ev) {
 
     ReactDOM.render(
         <ModalPopup
+            popupLeft={targetLeft}
+            popupTop={targetTop}
             kvPairs={kvListData}
             deleteCallback={kvPairDeleteCallback}
             handlers={kvListHandlers}
