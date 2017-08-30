@@ -5,12 +5,12 @@
     <title>String Wizard</title>
     <link rel="stylesheet" type="text/stylesheet" href="css/style.css">
     <style>
-        .url_input {
+        .input {
             width: 1400px;
         }
 
-        .url_input--tail {
-            margin-top: 200px;
+        .input--tail {
+            margin-top: 100px;
             margin-left: 30px;
         }
 
@@ -78,13 +78,19 @@
     <h3>String Wizard - React+Babel-ES6</h3>
     <div id="content2">
         <input
-                class="url_input"
+                class="input url_input"
                 id="test_input"
                 type="text"
                 value="http://example1.com/wizard?background=http%3A%2F%2Fec2-54-171-172-95.eu-west-1.compute.amazonaws.com%2Ftransparent-png%2F1200%2F680"
         >
         <input
-                class="url_input url_input--tail"
+                class="input input--tail"
+                id="test_input1"
+                type="text"
+                value="not an URL"
+        >
+        <input
+                class="input url_input input--tail"
                 id="test_input2"
                 type="text"
                 value="http://example2.com/wizard?a=12&b=test&textbox5_fontColor=%23FEFFCDff"
