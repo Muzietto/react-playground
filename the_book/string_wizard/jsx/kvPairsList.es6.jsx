@@ -5,9 +5,8 @@ import React from 'lib/react';
 import KvPair from 'kvPair.es6';
 import util from 'util.es6';
 
-const KvPairsList = React.createClass({
-    // TODO - insert here propTypes
-    render: function () {
+class KvPairsList extends React.Component{
+    render () {
         var self = this;
         var kvPairDeleteCallback = this.props.deleteCallback;
         var kvPairs = this.props.kvPairs
@@ -32,7 +31,7 @@ const KvPairsList = React.createClass({
                 </div>
             </div>
         );
-    },
-});
+    }
+};
 
 export default KvPairsList;

@@ -3,7 +3,7 @@
 import React from 'lib/react';
 import KvPairsList from 'kvPairsList.es6';
 
-class ModalPopup extends React.component {
+class ModalPopup extends React.Component {
     render() {
         return <div id="id01" class="w3-modal" style="display: block;">
             <div class="w3-modal-content w3-animate-top w3-card-4">
