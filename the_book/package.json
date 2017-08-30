@@ -19,6 +19,7 @@
     "volumedecredes6": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./chapter6/volume_decoupled_redux_es6/jsx --out-dir ./chapter6/volume_decoupled_redux_es6/dist",
     "stringwizard": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./string_wizard/jsx --out-dir ./string_wizard/dist -w",
     "modalsimple": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./modal_simple/jsx --out-dir ./modal_simple/dist -w",
+    "modalcomplex": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./modal_complex/jsx --out-dir ./modal_complex/dist -w",
     "reduxnetflix": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./redux-netflix/jsx --out-dir ./redux-netflix/dist -w",
     "build": "./node_modules/.bin/webpack -w"
   },
@@ -29,7 +30,8 @@
       "react",
       "stage-0",
       "es2015"
-    ]
+    ],
+    "plugins": ["transform-class-properties"]
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
@@ -37,12 +39,13 @@
     "babel-eslint": "^6.1.2",
     "babel-loader": "6.2.4",
     "babel-plugin-react-transform": "^2.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-amd": "^6.6.5",
     "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "6.5.0",
     "babel-preset-react-hmre": "^1.0.1",
     "babel-preset-stage-0": "^6.3.13",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-plugin-transform-es2015-modules-amd": "^6.6.5",
     "react-redux": "^5.0.2",
     "redux": "^3.5.2"
   },
