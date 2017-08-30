@@ -16,7 +16,14 @@ class ModalPopup extends React.Component {
             left: popupLeft
         };
 
-        return <div id="id01" className="modal" style={divStyle}>
+        return <div
+            className="modal"
+            style={divStyle}
+            onClick={(ev) => {
+                ev.target.innerHTML = '';
+                ev.target.style.display = '';
+            }}
+        >
             <div className="modal__content" style={popupStyle}>
                 <KvPairsList
                     {...childProps}
