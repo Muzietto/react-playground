@@ -31,6 +31,11 @@
 
         .kvpairs__button--add {
             width: 50%;
+            float: left;
+        }
+
+        .kvpairs__button--save {
+            width: 50%;
             float: right;
         }
     </style>
@@ -38,14 +43,18 @@
 <body style="font-family: sans-serif">
 <div class="container-fluid">
     <h3>String Wizard - React+Redux+Babel-ES6</h3>
-    <div id="content">
+    <!--div id="content">
         <input id="test_input" type="text" value="http://example.com/wizard?a=12&b=test" style="width:1400px;">
+    </div-->
+    <div id="content2">
+        <input id="test_input2" type="text" value="http://example.com/wizard?a=12&b=test" style="width:1400px;">
     </div>
-    <script src="dist/lib/require.js" data-main="dist/app"></script>
+    <div id="anchor_div"></div>
+    <script src="dist/lib/require.js" data-main="dist/app.es6"></script>
 </div>
 
 
-<div class="kvpairs">
+<!--div class="kvpairs">
     <div class="kvpair">
         <input id="kvpair0key" class="kvpair__input kvpair__input--key">
         <label class="label kvpair__label--separator">:</label>
@@ -60,8 +69,9 @@
     </div>
     <div class="kvpairs__buttons">
         <button class="button kvpairs__button kvpairs__button--add">ADD</button>
+        <button class="button kvpairs__button kvpairs__button--save">SAVE</button>
     </div>
-</div>
+</div-->
 </body>
 
 </html>

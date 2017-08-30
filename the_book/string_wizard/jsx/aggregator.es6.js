@@ -15,7 +15,7 @@ function aggregator() {
         .map((kvString, index) => ({
             id: index,
             key: kvString[0],
-            value: decodeURIComponent(kvString[1])
+            value: decodeURIComponent(kvString[1]),
         }));
 
     return {

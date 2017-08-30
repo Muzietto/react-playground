@@ -1,7 +1,7 @@
 // completely stateless
 'use strict';
 
-import React from 'react';
+import React from 'lib/react';
 
 class KvPair extends React.Component {
     render() {
