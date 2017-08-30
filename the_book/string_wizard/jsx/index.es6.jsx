@@ -1,17 +1,17 @@
 'use strict';
-import comms from 'comms.es6';
 import wrapper from 'input_wrapper.es6';
 import aggregator from 'aggregator.es6';
-import ModalPopup from 'modalPopup.es6';
+import App from 'app.es6';
 import React from 'lib/react';
 import ReactDOM from 'lib/react-dom';
 
 function api(elem) {
-    var communicating = comms(wrapper(elem));
+    var elemWrapper = wrapper(elem);
 
     return {
-        read: () => aggregator.decompose(communicating.read()),
-        write: (baseUrl, kvList) => communicating
+        baseUrl: () => elemWrapper.read().split('?')[0],
+        read: () => aggregator.decompose(elemWrapper.read()),
+        write: (baseUrl, kvList) => elemWrapper
             .write(aggregator.compose(baseUrl, kvList)),
     };
 }
@@ -21,26 +21,22 @@ function modalPopupHandler(ev) {
     var targetLeft = target.offsetLeft + 30;
     var targetTop = target.offsetTop - 70;
 
-    var THE_ANCHOR = document.getElementById('horizon');
+    var POPUP_ANCHOR = document.getElementById('horizon');
+    POPUP_ANCHOR.innerHTML = '';
 
-    var kvList = api(target);
-    var kvListData = kvList.read();
-    var kvListHandlers = {
-        add: () => (alert('adding!')),
-        save: () => (alert('saving!'))
-    };
-
-    var kvPairDeleteCallback = id => () => (alert('deleting ' + id));
+    var targetApi = api(target);
+    var baseUrl = targetApi.baseUrl();
+    var kvListData = targetApi.read();
 
     ReactDOM.render(
-        <ModalPopup
+        <App
             popupLeft={targetLeft}
             popupTop={targetTop}
+            popupVisible={true}
+            saveData={() => (targetApi.write(baseUrl, kvListData))}
             kvPairs={kvListData}
-            deleteCallback={kvPairDeleteCallback}
-            handlers={kvListHandlers}
         />,
-        THE_ANCHOR
+        POPUP_ANCHOR
     );
 }
 

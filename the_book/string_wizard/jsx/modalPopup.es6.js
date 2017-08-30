@@ -5,7 +5,11 @@ import KvPairsList from 'kvPairsList.es6';
 
 class ModalPopup extends React.Component {
     render() {
-        var {popupTop, popupLeft, ...childProps} = this.props;
+        var {show, popupTop, popupLeft, ...childProps} = this.props;
+
+        if (!show) {
+            return null;
+        }
 
         var divStyle = {
             display: 'block',
@@ -18,12 +22,7 @@ class ModalPopup extends React.Component {
 
         return <div
             className="modal"
-            style={divStyle}
-            onClick={(ev) => {
-                ev.target.innerHTML = '';
-                ev.target.style.display = '';
-            }}
-        >
+            style={divStyle}>
             <div className="modal__content" style={popupStyle}>
                 <KvPairsList
                     {...childProps}
