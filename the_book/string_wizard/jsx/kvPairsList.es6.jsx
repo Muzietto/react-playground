@@ -9,17 +9,14 @@ const KvPairsList = React.createClass({
     // TODO - insert here propTypes
     render: function () {
         var self = this;
-        var callbacks = {
-            add: () => (alert('adding')),
-            save: () => (alert('saving')),
-        };
         var kvPairs = this.props.kvPairs
             .sort(util.asc)
             .map(function (kvPairObj) {
+                var deleteCallback = () => (alert('deleting ' + kvPairObj.id))
                 return <KvPair
                     key={kvPairObj.id}
                     data={kvPairObj} // kvPairObj = {id, key, value}
-                    callbacks={callbacks}/>;
+                    deleteCallback={deleteCallback}/>;
             });
 
         return (

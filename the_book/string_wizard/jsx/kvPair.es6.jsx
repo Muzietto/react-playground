@@ -16,7 +16,7 @@ class KvPair extends React.Component {
                 className="kvpair__input kvpair__input--value"
                 value={this.props.data.value}/>
             <button
-                onClick={this.props.callbacks.delete}
+                onClick={this.props.deleteCallback}
                 className="button kvpair__button">DEL
             </button>
         </div>;
