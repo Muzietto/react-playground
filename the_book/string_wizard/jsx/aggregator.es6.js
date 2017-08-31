@@ -11,15 +11,20 @@ function aggregator() {
             .join('=') + '&', baseUrl + '?')
         .slice(0, -1); // remove last &
 
-    var _decompose = url => url
-        .split('?')[1]
-        .split('&')
-        .map(str => str.split('='))
-        .map((kvString, index) => ({
-            id: index,
-            key: decodeURIComponent(kvString[0]),
-            value: decodeURIComponent(kvString[1]),
-        }));
+    var _decompose = url => {
+        if (url.indexOf('?') === -1) {
+            return [];
+        }
+        return url
+            .split('?')[1]
+            .split('&')
+            .map(str => str.split('='))
+            .map((kvString, index) => ({
+                id: index,
+                key: decodeURIComponent(kvString[0]),
+                value: decodeURIComponent(kvString[1]),
+            }));
+    };
 
     return {
         compose: _compose,
