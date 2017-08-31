@@ -22,9 +22,9 @@ class ModalPopup extends React.Component {
         };
 
         return <div
-            className="modal"
+            className="swiz_modal"
             style={divStyle}>
-            <div className="modal__content" style={popupStyle}>
+            <div className="swiz_modal__content" style={popupStyle}>
                 <KvPairsList
                     {...childProps}
                 />

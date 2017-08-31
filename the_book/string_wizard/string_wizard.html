@@ -5,16 +5,16 @@
     <title>String Wizard</title>
     <link rel="stylesheet" type="text/stylesheet" href="css/style.css">
     <style>
-        .input {
+        .swiz_input {
             width: 1400px;
         }
 
-        .input--tail {
+        .swiz_input--tail {
             margin-top: 100px;
             margin-left: 30px;
         }
 
-        .modal {
+        .swiz_modal {
             z-index: 3;
             display: none;
             padding-top: 100px;
@@ -28,7 +28,7 @@
             background-color: rgba(0, 0, 0, 0.4)
         }
 
-        .modal__content {
+        .swiz_modal__content {
             display: inline-block;
             margin: auto;
             background-color: #fff;
@@ -37,38 +37,38 @@
             outline: 0;
         }
 
-        .kvpairs {
+        .swiz_kvpairs {
             position: relative;
             display: inline-block;
             min-width: 420px;
             min-height: 55px;
         }
 
-        .kvpair {
+        .swiz_kvpair {
             margin: 10px;
             padding: 5px;
         }
 
-        .kvpair__input {
+        .swiz_kvpair__input {
 
         }
 
-        .kvpair__label--separator {
+        .swiz_kvpair__label--separator {
 
         }
 
-        .kvpairs__buttons {
+        .swiz_kvpairs__buttons {
             position: absolute;
             width: 100%;
             bottom: -20px;
         }
 
-        .kvpairs__button--add {
+        .swiz_kvpairs__button--add {
             width: 50%;
             float: left;
         }
 
-        .kvpairs__button--save {
+        .swiz_kvpairs__button--save {
             width: 50%;
             float: right;
         }
@@ -80,19 +80,19 @@
     <h3>String Wizard - React+Babel-ES6</h3>
     <div id="content2">
         <input
-                class="input url_input"
+                class="swiz_input swiz_url_input"
                 id="test_input"
                 type="text"
                 value="http://example1.com/wizard?background=http%3A%2F%2Fec2-54-171-172-95.eu-west-1.compute.amazonaws.com%2Ftransparent-png%2F1200%2F680"
         >
         <input
-                class="input input--tail"
+                class="swiz_input swiz_input--tail"
                 id="test_input1"
                 type="text"
                 value="not an URL"
         >
         <input
-                class="input url_input input--tail"
+                class="swiz_input swiz_url_input swiz_input--tail"
                 id="test_input2"
                 type="text"
                 value="http://example2.com/wizard?a=12&b=test&textbox5_fontColor=%23FEFFCDff"

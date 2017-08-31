@@ -20,16 +20,16 @@ class KvPairsList extends React.Component {
             />));
 
         return (
-            <div className="kvpairs">
+            <div className="swiz_kvpairs">
                 {kvPairs}
-                <div className="kvpairs__buttons">
+                <div className="swiz_kvpairs__buttons">
                     <button
                         onClick={this.props.handlers.add}
-                        className="button kvpairs__button kvpairs__button--add">ADD
+                        className="swiz_button swiz_kvpairs__button swiz_kvpairs__button--add">ADD
                     </button>
                     <button
                         onClick={this.props.handlers.save}
-                        className="button kvpairs__button kvpairs__button--save">SAVE
+                        className="swiz_button swiz_kvpairs__button swiz_kvpairs__button--save">SAVE
                     </button>
                 </div>
             </div>

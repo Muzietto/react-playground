@@ -40,5 +40,5 @@ function modalPopupHandler(ev) {
 }
 
 // Vladimir wanted to see the spread operator at work :-)
-[...document.querySelectorAll('.url_input')]
+[...document.querySelectorAll('.swiz_url_input')]
     .forEach(elem => elem.addEventListener('click', modalPopupHandler));
