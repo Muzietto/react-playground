@@ -9,9 +9,9 @@ function api(elem) {
     var elemWrapper = wrapper(elem);
 
     return {
+        baseUrl: () => elemWrapper.read().split('?')[0],
         read: () => aggregator.decompose(elemWrapper.read()),
-        write: (kvList) => {
-            var baseUrl = elemWrapper.read().split('?')[0];
+        write: (baseUrl, kvList) => {
             elemWrapper
                 .write(aggregator.compose(baseUrl, kvList));
         },

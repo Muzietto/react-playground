@@ -9,6 +9,7 @@ class App extends React.Component {
         // initialize state
         this.state = {
             isOpen: props.popupVisible,
+            baseUrl: props.targetApi.baseUrl(),
             kvPairs: props.targetApi.read(),
         };
     }
@@ -17,10 +18,17 @@ class App extends React.Component {
     targetApi = this.props.targetApi;
 
     saveToTargetAndClosePopup = () => {
-        this.targetApi.write(this.state.kvPairs);
+        this.targetApi.write(this.state.baseUrl, this.state.kvPairs);
         // close popup
         this.setState({
             isOpen: !this.state.isOpen
+        });
+    };
+
+    handleBaseUrlChange = ev => {
+        var newBaseUrl = ev.target.value;
+        this.setState({
+            baseUrl: newBaseUrl,
         });
     };
 
@@ -68,6 +76,7 @@ class App extends React.Component {
             });
         },
         save: this.saveToTargetAndClosePopup,
+        handleBaseUrlChange: this.handleBaseUrlChange.bind(this),
         handleKeyChange: this.handleKeyChange.bind(this),
         handleValueChange: this.handleValueChange.bind(this),
         handleKvPairDeletion: this.handleKvPairDeletion.bind(this),
@@ -77,6 +86,7 @@ class App extends React.Component {
         var theProps = Object.assign({}, this.props);
         theProps.deleteCallback = this.kvPairDeleteCallback;
         theProps.handlers = this.kvListHandlers;
+        theProps.baseUrl= this.state.baseUrl;
         theProps.kvPairs = this.state.kvPairs;
 
         return <ModalPopup

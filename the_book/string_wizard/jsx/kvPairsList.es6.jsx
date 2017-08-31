@@ -21,6 +21,15 @@ class KvPairsList extends React.Component {
 
         return (
             <div className="swiz_kvpairs">
+                <div className="swiz_kvpairs__url">
+                    <input
+                        id="kvpairs_url"
+                        type="text"
+                        value={this.props.baseUrl}
+                        className="swiz_kvpairs__url__input"
+                        onChange={this.props.handlers.handleBaseUrlChange}
+                    />
+                </div>
                 {kvPairs}
                 <div className="swiz_kvpairs__buttons">
                     <button

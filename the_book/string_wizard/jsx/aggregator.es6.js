@@ -2,21 +2,25 @@
 
 function aggregator() {
 
-    var _validate = kvObj => (
+    var _validateKvObj = kvObj => (
         kvObj.key !== ''
         && kvObj.value !== ''
     );
 
-    var _compose = (baseUrl, kvList) => kvList
-        .filter(_validate)
-        .map(kvObj => [
-            encodeURIComponent(kvObj.key),
-            encodeURIComponent(kvObj.value),
-        ])
-        .reduce((acc, kvPair) => acc + kvPair
-            .join('=') + '&', baseUrl + '?')
-        .slice(0, -1); // remove last &
+    var _validateBaseUrl = baseUrl => (baseUrl !== '');
 
+    var _compose = (baseUrl, kvList) => {
+        if (!_validateBaseUrl(baseUrl)) return '';
+        return kvList
+            .filter(_validateKvObj)
+            .map(kvObj => [
+                encodeURIComponent(kvObj.key),
+                encodeURIComponent(kvObj.value),
+            ])
+            .reduce((acc, kvPair) => acc + kvPair
+                .join('=') + '&', baseUrl + '?')
+            .slice(0, -1); // remove last &
+    }
     var _decompose = url => {
         if (url.indexOf('?') === -1) {
             return [];
