@@ -21,7 +21,7 @@ class KvPair extends React.Component {
                 onChange={this.props.onValueChange}
             />
             <button
-                onClick={this.props.deleteCallback}
+                onClick={this.props.onKvPairDeletion}
                 className="button kvpair__button">DEL
             </button>
         </div>;

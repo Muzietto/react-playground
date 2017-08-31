@@ -5,8 +5,8 @@ import React from 'lib/react';
 import KvPair from 'kvPair.es6';
 import util from 'util.es6';
 
-class KvPairsList extends React.Component{
-    render () {
+class KvPairsList extends React.Component {
+    render() {
         var self = this;
         var kvPairDeleteCallback = this.props.deleteCallback;
         var kvPairs = this.props.kvPairs
@@ -16,7 +16,8 @@ class KvPairsList extends React.Component{
                 data={kvPairObj} // kvPairObj = {id, key, value}
                 onKeyChange={this.props.handlers.handleKeyChange(kvPairObj.id)}
                 onValueChange={this.props.handlers.handleValueChange(kvPairObj.id)}
-                deleteCallback={kvPairDeleteCallback(kvPairObj.id)}/>));
+                onKvPairDeletion={this.props.handlers.handleKvPairDeletion(kvPairObj.id)}
+            />));
 
         return (
             <div className="kvpairs">
@@ -34,6 +35,7 @@ class KvPairsList extends React.Component{
             </div>
         );
     }
-};
+}
+;
 
 export default KvPairsList;

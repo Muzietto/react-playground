@@ -48,6 +48,18 @@ class App extends React.Component {
         });
     };
 
+    handleKvPairDeletion = id => () => {
+        this.setState({
+            kvPairs: this.state.kvPairs
+                .filter(kvp => (kvp.id !== id))
+                .map((kvp, index) => ({
+                    id: index,
+                    key: kvp.key,
+                    value: kvp.value,
+                })),
+        });
+    };
+
     kvListHandlers = {
         add: () => {
             var newId = this.state.kvPairs.length; // 0-based
@@ -58,9 +70,8 @@ class App extends React.Component {
         save: this.saveToTargetAndClosePopup,
         handleKeyChange: this.handleKeyChange.bind(this),
         handleValueChange: this.handleValueChange.bind(this),
+        handleKvPairDeletion: this.handleKvPairDeletion.bind(this),
     };
-
-    kvPairDeleteCallback = id => () => (alert('deleting ' + id));
 
     render() {
         var theProps = Object.assign({}, this.props);
