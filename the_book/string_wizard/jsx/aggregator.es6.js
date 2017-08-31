@@ -2,7 +2,13 @@
 
 function aggregator() {
 
+    var _validate = kvObj => (
+        kvObj.key !== ''
+        && kvObj.value !== ''
+    );
+
     var _compose = (baseUrl, kvList) => kvList
+        .filter(_validate)
         .map(kvObj => [
             encodeURIComponent(kvObj.key),
             encodeURIComponent(kvObj.value),
