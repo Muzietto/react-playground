@@ -27,7 +27,7 @@ class ModalPopup extends React.Component {
             <div className="modal__content" style={popupStyle}>
                 <KvPairsList
                     {...childProps}
-                />,
+                />
             </div>
         </div>;
     }
