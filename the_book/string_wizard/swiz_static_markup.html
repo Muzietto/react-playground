@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String Wizard Sample Markup</title>
+    <style>
+        .swiz_input {
+            width: 1400px;
+        }
+
+        .swiz_input--tail {
+            margin-top: 100px;
+            margin-left: 30px;
+        }
+
+        .swiz_modal {
+            z-index: 3;
+            /*display: none;*/
+            padding-top: 100px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4)
+        }
+
+        .swiz_modal__content {
+            display: inline-block;
+            margin: auto;
+            background-color: #fff;
+            position: relative;
+            padding: 0;
+            outline: 0;
+            margin-left: 100px; /* only applied in this page */
+        }
+
+        .swiz_kvpairs {
+            position: relative;
+            display: inline-block;
+            min-width: 420px;
+            min-height: 55px;
+        }
+
+        .swiz_kvpair {
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .swiz_kvpair__input {
+
+        }
+
+        .swiz_kvpair__label--separator {
+
+        }
+
+        .swiz_kvpairs__url {
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .swiz_kvpairs__url__input {
+            width: 100%;
+        }
+
+        .swiz_kvpairs__buttons {
+            position: absolute;
+            width: 100%;
+            bottom: -20px;
+        }
+
+        .swiz_kvpairs__button--add {
+            width: 50%;
+            float: left;
+        }
+
+        .swiz_kvpairs__button--save {
+            width: 50%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="swiz_modal">
+    <div class="swiz_modal__content">
+        <div class="swiz_kvpairs">
+            <div class="swiz_kvpairs__url">
+                <input type="text" value="http://example2.com/wizard"
+                       class="swiz_kvpairs__url__input">
+            </div>
+            <div class="swiz_kvpair">
+                <input type="text" class="swiz_kvpair__input swiz_kvpair__input--key" value="a">
+                <label class="swiz_label swiz_kvpair__label--separator">:</label>
+                <input type="text" class="swiz_kvpair__input swiz_kvpair__input--value" value="12">
+                <button class="swiz_button swiz_kvpair__button">DEL</button>
+            </div>
+            <div class="swiz_kvpair">
+                <input type="text"
+                       class="swiz_kvpair__input swiz_kvpair__input--key" value="b">
+                <label class="swiz_label swiz_kvpair__label--separator">:</label>
+                <input type="text"
+                       class="swiz_kvpair__input swiz_kvpair__input--value" value="test">
+                <button class="swiz_button swiz_kvpair__button">DEL</button>
+            </div>
+            <div class="swiz_kvpair">
+                <input type="text"
+                       class="swiz_kvpair__input swiz_kvpair__input--key"
+                       value="textbox5_fontColor">
+                <label class="swiz_label swiz_kvpair__label--separator">:</label>
+                <input type="text"
+                       class="swiz_kvpair__input swiz_kvpair__input--value" value="#FEFFCDff">
+                <button class="swiz_button swiz_kvpair__button">DEL</button>
+            </div>
+            <div class="swiz_kvpairs__buttons">
+                <button class="swiz_button swiz_kvpairs__button swiz_kvpairs__button--add">ADD</button>
+                <button class="swiz_button swiz_kvpairs__button swiz_kvpairs__button--save">SAVE</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- dummy input - please ignore -->
+<input
+        style="margin-top:315px;margin-left:110px;width:550px;"
+        type="text"
+        value="http://example2.com/wizard?a=12&b=test&textbox5_fontColor=%23FEFFCDff">
+</body>
+</html>
