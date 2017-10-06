@@ -39,4 +39,15 @@ define(['react', 'react-dom', 'react-router', './App', './About', './Repos', './
       _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
     )
   ), document.getElementById('app'));
+
+  (0, _reactDom.render)(_react2.default.createElement(
+    _reactRouter.Router,
+    { history: _reactRouter.hashHistory },
+    _react2.default.createElement(
+      _reactRouter.Route,
+      { path: '/', component: _App2.default },
+      _react2.default.createElement(_reactRouter.Route, { path: '/content/:id', component: ContentType }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
+    )
+  ), document.getElementById('app'));
 });

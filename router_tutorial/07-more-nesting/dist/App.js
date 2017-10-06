@@ -1,4 +1,4 @@
-define(['exports', 'react', './NavLink', './Home1'], function (exports, _react, _NavLink, _Home) {
+define(['exports', 'react', './NavLink'], function (exports, _react, _NavLink) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -8,8 +8,6 @@ define(['exports', 'react', './NavLink', './Home1'], function (exports, _react, 
   var _react2 = _interopRequireDefault(_react);
 
   var _NavLink2 = _interopRequireDefault(_NavLink);
-
-  var _Home2 = _interopRequireDefault(_Home);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {

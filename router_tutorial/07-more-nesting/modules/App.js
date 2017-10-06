@@ -1,6 +1,6 @@
 import React from 'react';
 import NavLink from './NavLink';
-import Home1 from './Home1';
+//import Home1 from './Home1';
 
 export default React.createClass({
   render() {

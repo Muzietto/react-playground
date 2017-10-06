@@ -34,6 +34,15 @@ define(['exports', 'react', './NavLink'], function (exports, _react, _NavLink) {
             null,
             _react2.default.createElement(
               _NavLink2.default,
+              { to: '/repos/ssh/nametests' },
+              'Nametests'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              _NavLink2.default,
               { to: '/repos/reactjs/react-router' },
               'React Router'
             )
