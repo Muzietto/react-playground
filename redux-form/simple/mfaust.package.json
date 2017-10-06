@@ -1,0 +1,42 @@
+{
+  "name": "redux_form_simple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "twopages_sm": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./twopages_es6/jsx --out-dir ./twopages_es6/dist --source-maps inline -w",
+  },
+  "author": "Marco Faustinelli",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      [
+        "transform-decorators-legacy"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "6.18.2",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "6.2.4",
+    "babel-plugin-react-transform": "^2.0.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-modules-amd": "^6.6.5",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-react": "6.5.0",
+    "babel-preset-react-hmre": "^1.0.1",
+    "babel-preset-stage-0": "^6.3.13",
+    "react-redux": "^5.0.2",
+    "redux": "^3.5.2"
+  },
+  "dependencies": {
+    "react": "15.2.1",
+    "react-dom": "15.2.1",
+    "requirejs": "^2.2.0"
+  }
+}
