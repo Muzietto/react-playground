@@ -1,10 +1,13 @@
+'use strict';
+
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 
 let ContactForm = props => {
-    const {handleSubmit} = props;
+    const {handleSubmit, onReset} = props;
+
     return (
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="firstName">First Name</label>
                 <Field name="firstName" component="input" type="text"/>
@@ -13,11 +16,11 @@ let ContactForm = props => {
                 <label htmlFor="lastName">Last Name</label>
                 <Field name="lastName" component="input" type="text"/>
             </div>
-            <div>
-                <label htmlFor="email">Email</label>
-                <Field name="email" component="input" type="email"/>
-            </div>
             <button type="submit">Submit</button>
+            <button
+                type="button"
+                onClick={onReset}>Reset
+            </button>
         </form>
     );
 };
