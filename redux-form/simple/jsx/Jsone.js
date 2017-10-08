@@ -11,7 +11,7 @@ let Jsone = props => {
             <pre>{
                 (text)
                     ? Object.keys(text)
-                    .map(key => key + ': ' + text[key] + '; ')
+                    .map(key => key + ': ' + text[key] + ';\n')
                     : null
             }</pre>
         </div>

@@ -15,25 +15,28 @@ let ContactForm = props => {
     const {handleSubmit, onReset} = props;
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="firstName">First Name</label>
-                <Field
-                    name="firstName"
-                    component="input"
-                    className="paperino"
-                    type="text"/>
-            </div>
-            <div>
-                <label htmlFor="lastName">Last Name</label>
-                <Field name="lastName" component="input" type="text"/>
-            </div>
-            <button type="submit">Submit</button>
-            <button
-                type="button"
-                onClick={onReset}>Reset
-            </button>
-        </form>
+        <div class="form-div">
+            <h3>contact form</h3>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="firstName">firstName</label><br/>
+                    <Field
+                        name="firstName"
+                        component="input"
+                        className="paperino"
+                        type="text"/>
+                </div>
+                <div>
+                    <label htmlFor="lastName">lastName</label>
+                    <Field name="lastName" component="input" type="text"/>
+                </div>
+                <button type="submit">Submit</button>
+                <button
+                    type="button"
+                    onClick={onReset}>Reset
+                </button>
+            </form>
+        </div>
     );
 };
 

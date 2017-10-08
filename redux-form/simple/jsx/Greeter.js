@@ -12,6 +12,9 @@ const mapStateToProps = (state, ownProps) => {
     let bikesData = state.form.bike
         ? state.form.bike.values
         : '';
+    let fieldArrayData = state.form.fieldArray
+        ? state.form.fieldArray.values
+        : '';
 
     let submittedFriendsData = state.submitted.contact
         ? state.submitted.contact.values
@@ -32,8 +35,17 @@ const mapStateToProps = (state, ownProps) => {
         + bikesData.color + ' '
         + bikesData.brand);
     }
+
+    if (fieldArrayData) {
+        salutatio += ' and traits {'
+            + Object.keys(fieldArrayData)
+            .map(key => key + ':' + fieldArrayData[key])
+            .join(', ') + '}';
+    }
+
     return {salutatio};
 };
+
 class Greeter extends React.Component {
     // submit = values => {
     //     // print the form values to the console
@@ -43,6 +55,7 @@ class Greeter extends React.Component {
     render() {
         return (
             <div>
+                <h3>live view of state.form (managed by redux-form)</h3>
                 <p>{this.props.salutatio}</p>
             </div>
         );

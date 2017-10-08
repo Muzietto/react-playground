@@ -7,14 +7,41 @@ body > p {
     margin: 40px;
 }
 
-div#container {
+button {
+    margin: 5px !important;
+}
+
+p {
+    font-size: 20px;
+}
+
+div.container {
     font-size: 1.4em;
     width: 450px;
+    margin: 0 auto;
+    float: left;
+}
+
+div.large_container {
+    font-size: 1.4em;
+    width: 1400px;
     margin: 0 auto;
 }
 
 div.menu-div {
     height: 70px;
+}
+
+div.form-div {
+    border: 1px solid green;
+    margin: 5px;
+    padding: 5px;
+}
+
+form li {
+    border: 1px solid yellowgreen;
+    margin: 2px;
+    padding: 2px;
 }
 
 ul {

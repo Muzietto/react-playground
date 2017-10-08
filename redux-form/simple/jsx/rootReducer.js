@@ -22,6 +22,12 @@ const initialState = {
         firstName: 'Luigi',
         lastName: 'Cagrotti',
     },
+    fieldArray: {
+        hobby: 'golf',
+        profession: 'consultant',
+        birthYear: '2001',
+        studies: 'law',
+    },
 };
 
 const submittedReducer = (state = initialState, action) => {
@@ -41,7 +47,6 @@ const submittedReducer = (state = initialState, action) => {
         default:
             return stateDOTsubmitted;
     }
-
 };
 
 const rootReducer = combineReducers({
