@@ -2,6 +2,14 @@
 
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
+import {connect} from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        // mandatory key name
+        initialValues: state.submitted.contact, // pull initial values from submitted reducer
+    };
+};
 
 let ContactForm = props => {
     const {handleSubmit, onReset} = props;
@@ -33,5 +41,7 @@ ContactForm = reduxForm({
     // a unique name for the form
     form: 'contact'
 })(ContactForm);
+
+ContactForm = connect(mapStateToProps, () => ({}))(ContactForm);
 
 export default ContactForm;

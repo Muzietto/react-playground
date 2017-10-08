@@ -13,7 +13,18 @@ const SubmitterActionCreators = {
     resetSubmittedData,
 };
 
-const submittedReducer = (state = {}, action) => {
+const initialState = {
+    bike: {
+        color: 'turchino',
+        brand: 'Pinocchi Super',
+    },
+    contact: {
+        firstName: 'Luigi',
+        lastName: 'Cagrotti',
+    },
+};
+
+const submittedReducer = (state = initialState, action) => {
     let stateDOTsubmitted = {...state};
 
     switch (action.type) {

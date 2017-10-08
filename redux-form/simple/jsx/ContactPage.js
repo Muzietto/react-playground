@@ -22,8 +22,8 @@ const mapStateToProps = (state, ownProps) => {
 let {storeSubmittedData, resetSubmittedData} = SubmitterActionCreators;
 
 class ContactPage extends React.Component {
-    submit = formName => values => {
 
+    submit = formName => values => {
         store.dispatch(storeSubmittedData(formName, values));
         console.log(formName, values);
     };
