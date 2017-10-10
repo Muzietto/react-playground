@@ -12,13 +12,12 @@ const mapStateToProps = state => {
 let FieldArrayForm = props => {
     const {handleSubmit, onReset, initialValues} = props;
     return (
-        <div class="form-div">
+        <div className="form-div">
             <h3>fieldArray form</h3>
             <form onSubmit={handleSubmit}>
                 <FieldArray
-                    name="fieldArray"
-                    component={userFields}
-                    pairs={initialValues}/>
+                    name="campoMatrice"
+                    component={userFields}/>
                 <button type="submit">Submit</button>
                 <button
                     type="button"
@@ -36,27 +35,32 @@ export default connect(mapStateToProps, () => ({}))(FieldArrayForm);
 // contains Field
 function userFields(props) {
     // find out purpose of meta (cfr FieldArraysForm in redux-form examples)
-    let {fields, meta, pairs} = props;
+    let {fields, meta} = props;
     return (
         <ul>
             <li>
-                <button type="button" onClick={() => pairs['new key'] = 'new value'}>
+                <button type="button" onClick={() => fields.push({})}>
                     Add personal trait
                 </button>
             </li>
-            {Object.keys(pairs).map((traitName, index) => (
+            {fields.map((trait, index) => (
                 <li key={index}>
                     <button
                         type="button"
-                        onClick={() => delete pairs[index]}>
+                        onClick={() => fields.remove(index)}>
                         Delete trait
                     </button>
                     <Field
-                        name={traitName}
+                        name={`${trait}.key`}
                         type="text"
+                        placeholder="insert a key"
                         component={userField}
-                        fieldValue={pairs[traitName]}
-                        label={traitName}
+                    />
+                    <Field
+                        name={`${trait}.value`}
+                        type="text"
+                        placeholder="insert a value"
+                        component={userField}
                     />
                 </li>
             ))}
@@ -65,12 +69,11 @@ function userFields(props) {
 };
 
 // defines Field
-function userField({input, label, type}) {
+function userField({input, placeholder, type}) {
     return (
         <div>
-            <label>{label}</label>
             <div>
-                <input {...input} type={type} placeholder={label}/>
+                <input {...input} type={type} placeholder={placeholder}/>
             </div>
         </div>
     );

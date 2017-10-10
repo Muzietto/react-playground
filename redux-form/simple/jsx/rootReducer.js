@@ -23,10 +23,12 @@ const initialState = {
         lastName: 'Cagrotti',
     },
     fieldArray: {
-        hobby: 'golf',
-        profession: 'consultant',
-        birthYear: '2001',
-        studies: 'law',
+        campoMatrice: [
+            {key: 'hobby', value: 'golf'},
+            {key: 'profession', value: 'consultant'},
+            {key: 'birthYear', value: '2001'},
+            {key: 'studies', value: 'law'},
+        ]
     },
 };
 

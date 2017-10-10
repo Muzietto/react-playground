@@ -43,7 +43,7 @@ class ContactPage extends React.Component {
     render() {
         return (
             <div>
-                <div class="container">
+                <div className="container">
                     <ContactForm
                         onSubmit={this.submit(contactFormName)}
                         onReset={this.reset(contactFormName)}
@@ -53,13 +53,13 @@ class ContactPage extends React.Component {
                         onReset={this.reset(bikeFormName)}
                     />
                 </div>
-                <div class="container">
+                <div className="container">
                     <FieldArrayForm
                         onSubmit={this.submit(fieldArrayFormName)}
                         onReset={this.reset(fieldArrayFormName)}
                     />
                 </div>
-                <div class="container">
+                <div className="container">
                     <h3>last submitted data</h3>
                     <Jsone
                         form="contact"

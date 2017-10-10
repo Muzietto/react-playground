@@ -37,9 +37,12 @@ const mapStateToProps = (state, ownProps) => {
     }
 
     if (fieldArrayData) {
+        let pairs = fieldArrayData.campoMatrice || [];
         salutatio += ' and traits {'
-            + Object.keys(fieldArrayData)
-            .map(key => key + ':' + fieldArrayData[key])
+            + pairs
+            .map(obj => {
+                return obj.key + ':' + obj.value
+            })
             .join(', ') + '}';
     }
 

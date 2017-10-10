@@ -15,7 +15,7 @@ let ContactForm = props => {
     const {handleSubmit, onReset} = props;
 
     return (
-        <div class="form-div">
+        <div className="form-div">
             <h3>contact form</h3>
             <form onSubmit={handleSubmit}>
                 <div>
