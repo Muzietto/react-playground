@@ -13,10 +13,12 @@ const SubmitterActionCreators = {
     resetSubmittedData,
 };
 
+// NB: these values are handled by submittedReducer only
 const initialState = {
     bike: {
         color: 'turchino',
         brand: 'Pinocchi Super',
+        specs: ['amicizia'],
     },
     contact: {
         firstName: 'Luigi',

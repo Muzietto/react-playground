@@ -33,7 +33,10 @@ const mapStateToProps = (state, ownProps) => {
     if (bikesData) {
         salutatio += (' with a nice '
         + bikesData.color + ' '
-        + bikesData.brand);
+        + bikesData.brand
+        + 'whose specs are ['
+        + ((bikesData.specs) ? JSON.stringify(bikesData.specs) : 'none')
+        + '])');
     }
 
     if (fieldArrayData) {

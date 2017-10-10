@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
+import {Field, FieldArray, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 
 const mapStateToProps = state => {
@@ -8,6 +8,40 @@ const mapStateToProps = state => {
         initialValues: state.submitted.bike, // pull initial values from submitted reducer
     };
 };
+
+const renderSpec = ({ input, label, type }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} type={type} placeholder={label} />
+    </div>
+  </div>
+)
+
+const renderSpecs = ({fields}) => (
+  <ul>
+    <li>
+      <button type="button" onClick={() => fields.push()}>
+        Add Spec
+      </button>
+    </li>
+    {fields.map((spec, index) => (
+      <li key={index}>
+        <button
+          type="button"
+          title="Remove Spec"
+          onClick={() => fields.remove(index)}
+        >Remove Spec</button>
+        <Field
+          name={spec}
+          type="text"
+          component={renderSpec}
+          label={`Spec #${index + 1}`}
+        />
+      </li>
+    ))}
+  </ul>
+);
 
 let BikeForm = props => {
     const {handleSubmit, onReset} = props;
@@ -24,6 +58,13 @@ let BikeForm = props => {
                     <label htmlFor="brand">brand</label><br/>
                     <Field name="brand" component="input" type="text"/>
                 </div>
+                <div>
+                    <label htmlFor="brand">brand</label><br/>
+                    <FieldArray
+                        name="specs"
+                        component={renderSpecs}/>
+                </div>
+
                 <button type="submit">Submit</button>
                 <button
                     type="button"
