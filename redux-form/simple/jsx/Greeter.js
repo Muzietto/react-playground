@@ -34,7 +34,7 @@ const mapStateToProps = (state, ownProps) => {
         salutatio += (' with a nice '
         + bikesData.color + ' '
         + bikesData.brand
-        + 'whose specs are ['
+        + ' whose specs are ['
         + ((bikesData.specs) ? JSON.stringify(bikesData.specs) : 'none')
         + '])');
     }

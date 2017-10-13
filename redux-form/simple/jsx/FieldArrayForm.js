@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 };
 
 let FieldArrayForm = props => {
-    const {handleSubmit, onReset, initialValues} = props;
+    const {handleSubmit, onReset} = props;
     return (
         <div className="form-div">
             <h3>fieldArray form</h3>

@@ -59,7 +59,7 @@ let BikeForm = props => {
                     <Field name="brand" component="input" type="text"/>
                 </div>
                 <div>
-                    <label htmlFor="brand">brand</label><br/>
+                    <label htmlFor="specs">specs</label><br/>
                     <FieldArray
                         name="specs"
                         component={renderSpecs}/>
