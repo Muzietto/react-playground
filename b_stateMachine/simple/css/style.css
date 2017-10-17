@@ -1,8 +1,3 @@
-
-.paperino {
-    border: 1px solid red;
-}
-
 body > p {
     margin: 40px;
 }
@@ -19,7 +14,6 @@ div.container {
     font-size: 1.4em;
     width: 450px;
     margin: 0 auto;
-    float: left;
 }
 
 div.large_container {

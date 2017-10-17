@@ -1,8 +1,8 @@
 'use strict';
 
-import {initialState as state} from './initialState';
+import {initialState} from './initialState';
 import choice from './dsl';
-
+let state = initialState
 export function startStep() {
     return choice([customvarStep, datasetStep]);
 }
@@ -18,23 +18,29 @@ export function customvarStep() {
 export function propertyStep(datasetId) {
     let datasetName = state.dataset_name[parsedStateId(datasetId).currentPos];
     return choice([startStep, ...state.dataset_keys[parsedStateId(datasetId).currentPos]
-        .map(key => datasetName + '.' + key)
+        //.map(key => datasetName + '.' + key)
         .map(typeStep)
     ]);
 }
 
-export function exitStep(value) { // reasonsforcologne.image/2 --> $(reasonsforcologne.image/2)
-    return function exitStep() {
+export function exitStep(value, index) { // reasonsforcologne.image/2 --> $(reasonsforcologne.image/2)
+    let result = () => {
         alert('$(' + value + ')');
     };
+    Object.defineProperty(result, 'name', {value: 'exitStep ' + ((typeof index !== 'undefined') ? 'item ' + index : '')});
+    return result;
 }
 
 export function typeStep(datasetProperty) {
-    return choice([startStep, ...[randomStep, connectedStep, fixedStep].map(fun => fun(datasetProperty))]);
+    return choice([startStep, ...[randomStep, connectedStep, fixedStep].map(fun => {
+        let result = () => fun(datasetProperty);
+        Object.defineProperty(result, 'name', {value: fun.name});
+        return result;
+    })]);
 }
 
 export function randomStep(datasetProperty) {
-    return choice([startStep, ...datasetIndexes(datasetProperty).map(exitStep)]);
+    return choice([startStep, exitStep(datasetProperty)]);
 }
 
 export function connectedStep(datasetProperty) {

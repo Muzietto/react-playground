@@ -3,44 +3,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-    startStep,
-    customvarStep,
-    propertyStep,
-    exitStep,
-    typeStep,
-    randomStep,
-    connectedStep,
-    fixedStep,
-} from './steps';
+const root = document.getElementById('container');
 
-let root = document.getElementById('container');
+export default function choice(choices, template) {
+    template = template || defaultTemplate;
 
-let state = {
-    'dataset': {'dataset#0': ['dataset#0.dataset_item#0']},
-    'dataset_item': {'dataset#0.dataset_item#0': {'brand': 'bmw', 'color': 'white'}},
-    'dataset_name': ['Cars I like the most'],
-    'dataset_keys': [['brand', 'color']],
-    'customvar': ['player_name'],
-};
-
-function choice(choices, template) {
-
-    return function () {
-        _render();
-    };
-
+    _render(choices, template);
 }
 
-function _render() {
+function _render(handlers, template) {
     ReactDOM.render(template(handlers), root);
 }
 
-function template(handlers) {
+function defaultTemplate(handlers) {
     return (
         <div>
             {
-                handlers.map(() => ({}))
+                handlers.map((handler, index) => {
+                    return <h2
+                        style={{cursor: 'pointer'}}
+                        key={index}
+                        onClick={handler}>{handler.name}</h2>;
+                })
             }
         </div>
     );
