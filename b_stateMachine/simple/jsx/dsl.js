@@ -17,15 +17,24 @@ function _render(handlers, template) {
 
 function defaultTemplate(handlers) {
     return (
-        <div>
+        <fieldset>
+            <legend>{'This is the ' + handlers.location}</legend>
             {
-                handlers.map((handler, index) => {
+                handlers.backward.map((handler, index) => {
+                    return <h4
+                        style={{cursor: 'pointer'}}
+                        key={index}
+                        onClick={handler}>{'back to ' + (handler.name || 'noname')}</h4>;
+                })
+            }
+            {
+                handlers.forward.map((handler, index) => {
                     return <h2
                         style={{cursor: 'pointer'}}
                         key={index}
-                        onClick={handler}>{handler.name || 'noname'}</h2>;
+                        onClick={handler}><p>forward to&nbsp;&nbsp;</p>{(handler.name || 'noname')}</h2>;
                 })
             }
-        </div>
+        </fieldset>
     );
 }
