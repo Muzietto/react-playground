@@ -13,16 +13,22 @@ function customvarStep() {
 }
 
 function datasetStep() {
-    return choice([startStep, ...Object.keys(state.dataset)
-        .map(key => labeler('propertyStep',
-            () => propertyStep(key), state.dataset_name[parsedStateId(key).currentPos]))]);
+    return choice([
+        startStep,
+        ...Object.keys(state.dataset)
+            .map(key => labeler('propertyStep',
+                () => propertyStep(key), state.dataset_name[parsedStateId(key).currentPos]))
+    ]);
 }
 
 function propertyStep(datasetId) {
     let datasetName = state.dataset_name[parsedStateId(datasetId).currentPos];
-    return choice([startStep, datasetStep, ...state.dataset_keys[parsedStateId(datasetId).currentPos]
-        .map(key => datasetName + '.' + key)
-        .map(key => labeler('typeStep', () => typeStep(key), key))
+    return choice([
+        startStep,
+        labeler('back to datasetStep', () => datasetStep(), datasetName),
+        ...state.dataset_keys[parsedStateId(datasetId).currentPos]
+            .map(key => datasetName + '.' + key)
+            .map(key => labeler('typeStep', () => typeStep(key), key))
     ]);
 }
 
@@ -31,26 +37,38 @@ function typeStep(datasetProperty) {
     let datasetId = 'dataset#' + state.dataset_name.findIndex(n => n === datasetName);
     return choice([
         startStep,
-        labeler('propertyStep', () => propertyStep(datasetId), datasetName),
+        labeler('back to propertyStep', () => propertyStep(datasetId), datasetName),
         ...[randomStep, connectedStep, fixedStep]
             .map(fun => labeler(fun.name, () => fun(datasetProperty), datasetProperty))
     ]);
 }
 
 function randomStep(datasetProperty) {
-    return choice([startStep, labeler('exitStep', exitStep(datasetProperty), datasetProperty)]);
+    return choice([
+        startStep,
+        labeler('back to typeStep', () => typeStep(datasetProperty), datasetProperty),
+        labeler('exitStep', exitStep(datasetProperty), datasetProperty),
+    ]);
 }
 
 function connectedStep(datasetProperty) {
     let datasetPropertyWithSuffix = datasetProperty + '/';
-    return choice([startStep, ...datasetIndexes(datasetPropertyWithSuffix)
-        .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))]);
+    return choice([
+        startStep,
+        labeler('back to typeStep', () => typeStep(datasetProperty), datasetProperty),
+        ...datasetIndexes(datasetPropertyWithSuffix)
+            .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
+    ]);
 }
 
 function fixedStep(datasetProperty) {
     let datasetPropertyWithSuffix = datasetProperty + '#';
-    return choice([startStep, ...datasetIndexes(datasetPropertyWithSuffix)
-        .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))]);
+    return choice([
+        startStep,
+        labeler('back to typeStep', () => typeStep(datasetProperty), datasetProperty),
+        ...datasetIndexes(datasetPropertyWithSuffix)
+            .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
+    ]);
 }
 
 function exitStep(value, index) { // reasonsforcologne.image/2 --> $(reasonsforcologne.image/2)
