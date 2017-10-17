@@ -8,7 +8,7 @@ export function startStep() {
 }
 
 export function datasetStep() {
-    return choice([startStep, ...Object.keys(state.dataset).map(propertyStep)]);
+    return choice([startStep, ...Object.keys(state.dataset).map(key => () => propertyStep(key))]);
 }
 
 export function customvarStep() {
@@ -19,18 +19,20 @@ export function propertyStep(datasetId) {
     let datasetName = state.dataset_name[parsedStateId(datasetId).currentPos];
     return choice([startStep, ...state.dataset_keys[parsedStateId(datasetId).currentPos]
         .map(key => datasetName + '.' + key)
-        .map(typeStep)
+        .map(key => () => typeStep(key))
     ]);
 }
 
-export function exitStep(value) { // reasonsforcologne.image/2 --> $(reasonsforcologne.image/2)
-    return function exitStep() {
+export function exitStep(value, index) { // reasonsforcologne.image/2 --> $(reasonsforcologne.image/2)
+    let result = () => {
         alert('$(' + value + ')');
     };
+    Object.defineProperty(result, 'name', {value: 'exitStep ' + ((typeof index !== 'undefined') ? 'item ' + index : '')});
+    return result;
 }
 
 export function typeStep(datasetProperty) {
-    return choice([startStep, ...[randomStep, connectedStep, fixedStep].map(fun => fun(datasetProperty))]);
+    return choice([startStep, ...[randomStep, connectedStep, fixedStep].map(fun => () => fun(datasetProperty))]);
 }
 
 export function randomStep(datasetProperty) {

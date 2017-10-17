@@ -23,7 +23,7 @@ function defaultTemplate(handlers) {
                     return <h2
                         style={{cursor: 'pointer'}}
                         key={index}
-                        onClick={handler}>{handler.name}</h2>;
+                        onClick={handler}>{handler.name || 'birillo'}</h2>;
                 })
             }
         </div>
