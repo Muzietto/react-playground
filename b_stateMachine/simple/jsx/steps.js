@@ -1,14 +1,15 @@
 'use strict';
 
 import {initialState as state} from './initialState';
-import choice from './dsl';
+import choice from './view';
+import {templateA, templateB, templateC} from './view';
 
 export function startStep() {
     return choice({
         location: 'startStep',
         backward: [],
-        forward: [customvarStep, datasetStep]
-    });
+        forward: [customvarStep, datasetStep],
+    }, templateA);
 }
 
 function customvarStep() {
@@ -17,7 +18,7 @@ function customvarStep() {
         backward: [startStep,],
         forward: [...state.customvar
             .map(customVar => labeler('exitStep', exitStep(customVar), customVar))]
-    });
+    }, templateB);
 }
 
 function datasetStep() {
@@ -29,7 +30,7 @@ function datasetStep() {
                 .map(key => labeler('propertyStep',
                     () => propertyStep(key), state.dataset_name[parsedStateId(key).currentPos]))
         ]
-    });
+    }, templateC);
 }
 
 function propertyStep(datasetId) {
@@ -45,7 +46,7 @@ function propertyStep(datasetId) {
                 .map(key => datasetName + '.' + key)
                 .map(key => labeler('typeStep', () => typeStep(key), key))
         ]
-    });
+    }, templateA);
 }
 
 function typeStep(datasetProperty) {
@@ -61,7 +62,7 @@ function typeStep(datasetProperty) {
             ...[randomStep, connectedStep, fixedStep]
                 .map(fun => labeler(fun.name, () => fun(datasetProperty), datasetProperty))
         ]
-    });
+    }, templateB);
 }
 
 function randomStep(datasetProperty) {
@@ -74,7 +75,7 @@ function randomStep(datasetProperty) {
         forward: [
             labeler('exitStep', exitStep(datasetProperty), datasetProperty),
         ]
-    });
+    }, templateC);
 }
 
 function connectedStep(datasetProperty) {
@@ -89,7 +90,7 @@ function connectedStep(datasetProperty) {
             ...datasetIndexes(datasetPropertyWithSuffix)
                 .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
         ]
-    });
+    }, templateA);
 }
 
 function fixedStep(datasetProperty) {
@@ -104,7 +105,7 @@ function fixedStep(datasetProperty) {
             ...datasetIndexes(datasetPropertyWithSuffix)
                 .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
         ]
-    });
+    }, templateB);
 }
 
 function exitStep(value, index) { // reasonsforcologne.image/2 --> $(reasonsforcologne.image/2)

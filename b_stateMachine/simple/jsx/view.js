@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 const root = document.getElementById('container');
 
 export default function choice(choices, template) {
-    template = template || defaultTemplate;
+    template = template || templateA;
 
     _render(choices, template);
 }
@@ -15,10 +15,22 @@ function _render(handlers, template) {
     ReactDOM.render(template(handlers), root);
 }
 
-function defaultTemplate(handlers) {
+export function templateA(handlers) {
+    return _fieldset(handlers, 'A');
+}
+
+export function templateB(handlers) {
+    return _fieldset(handlers, 'B');
+}
+
+export function templateC(handlers) {
+    return _fieldset(handlers, 'C');
+}
+
+function _fieldset(handlers, letter) {
     return (
         <fieldset>
-            <legend>{'This is the ' + handlers.location}</legend>
+            <legend>{letter + ') This is the ' + handlers.location}</legend>
             {
                 handlers.backward.map((handler, index) => {
                     return <h4
