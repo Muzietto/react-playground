@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "templatesw": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./jsx/**/**.js --out-dir ./dist --source-maps inline -w",
-    "templates": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./jsx/**/**.js --out-dir ./dist --source-maps inline"
+    "templatesw": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./jsx --out-dir ./dist --source-maps inline -w",
+    "templates": "./node_modules/.bin/babel --plugins=transform-es2015-modules-amd ./jsx --out-dir ./dist --source-maps inline"
   },
   "author": "Marco Faustinelli",
   "license": "MIT",

@@ -2,6 +2,65 @@ body > p {
     margin: 40px;
 }
 
+.wizard {
+    min-height: 300px;
+    width: 100%;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.body {
+    min-height: 200px;
+    width: 100%;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.summary {
+    min-height: 100px;
+    width: 100%;
+    border: 1px solid yellow;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.core {
+    min-height: 100px;
+    width: 100%;
+    border: 1px solid brown;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.footer {
+    min-height: 100px;
+    width: 100%;
+    border: 2px solid blue;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.summary {
+    min-height: 100px;
+    width: 100%;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.summary div {
+    float: left;
+    width: 32%;
+}
+
 button {
     margin: 5px !important;
 }
