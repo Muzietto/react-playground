@@ -1,0 +1,88 @@
+body > p {
+    margin: 40px;
+}
+
+button {
+    margin: 5px !important;
+}
+
+p {
+    font-size: 20px;
+    display: inline;
+}
+
+fieldset {
+    border: 2px solid lightblue !important;
+    padding: 20px !important;
+    border-radius: 25px !important;
+}
+
+legend {
+    font-size: 14px;
+    width: 60% !important;
+}
+
+div.container {
+    font-size: 1.4em;
+    width: 600px;
+    margin: 0 auto;
+}
+
+div.large_container {
+    font-size: 1.4em;
+    width: 1400px;
+    margin: 0 auto;
+}
+
+div.menu-div {
+    height: 70px;
+}
+
+div.form-div {
+    border: 1px solid green;
+    margin: 5px;
+    padding: 5px;
+}
+
+form li {
+    border: 1px solid yellowgreen;
+    margin: 2px;
+    padding: 2px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+div#container ul a {
+    float: right;
+}
+
+span.separated-span {
+    margin-right: 20px;
+}
+
+.entity-adder-div input {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.double-select-container select.form-control {
+    font-size: 1.2em;
+    width: 100%;
+    padding-top: 1px;
+    margin-bottom: 35px;
+}
+
+.double-select-container > select.form-control {
+    margin-bottom: 10px;
+}
+
+div.wrapper {
+    width: 400px;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: lightgrey;
+}
