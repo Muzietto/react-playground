@@ -7,13 +7,19 @@ import {startStep} from './state_machine/steps';
 import Wizard from './wizard';
 import core_type from './core_type';
 import core_index from './core_index';
+import core_customvars from './core_customvars';
+import body_customvars from './body_customvars';
+import body_datasets from './body_datasets';
 
 let wizardProps = {
+    body: {
+        body_renderer: body_customvars,
+    },
     summary: {
         step: 1,
     },
     core: {
-        corefun: core_index,
+        core_renderer: undefined,
         message: 'hello, world!',
     },
     footer: {

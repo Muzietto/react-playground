@@ -4,12 +4,12 @@ import React from 'react';
 
 import Summary from './summary';
 
-export default function body(props) {
-    let {corefun, ...coreprops} = props.core;
+export default function body_datasets(props) {
+    let {core_renderer, ...coreprops} = props.core;
     return (
         <div className="body">
             <Summary {...props.summary}/>
-            {corefun(coreprops)}
+            {core_renderer(coreprops)}
         </div>
     );
 }
