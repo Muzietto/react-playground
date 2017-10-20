@@ -4,7 +4,8 @@ just trying out thingies
 - [user/group management, React+React-Router+Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/twopages_es6.html)
 - [related Mocha tests, Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/twopages_Mocha.html)
 - [form management with redux-form, React+Redux+redux-form+ES6](http://rawgit.com/Muzietto/react-playground/master/redux-form/simple/simple.html)
-- [Pure React state machine](http://rawgit.com/Muzietto/react-playground/master/b_stateMachine/simple/simple.html)
+- [pure React state machine](http://rawgit.com/Muzietto/react-playground/master/b_stateMachine/simple/simple.html)
+- [React state machine with complex templates](http://rawgit.com/Muzietto/react-playground/master/b_stateMachine/complex_templates/complex_templates.html)
 
 ![playground](https://raw.githubusercontent.com/Muzietto/react-playground/master/docs/giants_in_the_playground.jpg)
 
