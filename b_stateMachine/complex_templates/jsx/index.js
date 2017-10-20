@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {startStep} from './state_machine/steps';
+import choice, {startStep} from './state_machine/steps';
 import Wizard from './wizard';
 
 let wizardProps = {
@@ -32,7 +32,7 @@ ReactDOM.render(
         <div className="container">
             {Wizard(wizardProps)}
         </div>
-        <div className="container" id="state_machine_container">
-            {startStep()}
-        </div>
+        <div className="container" id="state_machine_container"/>
     </div>, document.getElementById('root'));
+
+startStep();
