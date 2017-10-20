@@ -20,13 +20,15 @@ let wizardProps = {
             disabled: false,
             onClick: () => {
                 alert('cancel button clicked');
-            }
+            },
+            className: 'left_button',
         },
         saveButton: {
             disabled: true,
             onClick: () => {
                 alert('SAVE button clicked');
-            }
+            },
+            className: 'right_button',
         },
     },
 };
@@ -45,21 +47,25 @@ export function startStep() {
 function customvarStep() {
     return choice({
         location: 'customvarStep',
-        backward: [startStep,],
-        forward: [...state.customvar
-            .map(customVar => labeler('exitStep', exitStep(customVar), customVar))]
-    }, templateB);
+        handlers: {
+            backward: [startStep,],
+            forward: [...state.customvar
+                .map(customVar => labeler('exitStep', exitStep(customVar), customVar))]
+        },
+    }, customvarStep_template);
 }
 
 function datasetStep() {
     return choice({
         location: 'datasetStep',
-        backward: [startStep,],
-        forward: [
-            ...Object.keys(state.dataset)
-                .map(key => labeler('propertyStep',
-                    () => propertyStep(key), state.dataset_name[parsedStateId(key).currentPos]))
-        ]
+        handlers: {
+            backward: [startStep,],
+            forward: [
+                ...Object.keys(state.dataset)
+                    .map(key => labeler('propertyStep',
+                        () => propertyStep(key), state.dataset_name[parsedStateId(key).currentPos]))
+            ]
+        },
     }, templateC);
 }
 
@@ -67,15 +73,17 @@ function propertyStep(datasetId) {
     let datasetName = state.dataset_name[parsedStateId(datasetId).currentPos];
     return choice({
         location: 'propertyStep',
-        backward: [
-            startStep,
-            labeler('datasetStep', () => datasetStep(), datasetName)
-        ],
-        forward: [
-            ...state.dataset_keys[parsedStateId(datasetId).currentPos]
-                .map(key => datasetName + '.' + key)
-                .map(key => labeler('typeStep', () => typeStep(key), key))
-        ]
+        handlers: {
+            backward: [
+                startStep,
+                labeler('datasetStep', () => datasetStep(), datasetName)
+            ],
+            forward: [
+                ...state.dataset_keys[parsedStateId(datasetId).currentPos]
+                    .map(key => datasetName + '.' + key)
+                    .map(key => labeler('typeStep', () => typeStep(key), key))
+            ]
+        },
     }, templateA);
 }
 
@@ -84,27 +92,31 @@ function typeStep(datasetProperty) {
     let datasetId = 'dataset#' + state.dataset_name.findIndex(n => n === datasetName);
     return choice({
         location: 'typeStep',
-        backward: [
-            startStep,
-            labeler('propertyStep', () => propertyStep(datasetId), datasetName)
-        ],
-        forward: [
-            ...[randomStep, connectedStep, fixedStep]
-                .map(fun => labeler(fun.name, () => fun(datasetProperty), datasetProperty))
-        ]
+        handlers: {
+            backward: [
+                startStep,
+                labeler('propertyStep', () => propertyStep(datasetId), datasetName)
+            ],
+            forward: [
+                ...[randomStep, connectedStep, fixedStep]
+                    .map(fun => labeler(fun.name, () => fun(datasetProperty), datasetProperty))
+            ]
+        },
     }, templateB);
 }
 
 function randomStep(datasetProperty) {
     return choice({
         location: 'randomStep',
-        backward: [
-            startStep,
-            labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
-        ],
-        forward: [
-            labeler('exitStep', exitStep(datasetProperty), datasetProperty),
-        ]
+        handlers: {
+            backward: [
+                startStep,
+                labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
+            ],
+            forward: [
+                labeler('exitStep', exitStep(datasetProperty), datasetProperty),
+            ]
+        },
     }, templateC);
 }
 
@@ -112,14 +124,16 @@ function connectedStep(datasetProperty) {
     let datasetPropertyWithSuffix = datasetProperty + '/';
     return choice({
         location: 'connectedStep',
-        backward: [
-            startStep,
-            labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
-        ],
-        forward: [
-            ...datasetIndexes(datasetPropertyWithSuffix)
-                .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
-        ]
+        handlers: {
+            backward: [
+                startStep,
+                labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
+            ],
+            forward: [
+                ...datasetIndexes(datasetPropertyWithSuffix)
+                    .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
+            ]
+        },
     }, templateA);
 }
 
@@ -127,14 +141,16 @@ function fixedStep(datasetProperty) {
     let datasetPropertyWithSuffix = datasetProperty + '#';
     return choice({
         location: 'fixedStep',
-        backward: [
-            startStep,
-            labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
-        ],
-        forward: [
-            ...datasetIndexes(datasetPropertyWithSuffix)
-                .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
-        ]
+        handlers: {
+            backward: [
+                startStep,
+                labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
+            ],
+            forward: [
+                ...datasetIndexes(datasetPropertyWithSuffix)
+                    .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
+            ]
+        },
     }, templateB);
 }
 

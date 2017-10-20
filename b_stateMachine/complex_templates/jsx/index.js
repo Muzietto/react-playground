@@ -28,13 +28,15 @@ let wizardProps = {
             disabled: false,
             onClick: () => {
                 alert('cancel button clicked');
-            }
+            },
+            className: 'left_button',
         },
         saveButton: {
             disabled: true,
             onClick: () => {
                 alert('SAVE button clicked');
-            }
+            },
+            className: 'right_button',
         },
     },
 };

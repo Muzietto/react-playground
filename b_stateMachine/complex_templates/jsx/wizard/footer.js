@@ -3,15 +3,17 @@
 import React from 'react';
 
 export default function footer(props) {
+    props.cancelButton.className += (!props.cancelButton.disabled) ? ' enabled' : '';
+    props.saveButton.className += (!props.saveButton.disabled) ? ' enabled' : '';
+
     return (
         <div className="footer">
             <button
-                {...props.cancelButton}
-                className="left_button ">Cancel</button>
+                {...props.cancelButton}>Cancel
+            </button>
             <button
-                {...props.saveButton}
-                className="right_button "
-                onClick={props.saveHandler}>Save</button>
+                {...props.saveButton}>Save
+            </button>
         </div>
     );
 }
