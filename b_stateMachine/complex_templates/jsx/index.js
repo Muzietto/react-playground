@@ -3,14 +3,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import choice, {startStep} from './state_machine/steps';
+import {startStep} from './state_machine/steps';
 import Wizard from './wizard';
+import core_type from './core_type';
+import core_index from './core_index';
 
 let wizardProps = {
     summary: {
         step: 1,
     },
-    core: {},
+    core: {
+        corefun: core_index,
+        message: 'hello, world!',
+    },
     footer: {
         cancelButton: {
             disabled: false,

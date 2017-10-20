@@ -1,4 +1,4 @@
-define(['exports', 'react', './summary', './core'], function (exports, _react, _summary, _core) {
+define(['exports', 'react', './summary'], function (exports, _react, _summary) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -10,21 +10,34 @@ define(['exports', 'react', './summary', './core'], function (exports, _react, _
 
     var _summary2 = _interopRequireDefault(_summary);
 
-    var _core2 = _interopRequireDefault(_core);
-
     function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {
             default: obj
         };
     }
 
+    function _objectWithoutProperties(obj, keys) {
+        var target = {};
+
+        for (var i in obj) {
+            if (keys.indexOf(i) >= 0) continue;
+            if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+            target[i] = obj[i];
+        }
+
+        return target;
+    }
+
     function body(props) {
+        let _props$core = props.core,
+            { corefun } = _props$core,
+            coreprops = _objectWithoutProperties(_props$core, ['corefun']);
         return _react2.default.createElement(
             'div',
             { className: 'body' },
             _react2.default.createElement(_summary2.default, props.summary),
-            _react2.default.createElement(_core2.default, props.core)
+            corefun(coreprops)
         );
     }
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL2pzeC9ib2R5LmpzIl0sIm5hbWVzIjpbImJvZHkiLCJwcm9wcyIsInN1bW1hcnkiLCJjb3JlIl0sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7O3NCQU93QkEsSTs7Ozs7Ozs7Ozs7Ozs7QUFBVCxhQUFTQSxJQUFULENBQWNDLEtBQWQsRUFBcUI7QUFDaEMsZUFDSTtBQUFBO0FBQUEsY0FBSyxXQUFVLE1BQWY7QUFDSSw2REFBYUEsTUFBTUMsT0FBbkIsQ0FESjtBQUVJLDBEQUFVRCxNQUFNRSxJQUFoQjtBQUZKLFNBREo7QUFNSCIsImZpbGUiOiJib2R5LmpzIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xuXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuXG5pbXBvcnQgU3VtbWFyeSBmcm9tICcuL3N1bW1hcnknO1xuaW1wb3J0IENvcmUgZnJvbSAnLi9jb3JlJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gYm9keShwcm9wcykge1xuICAgIHJldHVybiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYm9keVwiPlxuICAgICAgICAgICAgPFN1bW1hcnkgey4uLnByb3BzLnN1bW1hcnl9Lz5cbiAgICAgICAgICAgIDxDb3JlIHsuLi5wcm9wcy5jb3JlfS8+XG4gICAgICAgIDwvZGl2PlxuICAgICk7XG59XG4iXX0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL2pzeC9ib2R5LmpzIl0sIm5hbWVzIjpbImJvZHkiLCJwcm9wcyIsImNvcmUiLCJjb3JlZnVuIiwiY29yZXByb3BzIiwic3VtbWFyeSJdLCJtYXBwaW5ncyI6IjtBQUFBOzs7OztzQkFNd0JBLEk7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFULGFBQVNBLElBQVQsQ0FBY0MsS0FBZCxFQUFxQjtBQUNoQywwQkFBOEJBLE1BQU1DLElBQXBDO0FBQUEsWUFBSSxFQUFDQyxPQUFELEVBQUo7QUFBQSxZQUFpQkMsU0FBakI7QUFDQSxlQUNJO0FBQUE7QUFBQSxjQUFLLFdBQVUsTUFBZjtBQUNJLDZEQUFhSCxNQUFNSSxPQUFuQixDQURKO0FBRUtGLG9CQUFRQyxTQUFSO0FBRkwsU0FESjtBQU1IIiwiZmlsZSI6ImJvZHkuanMiLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIHN0cmljdCc7XG5cbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmltcG9ydCBTdW1tYXJ5IGZyb20gJy4vc3VtbWFyeSc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGJvZHkocHJvcHMpIHtcbiAgICBsZXQge2NvcmVmdW4sIC4uLmNvcmVwcm9wc30gPSBwcm9wcy5jb3JlO1xuICAgIHJldHVybiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYm9keVwiPlxuICAgICAgICAgICAgPFN1bW1hcnkgey4uLnByb3BzLnN1bW1hcnl9Lz5cbiAgICAgICAgICAgIHtjb3JlZnVuKGNvcmVwcm9wcyl9XG4gICAgICAgIDwvZGl2PlxuICAgICk7XG59XG4iXX0=

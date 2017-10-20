@@ -3,13 +3,13 @@
 import React from 'react';
 
 import Summary from './summary';
-import Core from './core';
 
 export default function body(props) {
+    let {corefun, ...coreprops} = props.core;
     return (
         <div className="body">
             <Summary {...props.summary}/>
-            <Core {...props.core}/>
+            {corefun(coreprops)}
         </div>
     );
 }
