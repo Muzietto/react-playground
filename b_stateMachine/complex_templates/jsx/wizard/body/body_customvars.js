@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import core_customvars from './core_customvars';
+import core_customvars from '../core/core_customvars';
 
 export default function body_customvars(props) {
     let {core_renderer, ...coreprops} = props.core;

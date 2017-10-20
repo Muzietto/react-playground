@@ -2,44 +2,14 @@
 
 import {initialState as state} from './initialState';
 import choice from './view';
-import startStep_template from '../template/startStep_template';
-
-let wizardProps = {
-    body: {
-        body_renderer: undefined,
-    },
-    summary: {
-        step: 1,
-    },
-    core: {
-        core_renderer: undefined,
-        message: 'hello, world!',
-    },
-    footer: {
-        cancelButton: {
-            disabled: false,
-            onClick: () => {
-                alert('cancel button clicked');
-            }
-        },
-        saveButton: {
-            disabled: true,
-            onClick: () => {
-                alert('SAVE button clicked');
-            }
-        },
-    },
-};
+import {templateA, templateB, templateC} from './view';
 
 export function startStep() {
     return choice({
         location: 'startStep',
-        handlers: {
-            backward: [],
-            forward: [customvarStep, datasetStep],
-        },
-        footer: wizardProps.footer,
-    }, startStep_template);
+        backward: [],
+        forward: [customvarStep, datasetStep],
+    }, templateA);
 }
 
 function customvarStep() {

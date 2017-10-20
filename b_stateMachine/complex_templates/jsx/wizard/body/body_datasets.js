@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import Summary from './summary';
+import Summary from '../summary';
 
 export default function body_datasets(props) {
     let {core_renderer, ...coreprops} = props.core;
