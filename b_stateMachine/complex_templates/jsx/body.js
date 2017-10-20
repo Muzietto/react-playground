@@ -8,8 +8,8 @@ import Core from './core';
 export default function body(props) {
     return (
         <div className="body">
-            <Summary/>
-            <Core/>
+            <Summary {...props.summary}/>
+            <Core {...props.core}/>
         </div>
     );
 }

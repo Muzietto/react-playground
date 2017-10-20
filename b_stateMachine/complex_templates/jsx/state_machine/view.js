@@ -3,16 +3,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const root = document.getElementById('container');
+const root = document.getElementById('state_machine_container');
 
 export default function choice(choices, template) {
     template = template || templateA;
 
-    _render(choices, template);
+    return _render(choices, template);
 }
 
 function _render(handlers, template) {
-    ReactDOM.render(template(handlers), root);
+//    ReactDOM.render(template(handlers), root);
+    return template(handlers);
 }
 
 export function templateA(handlers) {

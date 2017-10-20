@@ -9,10 +9,11 @@ body > p {
     border-radius: 5px;
     padding: 1px;
     margin: 1px;
+    position: relative;
 }
 
 .body {
-    min-height: 200px;
+    min-height: 240px;
     width: 100%;
     border: 2px solid green;
     border-radius: 5px;
@@ -30,7 +31,7 @@ body > p {
 }
 
 .core {
-    min-height: 100px;
+    min-height: 200px;
     width: 100%;
     border: 1px solid brown;
     border-radius: 5px;
@@ -39,16 +40,18 @@ body > p {
 }
 
 .footer {
-    min-height: 100px;
+    min-height: 35px;
     width: 100%;
     border: 2px solid blue;
     border-radius: 5px;
     padding: 1px;
     margin: 1px;
+    position: absolute;
+    bottom: 0px;
 }
 
 .summary {
-    min-height: 100px;
+    min-height: 35px;
     width: 100%;
     border: 2px solid green;
     border-radius: 5px;
@@ -58,11 +61,28 @@ body > p {
 
 .summary div {
     float: left;
-    width: 32%;
+    width: 33.3%;
+    padding: 1px;
+    color: black;
+    text-align: center;
+}
+
+.summary div.enabled {
+    background-color: #00d6b2;
+    color: white;
+}
+
+.right_button {
+    float: right;
 }
 
 button {
     margin: 5px !important;
+}
+
+button.enabled {
+    border-radius: 5px;
+    border: 4px solid green;
 }
 
 p {
@@ -82,14 +102,15 @@ legend {
 }
 
 div.container {
-    font-size: 1.4em;
+    /*font-size: 1.4em;*/
     width: 600px;
     margin: 0 auto;
+    float: left;
 }
 
 div.large_container {
     font-size: 1.4em;
-    width: 1400px;
+    width: 1250px;
     margin: 0 auto;
 }
 
