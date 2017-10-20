@@ -1,5 +1,11 @@
-dist
+#dist
 .idea/
+
+# remove me asap!
+redux-form/
+the_book/
+router_workshop
+
 
 *.lnk
 
