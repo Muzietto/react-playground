@@ -52,5 +52,4 @@ ReactDOM.render(
 
 simpleStartStep();
 
-ReactDOM.render(
-    startStep(), document.getElementById('complex_templates_container'));
+startStep();

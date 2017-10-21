@@ -7,7 +7,7 @@ export default function core_customvar(props) {
         <div className="core">
             <p>This is the core customvar saying: {props.message}</p>
             {
-                handlers.forward.map((handler, index) => {
+                props.handlers.forward.map((handler, index) => {
                     return <h2
                         style={{cursor: 'pointer'}}
                         key={index}

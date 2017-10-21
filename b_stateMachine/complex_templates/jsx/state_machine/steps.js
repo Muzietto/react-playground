@@ -3,6 +3,7 @@
 import {initialState as state} from './initialState';
 import choice from './view';
 import startStep_template from '../template/startStep_template';
+import customvarStep_template from '../template/customvarStep_template';
 
 let wizardProps = {
     body: {
@@ -17,7 +18,7 @@ let wizardProps = {
     },
     footer: {
         cancelButton: {
-            disabled: false,
+            disabled: true,
             onClick: () => {
                 alert('cancel button clicked');
             },
@@ -52,6 +53,7 @@ function customvarStep() {
             forward: [...state.customvar
                 .map(customVar => labeler('exitStep', exitStep(customVar), customVar))]
         },
+        footer: wizardProps.footer,
     }, customvarStep_template);
 }
 
