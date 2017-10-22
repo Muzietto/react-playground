@@ -68,7 +68,8 @@ function datasetStep() {
                         () => propertyStep(key), state.dataset_name[parsedStateId(key).currentPos]))
             ]
         },
-    }, templateC);
+        footer: wizardProps.footer,
+    }, datasetStep_template);
 }
 
 function propertyStep(datasetId) {

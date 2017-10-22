@@ -50,6 +50,8 @@ ReactDOM.render(
         <div className="container" id="complex_templates_container"/>
     </div>, document.getElementById('root'));
 
+// simple templates
 simpleStartStep();
 
+// complex templates
 startStep();
