@@ -41,6 +41,26 @@ h2 {
     border-radius: 5px;
     padding: 1px;
     margin: 1px;
+    max-height: 170px;
+    overflow: scroll;
+}
+
+.accordion_parent {
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.accordion_children {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    display: none;
+}
+
+.accordion_children.is_open {
+    display: block;
 }
 
 .footer {

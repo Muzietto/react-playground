@@ -4,6 +4,7 @@ import {initialState as state} from './initialState';
 import choice from './view';
 import startStep_template from '../template/startStep_template';
 import customvarStep_template from '../template/customvarStep_template';
+import datasetStep_template from '../template/datasetStep_template';
 
 let wizardProps = {
     body: {
@@ -62,13 +63,19 @@ function datasetStep() {
         location: 'datasetStep',
         handlers: {
             backward: [startStep,],
-            forward: [
+            forward: [ // one array for each dataset
                 ...Object.keys(state.dataset)
-                    .map(key => labeler('propertyStep',
-                        () => propertyStep(key), state.dataset_name[parsedStateId(key).currentPos]))
+                    .map(datasetId => {
+                        let datasetPosition = parsedStateId(datasetId).currentPos;
+                        let datasetName = state.dataset_name[datasetPosition];
+                        return [...state.dataset_keys[datasetPosition]]
+                            .map(key => datasetName + '.' + key)
+                            .map(key => labeler('typeStep', () => typeStep(key), key));
+                    })
             ]
         },
         footer: wizardProps.footer,
+        state: state,
     }, datasetStep_template);
 }
 

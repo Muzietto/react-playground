@@ -12,6 +12,7 @@ export default function customvarStep_template(wizardProps) {
     };
     wizardProps.core = {
         core_renderer: core_customvar,
+        message: 'hello, world!',
     };
     wizardProps.footer.cancelButton.disabled = false;
     wizardProps.footer.saveButton.disabled = true;

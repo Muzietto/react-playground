@@ -5,7 +5,7 @@ import React from 'react';
 export default function core_customvar(props) {
     return (
         <div className="core">
-            <p>This is the core customvar saying: {props.message}</p>
+            <p>This is the core customvar saying: {props.core.message}</p>
             {
                 props.handlers.forward.map((handler, index) => {
                     return <h2
