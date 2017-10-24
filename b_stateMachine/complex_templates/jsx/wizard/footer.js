@@ -12,6 +12,9 @@ export default function footer(props) {
                 {...props.cancelButton}>Cancel
             </button>
             <button
+                {...props.restartButton}>Restart
+            </button>
+            <button
                 {...props.saveButton}>Save
             </button>
         </div>
