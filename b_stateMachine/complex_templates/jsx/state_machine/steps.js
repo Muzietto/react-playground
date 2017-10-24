@@ -32,6 +32,7 @@ export function startStep() {
             forward: [customvarStep, datasetStep],
         },
         state: state,
+        footer: wizardProps.footer,
     }, startStep_template);
 }
 
@@ -44,6 +45,7 @@ function customvarStep() {
                 .map(customVar => labeler('exitStep', exitStep(customVar), customVar))]
         },
         state: state,
+        footer: wizardProps.footer,
     }, customvarStep_template);
 }
 
@@ -64,6 +66,7 @@ function datasetStep() {
             ]
         },
         state: state,
+        footer: wizardProps.footer,
     }, datasetStep_template);
 }
 
@@ -83,6 +86,7 @@ function typeStep(datasetProperty) {
             ]
         },
         state: state,
+        footer: wizardProps.footer,
     }, typeStep_template);
 }
 
@@ -98,6 +102,7 @@ function randomStep(datasetProperty) {
                 labeler('exitStep', exitStep(datasetProperty), datasetProperty),
             ]
         },
+        footer: wizardProps.footer,
     }, templateC);
 }
 
@@ -115,6 +120,7 @@ function connectedStep(datasetProperty) {
                     .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
             ]
         },
+        footer: wizardProps.footer,
     }, templateA);
 }
 
@@ -132,6 +138,7 @@ function fixedStep(datasetProperty) {
                     .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
             ]
         },
+        footer: wizardProps.footer,
     }, templateB);
 }
 

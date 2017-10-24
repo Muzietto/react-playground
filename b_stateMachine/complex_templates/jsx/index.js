@@ -7,6 +7,7 @@ import {startStep as simpleStartStep} from './simple_state_machine/steps';
 import {startStep} from './state_machine/steps';
 import Wizard from './wizard/wizard';
 import core_type from './wizard/core/core_type';
+import core_type_simple from './wizard/core/core_type_simple';
 import core_index from './wizard/core/core_index';
 import core_customvars from './wizard/core/core_customvars';
 import body_customvars from './wizard/body/body_customvars';
@@ -20,7 +21,7 @@ let wizardProps = {
         step: 1,
     },
     core: {
-        core_renderer: core_type,
+        core_renderer: core_type_simple,
         message: 'hello, world!',
     },
     footer: {
