@@ -75,6 +75,8 @@ function typeStep(datasetProperty) {
     let datasetId = 'dataset#' + state.dataset_name.findIndex(n => n === datasetName);
     return choice({
         location: 'typeStep',
+        chosen_dataset_name: datasetName,
+        chosen_dataset_property: datasetProperty,
         handlers: {
             backward: [
                 startStep,
@@ -93,6 +95,7 @@ function typeStep(datasetProperty) {
 function randomStep(datasetProperty) {
     return choice({
         location: 'randomStep',
+        chosen_dataset_property: datasetProperty,
         handlers: {
             backward: [
                 startStep,
@@ -110,6 +113,7 @@ function connectedStep(datasetProperty) {
     let datasetPropertyWithSuffix = datasetProperty + '/';
     return choice({
         location: 'connectedStep',
+        chosen_dataset_property: datasetProperty,
         handlers: {
             backward: [
                 startStep,
@@ -128,6 +132,7 @@ function fixedStep(datasetProperty) {
     let datasetPropertyWithSuffix = datasetProperty + '#';
     return choice({
         location: 'fixedStep',
+        chosen_dataset_property: datasetProperty,
         handlers: {
             backward: [
                 startStep,
