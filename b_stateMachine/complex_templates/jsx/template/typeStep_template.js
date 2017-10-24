@@ -28,6 +28,11 @@ export default function typeStep_template(props) {
                 ...props.footer.cancelButton,
                 disabled: false,
             },
+            restartButton: {
+                ...props.footer.restartButton,
+                disabled: false,
+                onClick: props.handlers.backward[0],
+            },
             saveButton: {
                 ...props.footer.saveButton,
                 disabled: true,

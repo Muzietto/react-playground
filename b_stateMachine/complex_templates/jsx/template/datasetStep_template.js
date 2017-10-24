@@ -6,15 +6,15 @@ import Wizard from '../wizard/wizard';
 import body_dataset from '../wizard/body/body_dataset';
 import core_dataset from '../wizard/core/core_dataset';
 
-export default function datasetStep_template(wizardProps) {
-    wizardProps = {
-        ...wizardProps,
+export default function datasetStep_template(props) {
+    props = {
+        ...props,
         body: {
-            ...wizardProps.body,
+            ...props.body,
             body_renderer: body_dataset,
         },
         core: {
-            ...wizardProps.core,
+            ...props.core,
             core_renderer: core_dataset,
             message: 'hello, dataset!',
         },
@@ -22,13 +22,18 @@ export default function datasetStep_template(wizardProps) {
             step: 1,
         },
         footer: {
-            ...wizardProps.footer,
+            ...props.footer,
             cancelButton: {
-                ...wizardProps.footer.cancelButton,
+                ...props.footer.cancelButton,
                 disabled: false,
             },
+            restartButton: {
+                ...props.footer.restartButton,
+                disabled: false,
+                onClick: props.handlers.backward[0],
+            },
             saveButton: {
-                ...wizardProps.footer.saveButton,
+                ...props.footer.saveButton,
                 disabled: true,
             },
         }
@@ -36,7 +41,7 @@ export default function datasetStep_template(wizardProps) {
 
     return (
         <div className="container">
-            {Wizard(wizardProps)}
+            {Wizard(props)}
         </div>
     );
 }
