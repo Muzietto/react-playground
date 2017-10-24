@@ -15,6 +15,12 @@ let wizardProps = {
             },
             className: 'left_button',
         },
+        restartButton: {
+            onClick: () => {
+                alert('restart button clicked');
+            },
+            className: 'left_button',
+        },
         saveButton: {
             onClick: () => {
                 alert('SAVE button clicked');
