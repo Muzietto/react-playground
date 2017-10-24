@@ -5,28 +5,17 @@ import choice from './view';
 import startStep_template from '../template/startStep_template';
 import customvarStep_template from '../template/customvarStep_template';
 import datasetStep_template from '../template/datasetStep_template';
+import typeStep_template from '../template/typeStep_template';
 
 let wizardProps = {
-    body: {
-        body_renderer: undefined,
-    },
-    summary: {
-        step: 1,
-    },
-    core: {
-        core_renderer: undefined,
-        message: 'hello, world!',
-    },
     footer: {
         cancelButton: {
-            disabled: true,
             onClick: () => {
                 alert('cancel button clicked');
             },
             className: 'left_button',
         },
         saveButton: {
-            disabled: true,
             onClick: () => {
                 alert('SAVE button clicked');
             },
@@ -42,7 +31,7 @@ export function startStep() {
             backward: [],
             forward: [customvarStep, datasetStep],
         },
-        footer: wizardProps.footer,
+        state: state,
     }, startStep_template);
 }
 
@@ -54,7 +43,7 @@ function customvarStep() {
             forward: [...state.customvar
                 .map(customVar => labeler('exitStep', exitStep(customVar), customVar))]
         },
-        footer: wizardProps.footer,
+        state: state,
     }, customvarStep_template);
 }
 
@@ -74,27 +63,8 @@ function datasetStep() {
                     })
             ]
         },
-        footer: wizardProps.footer,
         state: state,
     }, datasetStep_template);
-}
-
-function propertyStep(datasetId) {
-    let datasetName = state.dataset_name[parsedStateId(datasetId).currentPos];
-    return choice({
-        location: 'propertyStep',
-        handlers: {
-            backward: [
-                startStep,
-                labeler('datasetStep', () => datasetStep(), datasetName)
-            ],
-            forward: [
-                ...state.dataset_keys[parsedStateId(datasetId).currentPos]
-                    .map(key => datasetName + '.' + key)
-                    .map(key => labeler('typeStep', () => typeStep(key), key))
-            ]
-        },
-    }, templateA);
 }
 
 function typeStep(datasetProperty) {
@@ -112,7 +82,8 @@ function typeStep(datasetProperty) {
                     .map(fun => labeler(fun.name, () => fun(datasetProperty), datasetProperty))
             ]
         },
-    }, templateB);
+        state: state,
+    }, typeStep_template);
 }
 
 function randomStep(datasetProperty) {

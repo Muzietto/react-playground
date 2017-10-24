@@ -7,15 +7,29 @@ import body_customvar from '../wizard/body/body_customvar';
 import core_customvar from '../wizard/core/core_customvar';
 
 export default function customvarStep_template(wizardProps) {
-    wizardProps.body = {
-        body_renderer: body_customvar,
+    wizardProps = {
+        ...wizardProps,
+        body: {
+            ...wizardProps.body,
+            body_renderer: body_customvar,
+        },
+        core: {
+            ...wizardProps.core,
+            core_renderer: core_customvar,
+            message: 'hello, customvar!',
+        },
+        footer: {
+            ...wizardProps.footer,
+            cancelButton: {
+                ...wizardProps.footer.cancelButton,
+                disabled: false,
+            },
+            saveButton: {
+                ...wizardProps.footer.saveButton,
+                disabled: true,
+            },
+        }
     };
-    wizardProps.core = {
-        core_renderer: core_customvar,
-        message: 'hello, world!',
-    };
-    wizardProps.footer.cancelButton.disabled = false;
-    wizardProps.footer.saveButton.disabled = true;
 
     return (
         <div className="container">

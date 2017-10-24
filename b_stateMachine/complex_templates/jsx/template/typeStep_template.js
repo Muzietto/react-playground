@@ -3,23 +3,23 @@
 import React from 'react';
 
 import Wizard from '../wizard/wizard';
-import body_dataset from '../wizard/body/body_dataset';
-import core_dataset from '../wizard/core/core_dataset';
+import body_type from '../wizard/body/body_type';
+import core_type from '../wizard/core/core_type';
 
-export default function datasetStep_template(wizardProps) {
+export default function typeStep_template(wizardProps) {
     wizardProps = {
         ...wizardProps,
         body: {
             ...wizardProps.body,
-            body_renderer: body_dataset,
+            body_renderer: body_type,
         },
         core: {
             ...wizardProps.core,
-            core_renderer: core_dataset,
-            message: 'hello, dataset!',
+            core_renderer: core_type,
+            message: 'hello, type!',
         },
         summary: {
-            step: 1,
+            step: 2,
         },
         footer: {
             ...wizardProps.footer,
