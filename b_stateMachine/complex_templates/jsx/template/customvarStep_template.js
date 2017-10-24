@@ -6,26 +6,31 @@ import Wizard from '../wizard/wizard';
 import body_customvar from '../wizard/body/body_customvar';
 import core_customvar from '../wizard/core/core_customvar';
 
-export default function customvarStep_template(wizardProps) {
-    wizardProps = {
-        ...wizardProps,
+export default function customvarStep_template(props) {
+    props = {
+        ...props,
         body: {
-            ...wizardProps.body,
+            ...props.body,
             body_renderer: body_customvar,
         },
         core: {
-            ...wizardProps.core,
+            ...props.core,
             core_renderer: core_customvar,
             message: 'hello, customvar!',
         },
         footer: {
-            ...wizardProps.footer,
+            ...props.footer,
             cancelButton: {
-                ...wizardProps.footer.cancelButton,
+                ...props.footer.cancelButton,
                 disabled: false,
             },
+            restartButton: {
+                ...props.footer.restartButton,
+                disabled: false,
+                onClick: props.handlers.backward[0],
+            },
             saveButton: {
-                ...wizardProps.footer.saveButton,
+                ...props.footer.saveButton,
                 disabled: true,
             },
         }
@@ -33,7 +38,7 @@ export default function customvarStep_template(wizardProps) {
 
     return (
         <div className="container">
-            {Wizard(wizardProps)}
+            {Wizard(props)}
         </div>
     );
 }

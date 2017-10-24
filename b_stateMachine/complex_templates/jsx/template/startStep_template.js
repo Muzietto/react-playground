@@ -10,6 +10,7 @@ export default function startStep_template(wizardProps) {
         body_renderer: body_start,
     };
     wizardProps.footer.cancelButton.disabled = false;
+    wizardProps.footer.restartButton.disabled = true;
     wizardProps.footer.saveButton.disabled = true;
 
     return (

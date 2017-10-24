@@ -4,6 +4,7 @@ import React from 'react';
 
 export default function footer(props) {
     props.cancelButton.className += (!props.cancelButton.disabled) ? ' enabled' : '';
+    props.restartButton.className += (!props.restartButton.disabled) ? ' enabled' : '';
     props.saveButton.className += (!props.saveButton.disabled) ? ' enabled' : '';
 
     return (
