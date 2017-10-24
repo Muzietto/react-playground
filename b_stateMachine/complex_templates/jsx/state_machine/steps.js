@@ -80,7 +80,7 @@ function typeStep(datasetProperty) {
         handlers: {
             backward: [
                 startStep,
-                labeler('propertyStep', () => propertyStep(datasetId), datasetName)
+                labeler('propertyStep', () => datasetStep(), datasetName)
             ],
             forward: [
                 ...[randomStep, connectedStep, fixedStep]
