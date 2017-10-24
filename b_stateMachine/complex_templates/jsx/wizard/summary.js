@@ -11,12 +11,12 @@ export default function summary(props) {
                 1
             </div>
             <div
-                className={'second ' + ((props.step > 1) ? 'enabled' : '')}
+                className={_class_name(2)}
                 onClick={props.handlers && props.handlers[2]}>
                 2
             </div>
             <div
-                className={'third ' + ((props.step > 2) ? 'enabled' : '')}
+                className={_class_name(3)}
                 onClick={props.handlers && props.handlers[3]}>
                 3
             </div>
@@ -26,7 +26,7 @@ export default function summary(props) {
     function _class_name(pos) {
 
         return dictionary(pos)
-            + ((props.step > 0) ? ' enabled' : '')
+            + ((props.step >= pos) ? ' enabled' : '')
             + ((props.handlers && props.handlers.length > pos) ? ' cursor_pointer' : '');
 
         function dictionary(pos) {
