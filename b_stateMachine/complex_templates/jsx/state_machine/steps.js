@@ -42,17 +42,18 @@ export function startStep() {
     }, startStep_template);
 }
 
-function customvarStep(_, chosenVar) {
+function customvarStep(chosenVar) {
     return choice({
         location: 'customvarStep',
         handlers: {
             backward: [startStep,],
             forward: [...state.customvar
-                .map(customVar => labeler('exitStep', ev => customvarStep(ev, customVar), customVar))]
+                .map(customVar => labeler('exitStep', () => customvarStep.call(null, customVar), customVar))]
         },
         state: state,
         footer: wizardProps.footer,
-        chosen_var: chosenVar,
+        // ignoring click events as args
+        chosen_var: (chosenVar.length) ? chosenVar : undefined,
     }, customvarStep_template);
 }
 
