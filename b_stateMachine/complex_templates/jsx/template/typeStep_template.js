@@ -6,6 +6,7 @@ import Wizard from '../wizard/wizard';
 import body_type from '../wizard/body/body_type';
 import core_type from '../wizard/core/core_type';
 
+// NB this template renders both typeStep and randomStep
 export default function typeStep_template(props) {
     props = {
         ...props,
@@ -19,7 +20,7 @@ export default function typeStep_template(props) {
             message: 'hello, type!',
         },
         summary: {
-            step: 2,
+            step: (props.location === 'typeStep') ? 2 : 3,
             handlers: props.handlers.backward,
         },
         footer: {
@@ -39,6 +40,11 @@ export default function typeStep_template(props) {
             },
         }
     };
+
+    if (props.location === 'randomStep') {
+        props.footer.saveButton.disabled = false;
+        props.footer.saveButton.onClick = ev => alert('$(' + props.chosen_dataset_property + ')');
+    }
 
     return (
         <div className="container">

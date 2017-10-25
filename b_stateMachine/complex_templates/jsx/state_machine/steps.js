@@ -100,21 +100,25 @@ function typeStep(datasetProperty) {
     }, typeStep_template);
 }
 
+// randomStep proposes again the propertyStep while enabling the save button
 function randomStep(datasetProperty) {
+    let datasetName = datasetProperty.split('.')[0];
     return choice({
         location: 'randomStep',
         chosen_dataset_property: datasetProperty,
         handlers: {
             backward: [
                 startStep,
+                labeler('propertyStep', () => datasetStep(), datasetName),
                 labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
             ],
             forward: [
-                labeler('exitStep', exitStep(datasetProperty), datasetProperty),
+                ...[randomStep, connectedStep, fixedStep]
+                    .map(fun => labeler(fun.name, () => fun(datasetProperty), datasetProperty))
             ]
         },
         footer: wizardProps.footer,
-    }, templateC);
+    }, typeStep_template);
 }
 
 function connectedStep(datasetProperty) {
