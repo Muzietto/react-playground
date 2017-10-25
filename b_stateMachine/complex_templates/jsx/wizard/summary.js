@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+// NB props.handlers[0] is meant for the wizard restart link
 export default function summary(props) {
     return (
         <div className="summary">
@@ -30,7 +31,7 @@ export default function summary(props) {
             + ((props.handlers && props.handlers.length > pos) ? ' cursor_pointer' : '');
 
         function dictionary(pos) {
-            return ['first', 'second', 'third'][pos - 1];
+            return ['zeroth', 'first', 'second', 'third'][pos];
         }
     }
 }

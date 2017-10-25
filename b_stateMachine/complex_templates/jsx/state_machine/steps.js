@@ -6,6 +6,7 @@ import startStep_template from '../template/startStep_template';
 import customvarStep_template from '../template/customvarStep_template';
 import datasetStep_template from '../template/datasetStep_template';
 import typeStep_template from '../template/typeStep_template';
+import indexSelectionStep_template from '../template/indexSelectionStep_template';
 
 let wizardProps = {
     footer: {
@@ -121,7 +122,8 @@ function randomStep(datasetProperty) {
     }, typeStep_template);
 }
 
-function connectedStep(datasetProperty) {
+function connectedStep(datasetProperty, propWithIndex) {
+    let datasetName = datasetProperty.split('.')[0];
     let datasetPropertyWithSuffix = datasetProperty + '/';
     return choice({
         location: 'connectedStep',
@@ -129,18 +131,23 @@ function connectedStep(datasetProperty) {
         handlers: {
             backward: [
                 startStep,
+                labeler('propertyStep', () => datasetStep(), datasetName),
                 labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
             ],
             forward: [
                 ...datasetIndexes(datasetPropertyWithSuffix)
-                    .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
+                    .map(propSuffixIndex => labeler('exitStep ' + propSuffixIndex,
+                        () => connectedStep.apply(null, [datasetProperty, propSuffixIndex])))
             ]
         },
         footer: wizardProps.footer,
-    }, templateA);
+        // ignoring click events as args
+        chosen_prop_with_index: (propWithIndex) ? propWithIndex : undefined,
+    }, indexSelectionStep_template);
 }
 
-function fixedStep(datasetProperty) {
+function fixedStep(datasetProperty, propWithIndex) {
+    let datasetName = datasetProperty.split('.')[0];
     let datasetPropertyWithSuffix = datasetProperty + '#';
     return choice({
         location: 'fixedStep',
@@ -148,15 +155,19 @@ function fixedStep(datasetProperty) {
         handlers: {
             backward: [
                 startStep,
+                labeler('propertyStep', () => datasetStep(), datasetName),
                 labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
             ],
             forward: [
                 ...datasetIndexes(datasetPropertyWithSuffix)
-                    .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
+                    .map(propSuffixIndex => labeler('exitStep ' + propSuffixIndex,
+                        () => fixedStep.apply(null, [datasetProperty, propSuffixIndex])))
             ]
         },
         footer: wizardProps.footer,
-    }, templateB);
+        // ignoring click events as args
+        chosen_prop_with_index: (propWithIndex) ? propWithIndex : undefined,
+    }, indexSelectionStep_template);
 }
 
 function exitStep(value, index) { // reasonsforcologne.image/2 --> $(reasonsforcologne.image/2)
