@@ -88,7 +88,8 @@ function connectedStep(datasetProperty) {
         ],
         forward: [
             ...datasetIndexes(datasetPropertyWithSuffix)
-                .map((arg, index) => labeler('exitStep ' + datasetPropertyWithSuffix + index, exitStep(arg)))
+                .map(propSuffixIndex => labeler('exitStep ' + propSuffixIndex,
+                    exitStep(propSuffixIndex)))
         ]
     }, templateA);
 }
