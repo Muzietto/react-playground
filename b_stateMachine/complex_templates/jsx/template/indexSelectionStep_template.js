@@ -43,7 +43,9 @@ export default function indexSelectionStep_template(props) {
 
     if (props.chosen_prop_with_index) {
         props.footer.saveButton.disabled = false;
-        props.footer.saveButton.onClick = ev => alert('$(' + props.chosen_prop_with_index + ')');
+        props.footer.saveButton.onClick = ev => {
+            props.promiseCallback('(' + props.chosen_prop_with_index + ')');
+        };
     }
 
     return (

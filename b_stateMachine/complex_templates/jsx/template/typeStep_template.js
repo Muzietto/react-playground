@@ -43,7 +43,9 @@ export default function typeStep_template(props) {
 
     if (props.location === 'randomStep') {
         props.footer.saveButton.disabled = false;
-        props.footer.saveButton.onClick = ev => alert('$(' + props.chosen_dataset_property + ')');
+        props.footer.saveButton.onClick = ev => {
+            props.promiseCallback('(' + props.chosen_dataset_property + ')');
+        }
     }
 
     return (

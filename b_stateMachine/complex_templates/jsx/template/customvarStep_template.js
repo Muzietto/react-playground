@@ -38,7 +38,9 @@ export default function customvarStep_template(props) {
 
     if (props.chosen_var) {
         props.footer.saveButton.disabled = false;
-        props.footer.saveButton.onClick = ev => alert('$(' + props.chosen_var + ')');
+        props.footer.saveButton.onClick = ev => {
+            props.promiseCallback('(' + props.chosen_var + ')');
+        }
     }
 
     return (

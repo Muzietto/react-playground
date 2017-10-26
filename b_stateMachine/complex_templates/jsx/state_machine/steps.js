@@ -31,14 +31,18 @@ let wizardProps = {
     },
 };
 
-export function startStep() {
+let promiseCallback;
+
+export function startStep(resolveCallback) {
+    promiseCallback = resolveCallback;
+
     return choice({
         location: 'startStep',
         handlers: {
             backward: [],
             forward: [customvarStep, datasetStep],
         },
-        state: state,
+        state,
         footer: wizardProps.footer,
     }, startStep_template);
 }
@@ -51,7 +55,8 @@ function customvarStep(chosenVar) {
             forward: [...state.customvar
                 .map(customVar => labeler('exitStep', () => customvarStep.call(null, customVar), customVar))]
         },
-        state: state,
+        state,
+        promiseCallback,
         footer: wizardProps.footer,
         // ignoring click events as args
         chosen_var: (chosenVar.length) ? chosenVar : undefined,
@@ -74,7 +79,7 @@ function datasetStep() {
                     })
             ]
         },
-        state: state,
+        state,
         footer: wizardProps.footer,
     }, datasetStep_template);
 }
@@ -96,12 +101,12 @@ function typeStep(datasetProperty) {
                     .map(fun => labeler(fun.name, () => fun(datasetProperty), datasetProperty))
             ]
         },
-        state: state,
+        state,
         footer: wizardProps.footer,
     }, typeStep_template);
 }
 
-// randomStep proposes again the propertyStep while enabling the save button
+// randomStep proposes again the typeStep while enabling the save button
 function randomStep(datasetProperty) {
     let datasetName = datasetProperty.split('.')[0];
     return choice({
@@ -118,7 +123,9 @@ function randomStep(datasetProperty) {
                     .map(fun => labeler(fun.name, () => fun(datasetProperty), datasetProperty))
             ]
         },
+        state,
         footer: wizardProps.footer,
+        promiseCallback,
     }, typeStep_template);
 }
 
@@ -140,6 +147,8 @@ function connectedStep(datasetProperty, propWithIndex) {
                         () => connectedStep.apply(null, [datasetProperty, propSuffixIndex])))
             ]
         },
+        state,
+        promiseCallback,
         footer: wizardProps.footer,
         // ignoring click events as args
         chosen_prop_with_index: (propWithIndex) ? propWithIndex : undefined,
@@ -164,17 +173,12 @@ function fixedStep(datasetProperty, propWithIndex) {
                         () => fixedStep.apply(null, [datasetProperty, propSuffixIndex])))
             ]
         },
+        state,
+        promiseCallback,
         footer: wizardProps.footer,
         // ignoring click events as args
         chosen_prop_with_index: (propWithIndex) ? propWithIndex : undefined,
     }, indexSelectionStep_template);
-}
-
-function exitStep(value, index) { // reasonsforcologne.image/2 --> $(reasonsforcologne.image/2)
-    let result = () => {
-        alert('$(' + value + ')');
-    };
-    return labeler('exitStep', result, index);
 }
 
 function datasetIndexes(datasetPropertyWithSuffix) { // reasonsforcologne.image -> reasonsforcologne.image/2

@@ -19,14 +19,25 @@ Array.prototype.forEach.call(document.getElementsByClassName('wizard-equipped'),
 });
 
 function drawWizard(ev) {
+    let wizardContainer = document.getElementById('complex_templates_container');
 
     if (ev.key === '$') {
 
-        document.getElementById('complex_templates_container')
-            .classList.remove('hidden');
+        let promise = new Promise(function (resolve, reject) {
 
-        // complex templates
-        startStep();
+            wizardContainer.classList.remove('hidden');
+
+            // complex templates
+            startStep(resolve);
+        });
+
+        promise
+            .then(wizardResult => {
+                ev.target.value += wizardResult;
+                ReactDOM.render(null, wizardContainer);
+            })
+            .catch(err => alert('Wizard failure: ' + err));
+
+        return false;
     }
-    return false;
 }
