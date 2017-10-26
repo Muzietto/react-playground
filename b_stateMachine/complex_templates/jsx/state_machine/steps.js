@@ -129,56 +129,47 @@ function randomStep(datasetProperty) {
     }, typeStep_template);
 }
 
+// 'connectedStep', '/'
+function indexSelectionStep(stepName, separator) {
+    let result = function (datasetProperty, propWithIndex) {
+        let datasetName = datasetProperty.split('.')[0];
+        let datasetPropertyWithSuffix = datasetProperty + separator;
+        return choice({
+            location: stepName,
+            chosen_dataset_property: datasetProperty,
+            handlers: {
+                backward: [
+                    startStep,
+                    labeler('propertyStep', () => datasetStep(), datasetName),
+                    labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
+                ],
+                forward: [
+                    ...datasetIndexes(datasetPropertyWithSuffix)
+                        .map(propSuffixIndex => labeler('exitStep ' + propSuffixIndex,
+                            () => result.apply(null, [datasetProperty, propSuffixIndex])))
+                ]
+            },
+            state,
+            promiseCallback,
+            footer: wizardProps.footer,
+            // ignoring click events as args
+            chosen_prop_with_index: (propWithIndex) ? propWithIndex : undefined,
+        }, indexSelectionStep_template);
+    };
+
+    Object.defineProperty(result, 'name', {
+        value: stepName,
+    });
+
+    return result;
+}
+
 function connectedStep(datasetProperty, propWithIndex) {
-    let datasetName = datasetProperty.split('.')[0];
-    let datasetPropertyWithSuffix = datasetProperty + '/';
-    return choice({
-        location: 'connectedStep',
-        chosen_dataset_property: datasetProperty,
-        handlers: {
-            backward: [
-                startStep,
-                labeler('propertyStep', () => datasetStep(), datasetName),
-                labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
-            ],
-            forward: [
-                ...datasetIndexes(datasetPropertyWithSuffix)
-                    .map(propSuffixIndex => labeler('exitStep ' + propSuffixIndex,
-                        () => connectedStep.apply(null, [datasetProperty, propSuffixIndex])))
-            ]
-        },
-        state,
-        promiseCallback,
-        footer: wizardProps.footer,
-        // ignoring click events as args
-        chosen_prop_with_index: (propWithIndex) ? propWithIndex : undefined,
-    }, indexSelectionStep_template);
+    return indexSelectionStep('connectedStep', '/')(datasetProperty, propWithIndex);
 }
 
 function fixedStep(datasetProperty, propWithIndex) {
-    let datasetName = datasetProperty.split('.')[0];
-    let datasetPropertyWithSuffix = datasetProperty + '#';
-    return choice({
-        location: 'fixedStep',
-        chosen_dataset_property: datasetProperty,
-        handlers: {
-            backward: [
-                startStep,
-                labeler('propertyStep', () => datasetStep(), datasetName),
-                labeler('typeStep', () => typeStep(datasetProperty), datasetProperty)
-            ],
-            forward: [
-                ...datasetIndexes(datasetPropertyWithSuffix)
-                    .map(propSuffixIndex => labeler('exitStep ' + propSuffixIndex,
-                        () => fixedStep.apply(null, [datasetProperty, propSuffixIndex])))
-            ]
-        },
-        state,
-        promiseCallback,
-        footer: wizardProps.footer,
-        // ignoring click events as args
-        chosen_prop_with_index: (propWithIndex) ? propWithIndex : undefined,
-    }, indexSelectionStep_template);
+    return indexSelectionStep('fixedStep', '#')(datasetProperty, propWithIndex);
 }
 
 function datasetIndexes(datasetPropertyWithSuffix) { // reasonsforcologne.image -> reasonsforcologne.image/2
