@@ -8,6 +8,7 @@ import datasetStep_template from '../template/datasetStep_template';
 import typeStep_template from '../template/typeStep_template';
 import indexSelectionStep_template from '../template/indexSelectionStep_template';
 
+// minimal config props, mostly overridden down the process
 let wizardProps = {
     footer: {
         cancelButton: {
@@ -33,8 +34,11 @@ let wizardProps = {
 
 let promiseCallback;
 
-export function startStep(resolveCallback) {
-    promiseCallback = resolveCallback;
+export function startStep(resolveCallback, REPLACE_CALLBACK) {
+
+    if (REPLACE_CALLBACK) {
+        promiseCallback = resolveCallback;
+    }
 
     return choice({
         location: 'startStep',

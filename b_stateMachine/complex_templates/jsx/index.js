@@ -25,10 +25,11 @@ function drawWizard(ev) {
 
         let promise = new Promise(function (resolve, reject) {
 
+            Object.defineProperty(resolve, 'name', {value: 'resolveCallback'});
+
             wizardContainer.classList.remove('hidden');
 
-            // complex templates
-            startStep(resolve);
+            startStep(resolve, true); // REPLACE_CALLBACK
         });
 
         promise
