@@ -7,7 +7,7 @@ import customvarStep_template from '../template/customvarStep_template';
 import datasetStep_template from '../template/datasetStep_template';
 import typeStep_template from '../template/typeStep_template';
 import indexSelectionStep_template from '../template/indexSelectionStep_template';
-
+ 
 // minimal config props, mostly overridden down the process
 let wizardProps = {
     footer: {
