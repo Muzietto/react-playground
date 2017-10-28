@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-class ItemsList extends React.Component {
+class ItemsList2 extends React.Component {
 
     static defaultProps() {
         return {
@@ -18,10 +18,10 @@ class ItemsList extends React.Component {
             <div className={this.props.containerCssClass}>
                 {this.props.prependToList}
                 {this.props.items
-                    .map(this.props.itemsMapper)}
+                    .map(this.props.children)}
             </div>
         );
     }
 }
 
-export default ItemsList;
+export default ItemsList2;
