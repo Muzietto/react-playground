@@ -1,9 +1,9 @@
-// completely stateless
+// completely stateless - IMPROVED VERSION
 'use strict';
 
 import React from 'react';
 
-class ItemsList2 extends React.Component {
+class ItemsList extends React.Component {
 
     static defaultProps() {
         return {
@@ -24,4 +24,4 @@ class ItemsList2 extends React.Component {
     }
 }
 
-export default ItemsList2;
+export default ItemsList;

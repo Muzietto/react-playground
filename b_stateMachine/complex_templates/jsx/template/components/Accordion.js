@@ -22,8 +22,14 @@ class Accordion extends React.Component {
                 <ItemsList
                     containerCssClass={'accordion_children'
                     + (this.state.is_visible ? ' is_open' : '')}
-                    items={this.props.accordion_children}
-                    itemsMapper={_accordionMapper}/>
+                    items={this.props.accordion_children}>
+                    {(child, index) => <h2
+                        style={{cursor: 'pointer'}}
+                        key={index}
+                        onClick={child.handler}>
+                        {(child.name || 'noname')}
+                    </h2>}
+                </ItemsList>
             </AccordionParent>
         );
     }
@@ -31,6 +37,15 @@ class Accordion extends React.Component {
     accordionToggler() {
         this.setState({is_visible: !this.state.is_visible});
     }
+}
+
+function _accordionMapper(child, index) {
+    return <h2
+        style={{cursor: 'pointer'}}
+        key={index}
+        onClick={child.handler}>
+        {(child.name || 'noname')}
+    </h2>;
 }
 
 class AccordionParent extends React.Component {
@@ -44,15 +59,6 @@ class AccordionParent extends React.Component {
             </div>
         );
     }
-}
-
-function _accordionMapper(child, index) {
-    return <h2
-        style={{cursor: 'pointer'}}
-        key={index}
-        onClick={child.handler}>
-        {(child.name || 'noname')}
-    </h2>;
 }
 
 export default Accordion;

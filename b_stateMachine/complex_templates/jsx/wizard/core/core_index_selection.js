@@ -12,19 +12,14 @@ export default function core_index_selection(props) {
             <p>Your choice is {chosenProperty} | Select the index now</p>
             <ItemsList
                 containerCssClass="types_container"
-                items={props.handlers.forward}
-                itemsMapper={_handlersMapper}/>
-        </div>
-    );
-}
-
-function _handlersMapper(handler, index) {
-    return (
-        <div
-            key={index}
-            className="type_container"
-            onClick={handler}>
-            {handler.name}
+                items={props.handlers.forward}>
+                {(handler, index) => <div
+                    key={index}
+                    className="type_container"
+                    onClick={handler}>
+                    {handler.name}
+                </div>}
+            </ItemsList>
         </div>
     );
 }
