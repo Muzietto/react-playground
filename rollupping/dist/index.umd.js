@@ -5,8 +5,8 @@
 }(this, (function (exports) { 'use strict';
 
 var slots = {
-    slot_1: document.getElementById('slot1'),
-    slot_2: document.getElementById('slot2')
+    slot_1: document.getElementById('slot_1'),
+    slot_2: document.getElementById('slot_2')
 };
 
 var view = {

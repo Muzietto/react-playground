@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var slots = {
-    slot_1: document.getElementById('slot1'),
-    slot_2: document.getElementById('slot2')
+    slot_1: document.getElementById('slot_1'),
+    slot_2: document.getElementById('slot_2')
 };
 
 var view = {
@@ -29,4 +29,4 @@ function crosspromo(aView) {
 var crosspromo$1 = crosspromo(view);
 
 exports.crosspromo = crosspromo$1;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.cjs.js.map

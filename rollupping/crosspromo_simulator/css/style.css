@@ -1,0 +1,7 @@
+.cp_slot {
+    width: 50%;
+    border: 1px solid green;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 5px;
+}
