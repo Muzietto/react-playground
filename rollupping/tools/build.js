@@ -13,7 +13,7 @@ promise = promise.then(() => del(['dist/*']));
 
 ['es', 'cjs', 'umd'].forEach((format) => {
     promise = promise.then(() => rollup.rollup({
-        entry: 'volume_decoupled_redux_es6_BUNDLED/jsx/app.jsx',
+        entry: 'crosspromo_simulator/es6/index.js',
         external: Object.keys(pkg.dependencies),
         plugins: [babel(Object.assign(pkg.babel, {
             babelrc: false,
