@@ -12,6 +12,7 @@ let promise = Promise.resolve();
 promise = promise.then(() => del(['dist/*']));
 
 ['es', 'cjs', 'umd'].forEach((format) => {
+    // see async function example at https://rollupjs.org/guide/en#rollup-rollup
     promise = promise.then(() => rollup.rollup({
         entry: 'crosspromo_simulator/es6/index.js',
         external: Object.keys(pkg.dependencies),
