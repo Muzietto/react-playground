@@ -1,5 +1,5 @@
 # react-playground
-just trying out thingies
+just trying out thingies but working from scratch, without create-react-app and other magics...
 
 - [user/group management, React+React-Router+Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/twopages_es6.html)
 - [related Mocha tests, Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/twopages_Mocha.html)
