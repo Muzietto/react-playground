@@ -4,12 +4,10 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const ROOT_PATH = path.resolve(__dirname, '.');
-const SRC_PATH = path.resolve(ROOT_PATH, 'src');
+const ROOT_PATH = path.resolve(__dirname, '..');
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
+  entry: 'index.js',
   output: {
     path: path.resolve(ROOT_PATH, 'dist'),
     filename: 'bundle.js',
@@ -19,7 +17,6 @@ module.exports = {
       { test: /\.json$/, loader: 'json-loader' },
       {
         test: /\.js$|\.jsx$/,
-        include: [ SRC_PATH ],
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -40,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(SRC_PATH, 'index.html'),
+      template: 'index.html',
       inject: true,
     }),
     new webpack.HotModuleReplacementPlugin()
@@ -55,7 +52,7 @@ module.exports = {
     //outputPath: path.resolve(ROOT_PATH, 'dist'),
   },
   resolve: {
-    modules: [path.join(ROOT_PATH), 'node_modules'],
     alias: {},
+    modules: [],
   },
 };
