@@ -1,7 +1,21 @@
+import React from 'react';
 import history from './history';
 
-function render(location) { /* Render React app, read on */ }
-
-render(history.getCurrentLocation()); // render the current URL
-
-history.listen(render);               // render subsequent URLs
+class App extends React.Component {
+  transition = event => {
+    event.preventDefault();
+    history.push({
+      pathname: event.currentTarget.pathname,
+      search: event.currentTarget.search
+    });
+  };
+  render() {
+    return (
+      <ul>
+        <li><a href="/" onClick={this.transition}>Home</a></li>
+        <li><a href="/one" onClick={this.transition}>One</a></li>
+        <li><a href="/two" onClick={this.transition}>Two</a></li>
+      </ul>
+    );
+  }
+}
