@@ -6,7 +6,6 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build2": "webpack --config webpack.config.prod.js",
     "webpack": "webpack-dev-server --config webpack.config.js",
     "build": "./node_modules/.bin/webpack --display-error-details",
     "build:prod": "./node_modules/.bin/webpack -p",
