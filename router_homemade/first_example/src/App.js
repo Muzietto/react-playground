@@ -1,5 +1,6 @@
 import React from 'react';
 import history from './history';
+import { hot } from 'react-hot-loader'
 
 class App extends React.Component {
   transition = event => {
@@ -21,4 +22,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default hot(module)(App);
