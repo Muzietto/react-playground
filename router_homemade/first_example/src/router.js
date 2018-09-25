@@ -25,7 +25,7 @@ function resolve(routes, context) {
     const result = route.action({ ...context, params });
     if (result) return Promise.resolve(result);
   }
-  const error = new Error('Not found');
+  const error = new Error('Not found: ' + JSON.stringify(context));
   error.status = 404;
   throw error;
 }

@@ -10,5 +10,8 @@ const transition = event => {
 };
 
 export default ({ href, children }) => (
-  <a href={href} onClick={transition}>{children}</a>
+  <React.Fragment>
+    <a href={href} onClick={transition}>{children}</a>
+    <br/>
+  </React.Fragment>
 );
