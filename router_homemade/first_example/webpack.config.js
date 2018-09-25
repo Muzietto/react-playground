@@ -1,5 +1,3 @@
-// cfr. https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9
-
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
