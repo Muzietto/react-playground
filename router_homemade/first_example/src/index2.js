@@ -12,12 +12,13 @@ function renderComponent(component) {
 function render(location) {
   router.resolve(routes, location)
     .then(renderComponent)
-    .catch(error => router.resolve(routes, { ...location, error })
-    .then(renderComponent));
+    .catch(function(error) {
+      router.resolve(routes, { ...location, error }).then(renderComponent)
+    });
 }
 
 const curLoc = history.location;
 
 render(curLoc); // render the current URL
 
-history.listen(render);               // render subsequent URLs
+history.listen(render); // render subsequent URLs
