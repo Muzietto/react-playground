@@ -1,22 +1,16 @@
 import React from 'react';
 import history from './history';
-import { hot } from 'react-hot-loader'
+import { hot } from 'react-hot-loader';
+import Link from './Link';
 
 class App extends React.Component {
-  transition = event => {
-    event.preventDefault();
-    history.push({
-      pathname: event.currentTarget.pathname, // path
-      search: event.currentTarget.search // querystring
-    });
-  };
   render() {
     return (
       <ul>
-        <li><a href="/" onClick={this.transition}>Home</a></li>
-        <li><a href="/one" onClick={this.transition}>One</a></li>
-        <li><a href="/two" onClick={this.transition}>Two</a></li>
-        <li><a href="/two?q=12" onClick={this.transition}>Two q=12</a></li>
+        <li><Link href="/" >Home Sweet Home</Link></li>
+        <li><Link href="/one">One Bone</Link></li>
+        <li><Link href="/two">Two Pro</Link></li>
+        <li><Link href="/two?q=12">Two q=12</Link></li>
       </ul>
     );
   }
