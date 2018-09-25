@@ -1,17 +1,19 @@
 import toRegex from 'path-to-regexp';
 
 function matchURI(path, uri) {
-  const keys = [];
-  const pattern = toRegex(path, keys);
+  const groups = [];
+  const pattern = toRegex(path, groups);
   const match = pattern.exec(uri);
 
   if (!match) return null;
 
-  const params = Object.create(null);
-  for (let i = 1; i < match.length; i++) {
-    params[keys[i - 1].name] =
-      match[i] !== undefined ? match[i] : undefined;
-  }
+  const params = match.reduce((acc, curr, index) => {
+    if (index === 0) return acc; // ignore first group
+    if (typeof match[index] === 'undefined') return acc;
+    acc[groups[index - 1].name] = match[index];
+    return acc;
+  },{});
+
   return params;
 }
 
@@ -27,6 +29,6 @@ function resolve(routes, context) {
   }
   const error = new Error('Not found: ' + JSON.stringify(context));
   error.status = 404;
-  throw error;
+  return Promise.reject(error);
 }
 export default { resolve };
