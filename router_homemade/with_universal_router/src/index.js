@@ -24,19 +24,7 @@ import routes from './routes'
 //   },
 // ]
 
-const options = {
-  context: {},
-  baseUrl: '',
-  errorHandler(error) {
-    console.error(error)
-    console.dir(error.context)
-    return (error.code === 404)
-      ? '<h1>Page Not Found</h1>'
-      : '<h1>Oops! Something went wrong</h1>'
-  }
-}
-
-const router = new UniversalRouter(routes/*, options*/)
+const router = new UniversalRouter(routes)
 
 // router.resolve('/posts').then(html => {
 //   document.body.innerHTML = html // renders: <h1>Posts</h1>
@@ -64,4 +52,4 @@ const curLoc = history.location || '/';
 
 render(curLoc); // render the current URL
 
-history.listen(render); // render subsequent URLs
+//history.listen(render); // render subsequent URLs
