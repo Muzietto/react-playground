@@ -5,8 +5,8 @@ just trying out thingies but working from scratch, without create-react-app and 
 - [related Mocha tests, Redux+ES6](http://rawgit.com/Muzietto/react-playground/master/combo_boxes/twopages_Mocha.html)
 - [form management with redux-form, React+Redux+redux-form+ES6](http://rawgit.com/Muzietto/react-playground/master/redux-form/simple/simple.html)
 - [multi-step wizard commanded by vanilla JS state machine](http://rawgit.com/Muzietto/react-playground/master/b_stateMachine/complex_templates/complex_templates.html) (state machine is [here](https://github.com/Muzietto/react-playground/blob/master/b_stateMachine/complex_templates/jsx/state_machine/steps.js))
-- [home-made router, React+ES6](http://rawgit.com/Muzietto/react-playground/master/homemade_router/first_example/dist/index.html)
-- [CSS transition between pages router, React+universal-router+ES6](http://rawgit.com/Muzietto/react-playground/master/homemade_router/with_universal_router/dist/index.html)
+- [home-made router, React+ES6](http://rawgit.com/Muzietto/react-playground/master/router_homemade/first_example/dist/index.html) - [here](http://rawgit.com/Muzietto/react-playground/master/router_homemade/first_example/src/router.js) is the router
+- [CSS transition between pages, React+universal-router+ES6](http://rawgit.com/Muzietto/react-playground/master/router_homemade/with_universal_router/dist/index.html)
 
 ![playground](https://raw.githubusercontent.com/Muzietto/react-playground/master/docs/giants_in_the_playground.jpg)
 
