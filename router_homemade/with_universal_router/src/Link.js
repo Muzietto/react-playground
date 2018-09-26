@@ -1,12 +1,10 @@
 import React from 'react';
-import history from './history';
+import navigateTo from './navigation'
 
 const transition = event => {
   event.preventDefault();
-  history.push({
-    pathname: event.target.pathname,
-    search: event.target.search,
-  });
+  const path = event.currentTarget.pathname;
+  navigateTo(path);
 };
 
 export default ({ href, children }) => (

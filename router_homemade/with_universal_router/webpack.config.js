@@ -7,8 +7,8 @@ const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 module.exports = {
   mode: 'development',
-  //entry: './src/index.js',
-  entry: './src/experiments/xxx.js',
+  entry: './src/index.js',
+  //entry: './src/experiments/xxx.js',
   output: {
     path: path.resolve(ROOT_PATH, 'dist'),
     filename: 'bundle.js',
