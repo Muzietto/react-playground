@@ -9,10 +9,8 @@ import './transitions.css'
 const Layout = ({children}) => (
   <CSSTransitionGroup
     component="div"
-    className="containerxxx"
+    className="container"
     transitionName="page"
-    transitionEnterTimeout={1000}
-    transitionLeaveTimeout={500}
     >
     <div key={Math.random()} className="content">
       {children}
