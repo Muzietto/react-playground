@@ -1,7 +1,7 @@
 {
-  "name": "first-simple-homemade-router",
+  "name": "page-transitions-with-universal-router",
   "version": "0.0.1",
-  "description": "https://medium.freecodecamp.org/you-might-not-need-react-router-38673620f3d",
+  "description": "staying simple but using a routing library",
   "author": "Marco Faustinelli - Muzietto",
   "license": "MIT",
   "main": "index.js",
@@ -16,7 +16,8 @@
     "path-to-regexp": "^2.4.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-transition-group": "^2.4.0"
+    "react-transition-group": "^2.4.0",
+    "universal-router": "^6.0.0"
   },
   "devDependencies": {
     "babel-core": "6.26.3",
