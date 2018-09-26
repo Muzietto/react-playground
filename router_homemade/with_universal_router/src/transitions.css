@@ -31,8 +31,14 @@
 }
 
 /* Kostia's stuff */
-.container { position: relative; }
-.content { position: absolute; }
+.container {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+}
 
 .page-enter {
   opacity: 0;
@@ -50,4 +56,22 @@
 .page-leave.page-leave-active {
   opacity: 0;
   transition: opacity 500ms ease-in;
+}
+
+.page_slide-enter {
+  right: -100%;
+}
+
+.page_slide-enter.page_slide-enter-active {
+  right: 0;
+  transition: right 500ms ease-in-out;
+}
+
+.page_slide-leave {
+  right: 0px;
+}
+
+.page_slide-leave.page_slide-leave-active {
+  right: 100%;
+  transition: right 500ms ease-in-out;
 }

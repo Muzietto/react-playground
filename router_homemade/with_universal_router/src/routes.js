@@ -10,7 +10,7 @@ const Layout = ({children}) => (
   <CSSTransitionGroup
     component="div"
     className="container"
-    transitionName="page"
+    transitionName="page_slide"
     >
     <div key={Math.random()} className="content">
       {children}
