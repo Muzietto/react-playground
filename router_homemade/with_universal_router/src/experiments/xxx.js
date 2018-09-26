@@ -6,38 +6,49 @@ import './xxx.css'
 
 function Layout({ path, title, children }) {
   return (
-    <div>
-      <p>
-        <b>Navigation:</b>{' '}
-        <Link to="/a">Page A</Link>{' '}
-        <Link to="/b">Page B</Link>{' '}
-        <Link to="/c">Page C</Link>
-      </p>
       <CSSTransitionGroup
         component="div"
         className="container"
         transitionName="page"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}
+        transitionEnterTimeout={1000}
+        transitionLeaveTimeout={500}
       >
-          <div key={path} className="content">
-            <h1>{title}</h1>
+          <div key={Math.random()} className="content">
             {children}
-            <p>Current path: {path}</p>
           </div>
         </CSSTransitionGroup>
-    </div>
   )
 }
 
 function PageA() {
-  return <p className="a">Sed id ipsum vitae nulla suscipit sagittis.</p>
+  return (
+    <React.Fragment>
+      <h1>Titlex A</h1>
+      <p className="a">Sed id ipsum vitae nulla suscipit sagittis.</p>
+      <Link to="/b">Page B</Link>{' '}
+      <Link to="/c">Page C</Link>
+    </React.Fragment>
+  );
 }
 function PageB() {
-  return <p className="b">Integer semper risus at sem posuere tempor.</p>
+  return (
+    <React.Fragment>
+      <h1>Titlex B</h1>
+      <p className="a">Integer semper risus at sem posuere tempor.</p>
+      <Link to="/a">Page A</Link>{' '}
+      <Link to="/c">Page C</Link>
+    </React.Fragment>
+  );
 }
 function PageC() {
-  return <p className="c">Ut vulputate lectus at ex rhoncus pulvinar.</p>
+  return (
+    <React.Fragment>
+      <h1>Titlex C</h1>
+      <p className="a">Ut vulputate lectus at ex rhoncus pulvinar.</p>
+      <Link to="/a">Page A</Link>{' '}
+      <Link to="/b">Page B</Link>
+    </React.Fragment>
+  );
 }
 
 class Link extends React.Component {
