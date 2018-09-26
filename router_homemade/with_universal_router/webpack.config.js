@@ -29,6 +29,7 @@ module.exports = {
               'transform-object-rest-spread',
               'transform-class-properties',
               'transform-export-default',
+              'transform-runtime',
             ],
           },
         },
@@ -45,12 +46,9 @@ module.exports = {
   ],
   devtool: '#inline-source-map',
   devServer: {
-    //colors: true,
     historyApiFallback: true,
-    //inline: true, // instead than on the CL
     hot: true, // instead than on the CL
     contentBase: './public',
-    //outputPath: path.resolve(ROOT_PATH, 'dist'),
   },
   resolve: {
     modules: [path.join(ROOT_PATH), 'node_modules'],

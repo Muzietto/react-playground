@@ -24,8 +24,8 @@ const Layout = ({children}) => (
 // ];
 
 export default [
-  {path: '/', action: () => <HomePage>Gran Birillo</HomePage>},
-  {path: '/task', action: () => <TaskList />},
-  {path: '/task/:id', action: ({params:{id}}) => <TaskDetails id={id}>GIOVE</TaskDetails>},
-  {path: '/error', action: ({error:{code}}) => <ErrorPage status={code}/>},
+  {path: '/', action: async () => <HomePage>Gran Birillo</HomePage>},
+  {path: '/task', action: async () => <TaskList />},
+  {path: '/task/:id', action: async ({params:{id}}) => <TaskDetails id={id}>GIOVE</TaskDetails>},
+  {path: '/error', action: async ({error:{code}}) => <ErrorPage status={code}/>},
 ];
