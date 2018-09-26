@@ -1,3 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CSSTransitionGroup } from 'react-transition-group';
+import UniversalRouter from 'universal-router'
+import './xxx.css'
+
 function Layout({ path, title, children }) {
   return (
     <div>
@@ -7,19 +13,19 @@ function Layout({ path, title, children }) {
         <Link to="/b">Page B</Link>{' '}
         <Link to="/c">Page C</Link>
       </p>
-      <React.addons.CSSTransitionGroup
+      <CSSTransitionGroup
         component="div"
         className="container"
         transitionName="page"
         transitionEnterTimeout={500}
         transitionLeaveTimeout={300}
       >
-        <div key={path} className="content">
-          <h1>{title}</h1>
-          {children}
-          <p>Current path: {path}</p>
-        </div>
-      </React.addons.CSSTransitionGroup>
+          <div key={path} className="content">
+            <h1>{title}</h1>
+            {children}
+            <p>Current path: {path}</p>
+          </div>
+        </CSSTransitionGroup>
     </div>
   )
 }
@@ -75,10 +81,10 @@ const routes = {
 };
 
 function navigateTo(path) {
-  UniversalRouter
-    .resolve(routes, { path })
+  new UniversalRouter(routes)
+    .resolve(path)
     .then(component =>
-      ReactDOM.render(component, document.getElementById('root'))
+      ReactDOM.render(component, document.getElementById('container'))
     );
 }
 
