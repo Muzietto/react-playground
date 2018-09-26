@@ -5,7 +5,7 @@ import UniversalRouter from 'universal-router'
 import './xxx.css'
 
 function Layout({ path, title, children }) {
-  return (
+  return ( // react-transition-group v1.x !!!
       <CSSTransitionGroup
         component="div"
         className="container"
@@ -13,10 +13,10 @@ function Layout({ path, title, children }) {
         transitionEnterTimeout={1000}
         transitionLeaveTimeout={500}
       >
-          <div key={Math.random()} className="content">
-            {children}
-          </div>
-        </CSSTransitionGroup>
+        <div key={Math.random()} className="content">
+          {children}
+        </div>
+      </CSSTransitionGroup>
   )
 }
 
