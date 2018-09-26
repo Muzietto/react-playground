@@ -1,3 +1,4 @@
+// cfr. https://medium.freecodecamp.org/you-might-not-need-react-router-38673620f3d
 import toRegex from 'path-to-regexp';
 
 function matchURI(path, uri) {
