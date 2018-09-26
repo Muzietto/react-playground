@@ -16,16 +16,16 @@ const Layout = ({children}) => (
   </CSSTransition>
 );
 
-export default [
-  {path: '/', action: () => <Layout><HomePage>Gran Birillo</HomePage></Layout>},
-  {path: '/task', action: () => <Layout><TaskList /></Layout>},
-  {path: '/task/:id', action: ({params:{id}}) => <Layout><TaskDetails id={id}>GIOVE</TaskDetails></Layout>},
-  {path: '/error', action: ({error:{status}}) => <Layout><ErrorPage status={status}/></Layout>},
-];
-
 // export default [
-//   {path: '/', action: () => <HomePage>Gran Birillo</HomePage>},
-//   {path: '/task', action: () => <TaskList />},
-//   {path: '/task/:id', action: ({params:{id}}) => <TaskDetails id={id}>GIOVE</TaskDetails>},
-//   {path: '/error', action: ({error:{status}}) => <ErrorPage status={status}/>},
+//   {path: '/', action: () => <Layout><HomePage>Gran Birillo</HomePage></Layout>},
+//   {path: '/task', action: () => <Layout><TaskList /></Layout>},
+//   {path: '/task/:id', action: ({params:{id}}) => <Layout><TaskDetails id={id}>GIOVE</TaskDetails></Layout>},
+//   {path: '/error', action: ({error:{status}}) => <Layout><ErrorPage status={status}/></Layout>},
 // ];
+
+export default [
+  {path: '/', action: () => <HomePage>Gran Birillo</HomePage>},
+  {path: '/task', action: () => <TaskList />},
+  {path: '/task/:id', action: ({params:{id}}) => <TaskDetails id={id}>GIOVE</TaskDetails>},
+  {path: '/error', action: ({error:{code}}) => <ErrorPage status={code}/>},
+];
