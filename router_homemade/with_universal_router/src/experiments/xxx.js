@@ -4,7 +4,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import UniversalRouter from 'universal-router'
 import './xxx.css'
 
-function Layout({ path, title, children }) {
+function Layout({ children }) {
   return ( // react-transition-group v1.x !!!
       <CSSTransitionGroup
         component="div"
@@ -72,7 +72,7 @@ const routes = {
     const page = await next();
     if (page !== undefined) {
       return (
-        <Layout path={page.context.path} title={page.title}>
+        <Layout>
           {page.component}
         </Layout>
       );
