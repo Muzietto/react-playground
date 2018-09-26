@@ -13,7 +13,8 @@ function render(location) {
   router.resolve(routes, location)
     .then(renderComponent)
     .catch(function(error) {
-      router.resolve(routes, { ...location, error }).then(renderComponent)
+      router.resolve(routes, { ...location, error })
+        .then(renderComponent)
     });
 }
 
