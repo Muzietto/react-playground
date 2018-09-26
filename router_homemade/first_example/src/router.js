@@ -31,4 +31,5 @@ function resolve(routes, context) {
   error.status = 404;
   return Promise.reject(error);
 }
+
 export default { resolve };
