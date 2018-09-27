@@ -1,30 +1,16 @@
 import React from 'react';
-import { CSSTransitionGroup } from 'react-transition-group';
 import HomePage from './pages/HomePage';
 import TaskList from './pages/TaskList';
 import TaskDetails from './pages/TaskDetails';
 import ErrorPage from './pages/ErrorPage';
-import './transitions.css'
-
-const Layout = ({children}) => (
-  <CSSTransitionGroup
-    component="div"
-    className="container"
-    transitionName="page_slide"
-    >
-    <div key={Math.random()} className="content">
-      {children}
-    </div>
-  </CSSTransitionGroup>
-);
+import Layout from './pages/TransitioningPageLayout';
 
 const routes = {
   path: '',
   async action({ next }) {
-    console.log('middleware: start')
     const page = await next();
-    console.log('middleware: end')
-    if (page !== undefined) {
+
+    if (typeof page !== 'undefined') {
       return (
         <Layout>
           {page.component}
