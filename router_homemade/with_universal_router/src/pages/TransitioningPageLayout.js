@@ -7,6 +7,8 @@ const Layout = ({children}) => (
     component='div'
     className='container'
     transitionName='page_slide'
+    transitionEnterTimeout={500}
+    transitionLeaveTimeout={500}
     >
     <div key={Math.random()} className='content'>
       {children}
