@@ -29,8 +29,13 @@ const routes = {
       const {params:{id}} = context;
       return {context, component: <TaskDetails id={id}>GIOVE</TaskDetails>}
     }},
-    {path: '/error', action(context) {
-      const {error:{code}} = context;
+    {path: '(.*)', action(context) {
+      let code;
+      try {
+        code = context.error.code;
+      } catch (e) {
+        code = 400;
+      }
       return {context, component: <ErrorPage status={code} />}
     }},
   ]
