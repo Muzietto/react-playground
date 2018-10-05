@@ -13,9 +13,12 @@ const Link = (props) => {
     };
 
     return (
+      <React.Fragment>
         <a href={props.href} onClick={onClick}>
             {props.children}
         </a>
+        <br/>
+      </React.Fragment>
     );
 };
 
