@@ -12,22 +12,20 @@
 
 .page_slide-enter.page_slide-enter-active {
   opacity: 1;
-  transition: opacity .6s linear .6s;
+  transition: opacity 700ms ease-in 300ms;
 }
 
 .page_slide-enter-done {
+}
+
+.page_slide-leave {
   opacity: 1;
 }
 
-.page_slide-exit {
-  opacity: 1;
+.page_slide-leave.page_slide-leave-active {
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
 }
 
-.page_slide-exit.page_slide-exit-active {
-  opacity: 0;
-  transition: opacity .6s linear;
-}
-
-.page_slide-exit-done {
-  opacity: 0;
+.page_slide-leave-done {
 }
