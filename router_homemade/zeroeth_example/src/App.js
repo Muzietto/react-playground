@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import TaskList from './pages/TaskList';
 import TaskDetails from './pages/TaskDetails';
 import ErrorPage from './pages/ErrorPage';
+import Layout from './pages/TransitioningPageLayout';
 
 const PAGES = [
     { path: '/', action: () => <HomePage/> },
@@ -32,8 +33,9 @@ class App extends React.Component {
   }
 
   render() {
-      const HandlerInstance = router.resolve(PAGES, { pathname: this.state.pathname});
-      return HandlerInstance;
+      const handlerInstance = router
+        .resolve(PAGES, { pathname: this.state.pathname});
+      return (<Layout>{handlerInstance}</Layout>);
   }
 }
 
