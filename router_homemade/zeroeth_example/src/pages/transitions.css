@@ -1,9 +1,18 @@
-.page_slide-enter {
-  opacity: 0;
-  transition: opacity 1s ease;
+.container {
+  position: relative;
 }
 
-.page_slide-enter-active {
+.content {
+  position: absolute;
+}
+
+.page_slide-enter {
+  opacity: 0;
+}
+
+.page_slide-enter.page_slide-enter-active {
+  opacity: 1;
+  transition: opacity .6s linear .6s;
 }
 
 .page_slide-enter-done {
@@ -12,10 +21,11 @@
 
 .page_slide-exit {
   opacity: 1;
-  transition: opacity 1s ease;
 }
 
-.page_slide-exit-active {
+.page_slide-exit.page_slide-exit-active {
+  opacity: 0;
+  transition: opacity .6s linear;
 }
 
 .page_slide-exit-done {
