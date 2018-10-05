@@ -26,7 +26,7 @@ function resolve(routes, context) {
     if (!params) continue;
 
     const result = route.action({ ...context, params });
-    if (result)return result;
+    if (result) return result;
   }
   return resolve(routes, { pathname: '/error/404'});
 }
