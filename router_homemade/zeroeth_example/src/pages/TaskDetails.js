@@ -2,7 +2,7 @@ import React from 'react';
 import Link from '../Link';
 
 export default ({ id, children }) => (
-    <div className='container'>
+    <div className='page'>
       <h1>Task Numero {id}</h1>
       {children}
       <br/>
