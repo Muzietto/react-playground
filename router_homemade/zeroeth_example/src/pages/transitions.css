@@ -1,0 +1,23 @@
+.page_slide-enter {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.page_slide-enter-active {
+}
+
+.page_slide-enter-done {
+  opacity: 1;
+}
+
+.page_slide-exit {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.page_slide-exit-active {
+}
+
+.page_slide-exit-done {
+  opacity: 0;
+}
