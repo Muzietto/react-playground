@@ -1,10 +1,10 @@
 import React from 'react';
-import Consumer from './Consumer';
+import Child from './Child';
 
 class Parent extends React.Component {
   render() {
     return (
-        <Consumer />
+        <Child />
     );
   }
 }
