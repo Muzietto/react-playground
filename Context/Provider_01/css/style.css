@@ -1,0 +1,223 @@
+body > p {
+    margin: 40px;
+}
+
+h2 {
+    margin-left: 30px;
+}
+
+h3 {
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-left: 30px;
+}
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.wizard {
+    min-height: 300px;
+    width: 100%;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+    position: relative;
+}
+
+.body {
+    min-height: 240px;
+    width: 100%;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.summary {
+    min-height: 100px;
+    width: 100%;
+    border: 1px solid yellow;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.core {
+    min-height: 200px;
+    width: 100%;
+    border: 1px solid brown;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+    max-height: 170px;
+    overflow: scroll;
+}
+
+.accordion_parent {
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.accordion_children {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    display: none;
+}
+
+.accordion_children.is_open {
+    display: block;
+}
+
+.types_container {
+    padding: 1px;
+    margin: 1px;
+    border: 1px solid yellow;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.type_container {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid yellowgreen;
+    border-radius: 5px;
+    width: 29%;
+    float: left;
+    cursor: pointer;
+}
+
+.footer {
+    min-height: 35px;
+    width: 100%;
+    border: 2px solid blue;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.summary {
+    min-height: 35px;
+    width: 100%;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.summary div {
+    float: left;
+    width: 33.3%;
+    padding: 1px;
+    color: black;
+    text-align: center;
+}
+
+.summary div.enabled {
+    background-color: #00d6b2;
+    color: white;
+}
+
+.right_button {
+    float: right;
+}
+
+button {
+    margin: 5px !important;
+}
+
+button.enabled {
+    border-radius: 5px;
+    border: 4px solid green;
+}
+
+p {
+    font-size: 20px;
+    display: inline;
+}
+
+fieldset {
+    border: 2px solid lightblue !important;
+    padding: 20px !important;
+    border-radius: 25px !important;
+}
+
+legend {
+    font-size: 14px;
+    width: 60% !important;
+}
+
+div.container {
+    width: 600px;
+    margin: 0 auto;
+    float: left;
+}
+
+div.large_container {
+    font-size: 1.4em;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wizard-equipped {
+    width: 100%;
+}
+
+div.menu-div {
+    height: 70px;
+}
+
+div.form-div {
+    border: 1px solid green;
+    margin: 5px;
+    padding: 5px;
+}
+
+form li {
+    border: 1px solid yellowgreen;
+    margin: 2px;
+    padding: 2px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+div#container ul a {
+    float: right;
+}
+
+span.separated-span {
+    margin-right: 20px;
+}
+
+.entity-adder-div input {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.double-select-container select.form-control {
+    font-size: 1.2em;
+    width: 100%;
+    padding-top: 1px;
+    margin-bottom: 35px;
+}
+
+.double-select-container > select.form-control {
+    margin-bottom: 10px;
+}
+
+div.wrapper {
+    width: 400px;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: lightgrey;
+}
