@@ -6,6 +6,7 @@ redux-form/
 the_book/
 router_workshop
 
+package-lock.json
 
 *.lnk
 
