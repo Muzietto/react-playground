@@ -7,6 +7,7 @@ just trying out thingies but working from scratch, without create-react-app and 
 - [multi-step wizard commanded by vanilla JS state machine](https://muzietto.github.io/react-playground/b_stateMachine/complex_templates/complex_templates.html) (state machine is [here](https://muzietto.github.io/react-playground/b_stateMachine/complex_templates/jsx/state_machine/steps.js))
 - [home-made router, React+ES6](https://muzietto.github.io/react-playground/router_homemade/first_example/dist/index.html) - [here](https://muzietto.github.io/react-playground/router_homemade/first_example/src/router.js) is the router
 - [CSS transition between pages, React+universal-router+ES6](https://muzietto.github.io/react-playground/router_homemade/with_universal_router/dist/index.html)
+- [custom HOC context provider that injects actual viewport size into whatever consumer](https://muzietto.github.io/react-playground/Context/Provider_01/Provider_01.html)
 
 ![playground](https://muzietto.github.io/react-playground/docs/giants_in_the_playground.jpg)
 
