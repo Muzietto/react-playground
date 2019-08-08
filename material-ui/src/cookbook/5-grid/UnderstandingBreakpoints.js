@@ -3,17 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-});
-
 const UnderstandingBreakpoints = withStyles(styles)(({ classes }) => (
   <div className={classes.root}>
     <Grid container spacing={4}>
@@ -64,3 +53,16 @@ const UnderstandingBreakpoints = withStyles(styles)(({ classes }) => (
 ));
 
 export default UnderstandingBreakpoints;
+
+function styles(theme) {  
+  return {
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  };
+}

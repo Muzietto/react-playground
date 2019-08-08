@@ -4,17 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-});
-
 const FillingSpace = withStyles(styles)(({ classes, justify }) => (
   <div className={classes.root}>
     <Grid container spacing={4}>
@@ -69,3 +58,16 @@ const FillingSpace = withStyles(styles)(({ classes, justify }) => (
 ));
 
 export default FillingSpace;
+
+function styles(theme) {
+  return {
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  };
+}
