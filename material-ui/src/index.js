@@ -9,7 +9,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import FixedPosition from '@src/cookbook/2-appbar/FixedPosition';
 // eslint-disable-next-line no-unused-vars
 import AppbarWithButtons from '@src/cookbook/2-appbar/AppbarWithButtons2';
+// eslint-disable-next-line no-unused-vars
 import WithNavigation from '@src/cookbook/2-appbar/WithNavigation';
+import AppbarIntegration from '@src/cookbook/4-tabs/AppbarIntegration';
 
 export default function App() {
   return (
@@ -19,7 +21,8 @@ export default function App() {
         {/* <AppbarWithButtons title='AppbarWithButtons - fading on scroll'/>
         <hr /> */}
         {/* <FixedPosition title='FixedPosition - first exercise' /> */}
-        <WithNavigation />
+        {/* <WithNavigation /> */}
+        <AppbarIntegration />
         <hr />
       </div>
       {/* <div>
