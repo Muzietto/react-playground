@@ -7,6 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // import ColumnDirection from '@src/cookbook/5-grid/ColumnDirection';
 import FixedPosition from '@src/cookbook/2-appbar/FixedPosition';
 import AppbarWithButtons from '@src/cookbook/2-appbar/AppbarWithButtons2';
+import WithNavigation from '@src/cookbook/2-appbar/WithNavigation';
 
 export default function App() {
   return (
@@ -15,7 +16,8 @@ export default function App() {
       <div>
         {/* <AppbarWithButtons title='AppbarWithButtons - fading on scroll'/>
         <hr /> */}
-        <FixedPosition title='FixedPosition - first exercise'/>
+        {/* <FixedPosition title='FixedPosition - first exercise' /> */}
+        <WithNavigation />
         <hr />
       </div>
       {/* <div>
