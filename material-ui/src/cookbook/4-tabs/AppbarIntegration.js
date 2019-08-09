@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import compose from 'recompose/compose';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import withWidth from '@material-ui/core/withWidth';
 import Typography from '@material-ui/core/Typography';
 
 // eslint-disable-next-line
-function AppbarIntegration({ classes }) {
+function AppbarIntegration({ classes, width }) {
   const [ value, setValue ] = useState(0);
 
   return <div className={classes.root}>
     <AppBar position='static'>
-      <Tabs value={value} onChange={onChange}>
+      <Tabs
+        value={value}
+        centered={true}
+        variant={['xs', 'sm'].includes(width) ? null : 'fullWidth'}
+        onChange={onChange}>
         <Tab label='Item One' />
         <Tab label='Item Two' />
         <Tab label='Item Three' />
@@ -27,7 +33,7 @@ function AppbarIntegration({ classes }) {
   }
 }
 
-export default withStyles(styles)(AppbarIntegration);
+export default compose(withWidth(), withStyles(styles))(AppbarIntegration);
 
 function styles(theme) {
   return {
