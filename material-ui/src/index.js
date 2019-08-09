@@ -4,11 +4,15 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import UnderstandingBreakpoints from '@src/cookbook/5-grid/UnderstandingBreakpoints';
 import FillingSpace from '@src/cookbook/5-grid/FillingSpace';
 import FixedColumnLayout from '@src/cookbook/5-grid/FixedColumnLayout';
+import ColumnDirection from '@src/cookbook/5-grid/ColumnDirection';
 
 export default function App() {
   return (
     <React.Fragment>
       <CssBaseline />
+      <h3>ColumnDirection</h3>
+      <ColumnDirection />
+      <hr />
       <h3>FixedColumnLayout</h3>
       <h5>Only xs (&gt; 0px) is specified.</h5>
       <h5>4 cols (xs=3/12)</h5>
