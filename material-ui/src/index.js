@@ -5,16 +5,18 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // import FillingSpace from '@src/cookbook/5-grid/FillingSpace';
 // import FixedColumnLayout from '@src/cookbook/5-grid/FixedColumnLayout';
 // import ColumnDirection from '@src/cookbook/5-grid/ColumnDirection';
-import FixedPosition from '@src/cookbook/2-appbar/FixedPosition';
+// import FixedPosition from '@src/cookbook/2-appbar/FixedPosition';
+import AppbarWithButtons from '@src/cookbook/2-appbar/AppbarWithButtons';
 
 export default function App() {
   return (
     <React.Fragment>
       <CssBaseline />
       <div>
-        <h3>FixedPosition</h3>
-        <FixedPosition />
+        <AppbarWithButtons title='AppbarWithButtons - fading on scroll'/>
         <hr />
+        {/* <FixedPosition title='FixedPosition - first exercise'/>
+        <hr /> */}
       </div>
       {/* <div>
         <h3>ColumnDirection</h3>
