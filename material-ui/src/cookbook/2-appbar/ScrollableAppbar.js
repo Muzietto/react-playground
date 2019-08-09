@@ -1,5 +1,6 @@
 import React from 'react';
 import Fade from '@material-ui/core/Fade';
+// eslint-disable-next-line no-unused-vars
 import { AppbarParameterisedPosition } from '@src/cookbook/2-appbar/FixedPosition';
 
 class ScrollableAppbar extends React.Component {
@@ -31,7 +32,7 @@ class ScrollableAppbar extends React.Component {
   }
 
   render() {
-    // eslint-disable-next-line react/prop-types
+    // eslint-disable-next-line
     const { classes, title } = this.props;
     return <Fade in={!this.state.scrolling}>
       <div style={{ position: 'fixed', height: '30px', width: '100%', border: '2px solid red' }}>
