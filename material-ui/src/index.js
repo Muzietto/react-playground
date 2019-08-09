@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // import FixedColumnLayout from '@src/cookbook/5-grid/FixedColumnLayout';
 // import ColumnDirection from '@src/cookbook/5-grid/ColumnDirection';
 // import FixedPosition from '@src/cookbook/2-appbar/FixedPosition';
-import AppbarWithButtons from '@src/cookbook/2-appbar/AppbarWithButtons';
+import AppbarWithButtons from '@src/cookbook/2-appbar/AppbarWithButtons2';
 
 export default function App() {
   return (
