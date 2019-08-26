@@ -5,6 +5,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import withWidth from '@material-ui/core/withWidth';
+import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
+import SettingsIcon from '@material-ui/icons/Settings';
+import SearchIcon from '@material-ui/icons/Search';
+import AddIcon from '@material-ui/icons/Add';
 
 // eslint-disable-next-line
 function AppbarIntegrationWithChildren({ classes, width, children }) {
@@ -18,7 +23,10 @@ function AppbarIntegrationWithChildren({ classes, width, children }) {
         variant={['xs', 'sm'].includes(width) ? null : 'fullWidth'}
         onChange={onChange}>
         {children.map((child, index) => {
-          return <Tab key={index} label={child.props && child.props.label} />;
+          return <Tab
+            key={index}
+            icon={inconzz()[index]}
+            label={child.props && child.props.label} />;
         })}
       </Tabs>
     </AppBar>
@@ -42,4 +50,14 @@ function styles(theme) {
       padding: theme.spacing.unit * 2,
     },
   };
+}
+
+function inconzz() {
+  return [
+    <HomeIcon key='1'/>,
+    <SettingsIcon key='2' />,
+    <SearchIcon key='3' />,
+    <AddIcon key='4' />,
+    <MenuIcon key='5' />,
+  ];
 }
