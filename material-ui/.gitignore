@@ -7,6 +7,7 @@ yarn-error.log*
 
 # pesky temporary patches
 *.patch
+dist/
 
 # Runtime data
 pids
