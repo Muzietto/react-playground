@@ -11,6 +11,7 @@ import WithNavigation from '@src/cookbook/2-appbar/WithNavigation';
 import AppbarIntegration from '@src/cookbook/4-tabs/AppbarIntegration';
 import AppbarIntegrationWithChildren from '@src/cookbook/4-tabs/AppbarIntegrationWithChildren';
 import StatefulExpansionPanels from '@src/cookbook/5-exppanels/StatefulExpansionPanels';
+import StatefulExpansionPanelsWithIcons from '@src/cookbook/5-exppanels/StatefulExpansionPanelsWithIcons';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <CssBaseline />
       <AppbarIntegrationWithChildren>
         <StatefulExpansionPanels label='StatefulExpansionPanels' />
+        <StatefulExpansionPanelsWithIcons label='StatefulExpansionPanels with Icons' />
         <div label='Layouts'>
           <h3>ColumnDirection</h3>
           <ColumnDirection />
