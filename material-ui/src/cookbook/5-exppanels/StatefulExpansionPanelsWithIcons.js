@@ -30,7 +30,7 @@ function StatefulExpansionPanelsWithIcons({ classes }) {
           <panel.icon className={classes.icon} />
           <Typography variant='subtitle1'>{panel.title}</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        <ExpansionPanelDetails className={classes.panelDetails}>
           {(typeof panel.content === 'string')
             ? <Typography>{panel.content}</Typography>
             // next line (impossible in portal-ui) is possible thanks to Babel improvements in this repo
