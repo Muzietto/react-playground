@@ -10,12 +10,14 @@ import AppbarWithButtons from '@src/cookbook/2-appbar/AppbarWithButtons2';
 import WithNavigation from '@src/cookbook/2-appbar/WithNavigation';
 import AppbarIntegration from '@src/cookbook/4-tabs/AppbarIntegration';
 import AppbarIntegrationWithChildren from '@src/cookbook/4-tabs/AppbarIntegrationWithChildren';
+import StatefulExpansionPanels from '@src/cookbook/5-exppanels/StatefulExpansionPanels';
 
 export default function App() {
   return (
     <React.Fragment>
       <CssBaseline />
       <AppbarIntegrationWithChildren>
+        <StatefulExpansionPanels label='StatefulExpansionPanels' />
         <div label='Layouts'>
           <h3>ColumnDirection</h3>
           <ColumnDirection />
@@ -35,7 +37,7 @@ export default function App() {
           <h3>UnderstandingBreakpoints</h3>
           <UnderstandingBreakpoints />
         </div>
-        <AppbarWithButtons label='AppbarWithButtons' title='AppbarWithButtons - fading on scroll'/>
+        <AppbarWithButtons label='AppbarWithButtons' title='AppbarWithButtons - fading on scroll' />
         <FixedPosition label='AppBar with FixedPosition' title='FixedPosition - first exercise' />
         <WithNavigation label='Appbar with Navigation'/>
         <AppbarIntegration label='AppbarIntegration' />
