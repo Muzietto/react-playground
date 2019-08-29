@@ -78,6 +78,10 @@ function MaybeProgress({ loading }) {
   return (loading) ? <LinearProgress /> : null;
 }
 
+MaybeProgress.propTypes = {
+  loading: PropTypes.bool,
+};
+
 function fetchPanelContent(index) {
   return new Promise(resolve =>
     setTimeout(() =>
@@ -99,7 +103,7 @@ rutrum. Aenean at dolor eu nunc ultricies placerat. Sed finibus
 porta sapien eget euismod. Donec eget tortor non turpis
 hendrerit euismod. Phasellus at commodo augue. Maecenas
 scelerisque augue at mattis pharetra. Aenean fermentum sed neque
-id feugiat.
+id feugiat. 
     </Typography>
     <Typography paragraph>
 Aliquam erat volutpat. Donec sit amet venenatis leo. Nullam
