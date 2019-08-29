@@ -19,8 +19,8 @@ export default function App() {
     <React.Fragment>
       <CssBaseline />
       <AppbarIntegrationWithChildren>
-        <StatefulExpansionPanels label='StatefulExpansionPanels' />
-        <StatefulExpansionPanelsWithIcons label='StatefulExpansionPanels with Icons' />
+        <StatefulExpansionPanels label='Stateful ExpPanels' />
+        <StatefulExpansionPanelsWithIcons label='Stateful ExpPanels + Icons' />
         <LazyStatefulExpansionPanelsWithIcons label='Lazy ExpPanels + Icons' />
         <div label='Layouts'>
           <h3>ColumnDirection</h3>
@@ -41,10 +41,10 @@ export default function App() {
           <h3>UnderstandingBreakpoints</h3>
           <UnderstandingBreakpoints />
         </div>
-        <AppbarWithButtons label='AppbarWithButtons' title='AppbarWithButtons - fading on scroll' />
-        <FixedPosition label='AppBar with FixedPosition' title='FixedPosition - first exercise' />
-        <WithNavigation label='Appbar with Navigation'/>
-        <AppbarIntegration label='AppbarIntegration' />
+        <AppbarWithButtons label='Appbar + Buttons' title='AppbarWithButtons - fading on scroll' />
+        <FixedPosition label='AppBar FixedPosition' title='FixedPosition - first exercise' />
+        <WithNavigation label='Appbar + Navigation'/>
+        <AppbarIntegration label='Appbar Integration' />
       </AppbarIntegrationWithChildren>
     </React.Fragment>
   );
