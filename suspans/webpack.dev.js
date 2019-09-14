@@ -13,5 +13,14 @@ module.exports = merge(common, {
   devServer: {
     contentBase: './dist',
     port: 9000,
+    proxy: {
+      // fetch('/api/json').then(res => res.json()).then(console.log)
+      '/api/json': {
+        bypass: (req, res) => res.send({
+          name: 'Muzietto',
+          surname: 'Falpalà',
+        })
+      },
+    },
   },
 });
