@@ -15,11 +15,32 @@ module.exports = merge(common, {
     port: 9000,
     proxy: {
       // fetch('/api/json').then(res => res.json()).then(console.log)
-      '/api/json': {
-        bypass: (req, res) => res.send({
-          name: 'Muzietto',
-          surname: 'Falpalà',
-        })
+      '/api/json1': {
+        bypass: (req, res) => {
+          console.log('\n########>>> DATA1 <<<########\n', new Date().toString());
+          res.send({
+            name: 'Muzietto',
+            surname: 'Falpalà',
+          });
+        },
+      },
+      '/api/json2': {
+        bypass: (req, res) => {
+          console.log('\n########>>> DATA2 <<<########\n', new Date().toString());
+          res.send({
+            name: 'Arancia',
+            surname: 'Meccanica',
+          });
+        },
+      },
+      '/api/json3': {
+        bypass: (req, res) => {
+          console.log('\n########>>> DATA3 <<<########\n', new Date().toString());
+          res.send({
+            name: 'Ocean\'s',
+            surname: 'Eleven',
+          });
+        },
       },
     },
   },

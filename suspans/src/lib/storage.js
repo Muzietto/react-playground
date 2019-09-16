@@ -8,6 +8,10 @@ let storage = {
   },
 };
 
+function getItemSync(key) {
+  return storage.getItem(key);
+}
+
 function getItem(key, provider) {
 
   if (storage.getItem(key) !== null) {
@@ -47,4 +51,5 @@ export {
   getItem,
   setItem,
   setStorage,
+  getItemSync,
 };
