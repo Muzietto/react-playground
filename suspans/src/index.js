@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Suspans from '@src/Suspans';
-import Child from '@src/Child';
+import MyComponent from '@src/MyComponent';
+import { setStorage } from '@src/lib/storage';
 
-export default function App() {
+setStorage(window.localStorage);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+function App() {
   return <div>
-    <Suspans placeholder={() => <h1>NO DATA YET</h1>}>
-      <PromiseThrower/>
+    <Suspans fallback={() => <h1>NO DATA YET SUSPANS</h1>}>
+      <MyComponent setNumber='1'/>
     </Suspans>
   </div>;
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));
