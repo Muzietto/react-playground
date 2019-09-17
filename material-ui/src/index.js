@@ -14,12 +14,14 @@ import StatefulExpansionPanels from '@src/cookbook/5-exppanels/StatefulExpansion
 import StatefulExpansionPanelsWithIcons from '@src/cookbook/5-exppanels/StatefulExpansionPanelsWithIcons';
 import LazyStatefulExpansionPanelsWithIcons from '@src/cookbook/5-exppanels/LazyStatefulExpansionPanelsWithIcons';
 import UsingStateToRenderListItems from '@src/cookbook/6-list/StateRenderedListItems';
+import StatefulTables from '@src/cookbook/7-tables/StatefulTables';
 
 export default function App() {
   return (
     <React.Fragment>
       <CssBaseline />
       <AppbarIntegrationWithChildren style={{ height: '50vh' }}>
+        <StatefulTables label='Stateful Tables' />
         <UsingStateToRenderListItems label='List Items' />
         <StatefulExpansionPanels label='Stateful ExpPanels' />
       </AppbarIntegrationWithChildren>
