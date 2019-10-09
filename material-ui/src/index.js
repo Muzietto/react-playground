@@ -15,6 +15,8 @@ import StatefulExpansionPanelsWithIcons from '@src/cookbook/5-exppanels/Stateful
 import LazyStatefulExpansionPanelsWithIcons from '@src/cookbook/5-exppanels/LazyStatefulExpansionPanelsWithIcons';
 import UsingStateToRenderListItems from '@src/cookbook/6-list/StateRenderedListItems';
 import StatefulTables from '@src/cookbook/7-tables/StatefulTables';
+import SimpleSlide from '@src/cookbook/X-slides/SimpleSlide';
+import ThreeStepWizard from '@src/cookbook/X-slides/ThreeStepWizard';
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
         <StatefulTables label='Stateful Tables' />
         <UsingStateToRenderListItems label='List Items' />
         <StatefulExpansionPanels label='Stateful ExpPanels' />
+        <SimpleSlide label='Simple Slide' />
+        <ThreeStepWizard label='3-step Wizard' />
       </AppbarIntegrationWithChildren>
       <AppbarIntegrationWithChildren style={{ height: '50vh' }}>
         <StatefulExpansionPanels label='Stateful ExpPanels' />
@@ -48,10 +52,12 @@ export default function App() {
           <h3>UnderstandingBreakpoints</h3>
           <UnderstandingBreakpoints />
         </div>
+      </AppbarIntegrationWithChildren>
+      <AppbarIntegrationWithChildren style={{ height: '50vh' }}>
         <AppbarWithButtons label='Appbar + Buttons' title='AppbarWithButtons - fading on scroll' />
         <FixedPosition label='AppBar FixedPosition' title='FixedPosition - first exercise' />
         <WithNavigation label='Appbar + Navigation'/>
-        <AppbarIntegration label='Appbar Integration' />
+        <AppbarIntegration label='Appbar w/h Tabs underneath' />
       </AppbarIntegrationWithChildren>
     </React.Fragment>
   );
