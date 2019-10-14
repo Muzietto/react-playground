@@ -7,6 +7,7 @@ import FixedColumnLayout from '@src/cookbook/1-grid/FixedColumnLayout';
 import ColumnDirection from '@src/cookbook/1-grid/ColumnDirection';
 import FixedPosition from '@src/cookbook/2-appbar/FixedPosition';
 import AppbarWithButtons from '@src/cookbook/2-appbar/AppbarWithButtons2';
+import AppbarWithComplexMenu from '@src/cookbook/2-appbar/AppbarWithComplexMenu';
 import WithNavigation from '@src/cookbook/2-appbar/WithNavigation';
 import AppbarIntegration from '@src/cookbook/4-tabs/AppbarIntegration';
 import AppbarIntegrationWithChildren from '@src/cookbook/4-tabs/AppbarIntegrationWithChildren';
@@ -55,6 +56,7 @@ export default function App() {
       </AppbarIntegrationWithChildren>
       <AppbarIntegrationWithChildren style={{ height: '50vh' }}>
         <AppbarWithButtons label='Appbar + Buttons' title='AppbarWithButtons - fading on scroll' />
+        <AppbarWithComplexMenu label='Appbar ComplexMenu' title='AppbarWithComplexMenu' />
         <FixedPosition label='AppBar FixedPosition' title='FixedPosition - first exercise' />
         <WithNavigation label='Appbar + Navigation'/>
         <AppbarIntegration label='Appbar w/h Tabs underneath' />
