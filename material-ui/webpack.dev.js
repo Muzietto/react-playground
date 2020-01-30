@@ -12,5 +12,12 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
+    disableHostCheck: true,
+    host: '0.0.0.0',
+    port: 4300,
+    historyApiFallback: true,
+    overlay: true,
+    open: true,
+    stats: 'errors-only',
   },
 });
