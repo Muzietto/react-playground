@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Native DOM API</title>
+    <style>
+      .green {
+        color: green;
+      }
+    </style>
     <script src="./native-dom-api.js"></script>
   </head>
   <body>
@@ -16,7 +21,10 @@
         style="width:50%;padding:5px;border:1px dashed blue;"
         >
         <p style="font-size:18px;">Paragrafo Interno</p>
-        <label style="color:green;font-weight:bold;">Label Interna</label>
+        <label
+          class="green"
+          style="font-weight:bold;"
+        >Label Interna</label>
       </div>
     </div>
 
@@ -58,8 +66,8 @@
             },
             {
               type: 'label',
+              className: 'green',
               style: {
-                'color': 'green',
                 'font-weight': 'bold',
               },
               innerText: 'Label Interna2',
@@ -70,6 +78,8 @@
     };
 
     procedural(struct, document.getElementById('root'));
+
+    document.appendChild(functional())
   </script>
 
   </body>

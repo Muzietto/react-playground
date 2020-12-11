@@ -1,22 +1,31 @@
 'use strict';
 
-const ce = document.createElement;
-const eid = document.getElementById;
+const ce = document.createElement; // (type)
+const eid = document.getElementById; // (id)
+const ac = document.appendChild; // childNode;
+const qs = document.querySelector; // (cssSelector)
+
 
 function procedural(struct, parent) {
+
   const {
     type,
     id,
+    className,
     style,
     innerText,
     children,
   } = struct;
 
+  if (!type) throw 'Must always provide a type';
+
   const newElement = document.createElement(type);
 
-  newElement.id = id;
+  if (id) newElement.id = id;
 
   if (innerText) newElement.innerText = innerText;
+
+  if (className) newElement.className = className;
 
   if (style) {
     Object.keys(style)
@@ -33,12 +42,3 @@ function procedural(struct, parent) {
 
   parent.appendChild(newElement);
 }
-
-
-// var paragrafo = document.createElement('p');
-// paragrafo.style.textDecoration = 'underline';
-// paragrafo.style.color = 'blue';
-// paragrafo.style.marginLeft = '30px';
-// paragrafo.innerText = 'il mattino ha l\'oro in bocca';
-// var palla = document.getElementById('palla');
-// palla.appendChild(paragrafo);
