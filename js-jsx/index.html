@@ -3,11 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Native DOM API</title>
-    <script src="./native.dom-api.js"></script>
+    <script src="./native-dom-api.js"></script>
   </head>
   <body>
-    <div id="root"></div>
-
     <div
       id="outerDiv"
       style="margin:50px;padding:20px;border:1px solid red;"
@@ -22,16 +20,17 @@
       </div>
     </div>
 
+    <div id="root"></div>
 
   <script>
     var struct = {
       type: 'div',
-      id: 'outerDiv',
+      id: 'outerDiv2',
       style: {
         margin: '50px',
         padding: '20px',
         border: '1px solid red',
-      }
+      },
       innerText: '',
       children: [
         {
@@ -39,15 +38,23 @@
           style: {
             'font-family': 'sans-serif',
           },
-          innerText: 'Paragrafo Esterno',
+          innerText: 'Paragrafo Esterno2',
         },
         {
           type: 'div',
-          id: 'innerDiv',
+          id: 'innerDiv2',
+          style: {
+            width: '50%',
+            padding: '5px',
+            border: '1px dashed blue',
+          },
           children: [
             {
               type: 'p',
-              innerText: 'Paragrafo Interno',
+              innerText: 'Paragrafo Interno2',
+              style: {
+                'font-size': '18px',
+              },
             },
             {
               type: 'label',
@@ -55,12 +62,14 @@
                 'color': 'green',
                 'font-weight': 'bold',
               },
-              innerText: 'Label Interna',
+              innerText: 'Label Interna2',
             }
           ],
         }
       ],
     };
+
+    procedural(struct, document.getElementById('root'));
   </script>
 
   </body>
