@@ -18,11 +18,11 @@ const useStyles = makeStyles(() => ({
     // },
 
     // in next line "notchedOutline" is a rule name
-    '&:hover $notchedOutline': { // we override the fieldset
+    '&:hover $notchedOutlinettt': { // we override the fieldset
       borderColor: 'red',
     },
   },
-  notchedOutline: {},
+  notchedOutlinettt: {},
 
   // HOW TO OBTAIN SAME EFFECT USING MuiOutlinedInput-root ?
 }));
@@ -33,13 +33,13 @@ function PApp3() {
   const InputProps = {
     classes: {
       root: classes.outlinedRoot,
-      notchedOutline: classes.notchedOutline,
+      notchedOutline: classes.notchedOutlinettt,
     },
   };
 
   return <Grid container direction='row'>
     <Grid item>
-      <Typography>red border on hover</Typography>
+      <Typography>PApp3: red border on hover</Typography>
     </Grid>
     <Grid item>
       <TextField

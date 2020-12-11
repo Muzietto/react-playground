@@ -15,17 +15,17 @@ const useStyles = makeStyles(() => ({
     // },
 
     // in next line "notchedOutline" is a rule name
-    '&:hover $notchedOutline': { // we override the fieldset
+    '&:hover $notchedOutlineppp': { // we override the fieldset
       borderColor: 'red',
     },
     // in next line "focused" is a rule name
-    '&$focused $notchedOutline': {
+    '&$focusedaxx $notchedOutlineppp': {
       borderColor: 'green',
       borderWidth: 3,
     },
   },
-  notchedOutline: {},
-  focused: {},
+  notchedOutlineppp: {},
+  focusedaxx: {},
 }));
 
 function PApp3() {
@@ -34,14 +34,14 @@ function PApp3() {
   const InputProps = {
     classes: {
       root: classes.outlinedRoot,
-      notchedOutline: classes.notchedOutline,
-      focused: classes.focused,
+      notchedOutline: classes.notchedOutlineppp,
+      focused: classes.focusedaxx,
     },
   };
 
   return <Grid container direction='row'>
     <Grid item>
-      <Typography>green border on focus</Typography>
+      <Typography>PApp4: green border on focus</Typography>
     </Grid>
     <Grid item>
       <TextField
@@ -53,6 +53,21 @@ function PApp3() {
         InputProps={InputProps}
       />
       <Typography>it is working</Typography>
+    </Grid>
+    <Grid item>
+      <TextField
+        id='outlined-name'
+        label='Name'
+        className={classes.textField}
+        margin='normal'
+        variant='outlined'
+        classes={{
+          root: classes.outlinedRoot,
+          notchedOutline: classes.notchedOutlineppp,
+          focused: classes.focusedaxx,
+        }}
+      />
+      <Typography>it is NOT working</Typography>
     </Grid>
   </Grid>;
 }
