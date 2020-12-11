@@ -5,7 +5,7 @@ const eid = document.getElementById; // (id)
 const ac = document.appendChild; // childNode;
 const qs = document.querySelector; // (cssSelector)
 
-
+// not a pure function
 function procedural(struct, parent) {
 
   const {
@@ -27,18 +27,38 @@ function procedural(struct, parent) {
 
   if (className) newElement.className = className;
 
-  if (style) {
-    Object.keys(style)
-      .forEach(attribute => {
-        newElement.style[attribute] = style[attribute];
-      });
-  }
+  if (style) newElement.style = style;
 
   if (children) {
     children.forEach(child => {
+
       procedural(child, newElement);
+
     });
   }
 
-  parent.appendChild(newElement);
+  parent.appendChild(newElement); // side effect;
+}
+
+// pure function
+function functional(type, attributes, ...children) {
+
+  if (!type) throw 'Must always provide a type';
+
+  const newElement = document.createElement(type);
+
+
+  ['id', 'className', 'style'].forEach(attribute => {
+    if (attributes[attribute]) newElement[attribute] = attributes[attribute];
+  });
+
+  children.forEach(child => {
+
+    if (typeof child === 'string') newElement.innerText = child;
+
+    else newElement.appendChild(child);
+
+  });
+
+  return newElement;
 }

@@ -29,58 +29,81 @@
     </div>
 
     <div id="root"></div>
+    <div id="root2"></div>
 
-  <script>
-    var struct = {
-      type: 'div',
-      id: 'outerDiv2',
-      style: {
-        margin: '50px',
-        padding: '20px',
-        border: '1px solid red',
-      },
-      innerText: '',
-      children: [
-        {
-          type: 'p',
-          style: {
-            'font-family': 'sans-serif',
+    <script>
+      var struct = {
+        type: 'div',
+        id: 'outerDiv2',
+        style: 'margin:50px;padding:20px;border:1px solid red;',
+        children: [
+          {
+            type: 'p',
+            style: 'font-family:sans-serif;',
+            innerText: 'Paragrafo Esterno2',
           },
-          innerText: 'Paragrafo Esterno2',
+          {
+            type: 'div',
+            id: 'innerDiv2',
+            style: 'width:50%;padding:5px;border:1px dashed blue;',
+            children: [
+              {
+                type: 'p',
+                innerText: 'Paragrafo Interno2',
+                style: 'font-size:18px;',
+              },
+              {
+                type: 'label',
+                className: 'green',
+                style: 'font-weight:bold;',
+                innerText: 'Label Interna2',
+              }
+            ],
+          }
+        ],
+      };
+
+      // procedural(struct, document.getElementById('root'));
+
+      const newNode = functional(
+        'div',
+        {
+          id: 'outerDiv3',
+          style: 'margin:50px;padding:20px;border:1px solid red;',
         },
-        {
-          type: 'div',
-          id: 'innerDiv2',
-          style: {
-            width: '50%',
-            padding: '5px',
-            border: '1px dashed blue',
+        functional(
+          'p',
+          {
+            style: 'font-family:sans-serif;',
           },
-          children: [
+          'Paragrafo Esterno3'
+        ),
+        functional(
+          'div',
+          {
+            id: 'innerDiv2',
+            style: 'width:50%;padding:5px;border:1px dashed blue;',
+          },
+          functional(
+            'p',
             {
-              type: 'p',
-              innerText: 'Paragrafo Interno2',
-              style: {
-                'font-size': '18px',
-              },
+              style: 'font-size:18px;',
             },
+            'Paragrafo Interno3'
+          ),
+          functional(
+            'label',
             {
-              type: 'label',
               className: 'green',
-              style: {
-                'font-weight': 'bold',
-              },
-              innerText: 'Label Interna2',
-            }
-          ],
-        }
-      ],
-    };
+              style: 'font-weight:bold;',
+            },
+            'Label Interna3'
+          )
+        )
+      );
 
-    procedural(struct, document.getElementById('root'));
+      // document.getElementById('root2').appendChild(newNode);
 
-    document.appendChild(functional())
-  </script>
-
+    </script>
   </body>
 </html>
