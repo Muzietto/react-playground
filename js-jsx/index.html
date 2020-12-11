@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Native DOM API</title>
+    <script src="./native.dom-api.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <div
+      id="outerDiv"
+      style="margin:50px;padding:20px;border:1px solid red;"
+    >
+      <p style="font-family:sans-serif;">Paragrafo Esterno</p>
+      <div
+        id="innerDiv"
+        style="width:50%;padding:5px;border:1px dashed blue;"
+        >
+        <p style="font-size:18px;">Paragrafo Interno</p>
+        <label style="color:green;font-weight:bold;">Label Interna</label>
+      </div>
+    </div>
+
+
+  <script>
+    var struct = {
+      type: 'div',
+      id: 'outerDiv',
+      style: {
+        margin: '50px',
+        padding: '20px',
+        border: '1px solid red',
+      }
+      innerText: '',
+      children: [
+        {
+          type: 'p',
+          style: {
+            'font-family': 'sans-serif',
+          },
+          innerText: 'Paragrafo Esterno',
+        },
+        {
+          type: 'div',
+          id: 'innerDiv',
+          children: [
+            {
+              type: 'p',
+              innerText: 'Paragrafo Interno',
+            },
+            {
+              type: 'label',
+              style: {
+                'color': 'green',
+                'font-weight': 'bold',
+              },
+              innerText: 'Label Interna',
+            }
+          ],
+        }
+      ],
+    };
+  </script>
+
+  </body>
+</html>
