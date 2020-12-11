@@ -56,7 +56,7 @@
                 "destructuring": "all"
             }
         ],
-        "no-var": "error",
+        "no-var": "warn",
         "no-new-object": "error",
         "no-new-wrappers": "error",
         "quote-props": [
