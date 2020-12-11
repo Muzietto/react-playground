@@ -1,0 +1,7 @@
+var customer = {
+  "name": "SAP AG",
+  "VAT_number": "DE12345678910",
+  "Street": "Walldorfstrasse",
+  "Street_number": 11,
+  "Stock_exchange": true,
+};
