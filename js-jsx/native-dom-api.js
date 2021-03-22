@@ -2,7 +2,7 @@
 
 const ce = document.createElement; // (type)
 const eid = document.getElementById; // (id)
-const ac = document.appendChild; // childNode;
+const ac = myDiv.appendChild; // childNode;
 const qs = document.querySelector; // (cssSelector)
 
 // not a pure function
