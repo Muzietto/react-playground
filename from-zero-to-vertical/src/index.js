@@ -1,20 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import PApp from '@src/components/atoms/PApp/PApp';
-import PApp2 from '@src/components/atoms/PApp/PApp2';
-import PApp3 from '@src/components/atoms/PApp/PApp3';
-import PApp4 from '@src/components/atoms/PApp/PApp4';
+import App from '@src/main/App/App';
+import SplashPage from '@src/main/SplashPage/SplashPage';
 
-export default function App() {
+render(<SplashPage />);
 
-  return <>
-    <CssBaseline />
-    <PApp />
-    <PApp2 />
-    <PApp3 />
-    <PApp4 />
-  </>;
+// eslint-disable-next-line no-debugger
+debugger;
+
+// const lng = 'it-IT'; // navigator.language || navigator.userLanguage;
+// const debugMode = (ENV.NPC_ENV === 'local');
+// const isUserGold = false;
+
+// eslint-disable-next-line no-console
+if (ENV.NPC_ENV === 'pirelli-prod') console.log = () => {};
+
+render(<App />);
+
+function render(c) {
+  ReactDOM.render(c, document.getElementById('root'));
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));

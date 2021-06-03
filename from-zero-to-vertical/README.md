@@ -1,6 +1,6 @@
-# Material-UI Playground
+# React Playground - from-zero-to-vertical
 
-This is the root of a collection of Material-UI sample - https://material-ui.com/
+## 00-wireframe
 
 ## Usage
 
