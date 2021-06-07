@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import TopNavigation from '@src/components/molecules/TopNavigation/TopNavigation';
+// import TopNavigation from '@src/components/molecules/TopNavigation/TopNavigation';
 // import Header from '@src/components/molecules/Header/Header';
 
 const VerticalHRPage = () => {
@@ -14,7 +14,7 @@ const VerticalHRPage = () => {
   // https://stackoverflow.com/questions/67833598/material-ui-4-11-4-grid-items-in-column-require-container-direction-row-to
   return <Grid container direction='row' justify='center' alignItems='stretch'>
     <Grid item xs={12} style={{ border: '2px solid red' }}>
-     <TopNavigation />
+      TOP NAVIGATION
     </Grid>
     <Grid item xs={12} style={{ border: '2px solid blue' }}>
       HEADER
