@@ -31,7 +31,6 @@ const TopNavigation = () => {
   return <Grid
     container
     direction='row'
-    xs={12}
     justify='space-between'
     alignItems='center'
   >

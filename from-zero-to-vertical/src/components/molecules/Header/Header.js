@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import HrIcon from '@src/assets/Icons/Header/HrIcon';
@@ -10,24 +10,71 @@ import PayrollIcon from '@src/assets/Icons/Header/PayrollIcon';
 import Link from '@material-ui/core/Link';
 
 export default function Header({
-  profiles = [],
+  userProfiles = [],
 }) {
 
-  // eslint-disable-next-line no-unused-vars
   const classes = useStyles();
 
-  return <Box style={{ backgroundColor: '#313467', height: 100 }}>
-    <Typography style={{ color: 'white' }}>Nuovo Portale Clienti</Typography>
-    {profiles.map(() => {})}
-  </Box>;
+  return <Grid
+      container
+      direction='row'
+      justify='space-between'
+      alignItems='center'
+      className={classes.header}
+    >
+    <Grid item>
+      <Typography
+        variant='h4'
+        className={classes.headerTitle}
+      >Nuovo Portale Clienti</Typography>
+    </Grid>
+    <Grid
+      item
+      xs={3}
+      container
+      direction='row'
+      >
+      {userProfiles.map(profile => {
+        const THE_ICON = ProfileIcon(profile.iconName);
+        return <Grid
+          item
+          key={Math.random()}
+          className={classes.headerLink}
+          >
+          <Link
+            color='inherit'
+            onClick={() => { alert(`You clicked ${profile.name}`) }}
+          >
+            <THE_ICON />
+            <Typography>
+              {profile.name}
+            </Typography>
+          </Link>
+        </Grid>;
+      })}
+    </Grid>
+  </Grid>;
 }
 
 Header.propTypes = {
-  profiles: PropTypes.array,
+  userProfiles: PropTypes.array,
 };
 
 function useStyles() {
   return makeStyles((/* theme */) => ({
+    header: {
+      backgroundColor: '#313467',
+      color: 'white',
+    },
+    headerTitle: {
+      marginLeft: 16,
+    },
+    headerLink: {
+      margin: 5,
+      width: 80,
+      height: 90,
+      cursor: 'pointer',
+    }
   }))();
 }
 

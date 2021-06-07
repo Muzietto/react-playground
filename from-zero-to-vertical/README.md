@@ -1,21 +1,21 @@
 # React Playground - from-zero-to-vertical
 
-## 00-wireframe
+## 01-useState
 
 ## Usage
 
 - npm install
 
-## Available task
+## Available tasks
 
 - `npm start`: will launch the app in hot reloading with webpack-dev-server
 - `npm run watch`: alternative to `npm start`, will watch for code changes and will build the app inside `/dist` folder. Useful if you want to serve it with your own web server.
 - `npm run build`: will create the build inside `/dist` folder.
 
-## Tasks
+## Activities
 
-Examine VerticalHrPage and:
+- add state variable isOpen to TopNavigation and apply it to menu popup
 
-- experiment with insertion of TopNavigation and Header (use classes instead of inline styles; add some properties like page title and user profiles)
+- add state variable chosen to Header and apply it to menu items (underline chosen icon)
 
-- implement the VerticalPageTemplate component and use it
+- center and adjust Header menu items
