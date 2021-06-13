@@ -16,12 +16,12 @@ export default function Header({
   const classes = useStyles();
 
   return <Grid
-      container
-      direction='row'
-      justify='space-between'
-      alignItems='center'
-      className={classes.header}
-    >
+    container
+    direction='row'
+    justify='space-between'
+    alignItems='center'
+    className={classes.header}
+  >
     <Grid item>
       <Typography
         variant='h4'
@@ -33,17 +33,17 @@ export default function Header({
       xs={3}
       container
       direction='row'
-      >
+    >
       {userProfiles.map(profile => {
         const THE_ICON = ProfileIcon(profile.iconName);
         return <Grid
           item
           key={Math.random()}
           className={classes.headerLink}
-          >
+        >
           <Link
             color='inherit'
-            onClick={() => { alert(`You clicked ${profile.name}`) }}
+            onClick={() => { alert(`You clicked ${profile.name}`); }}
           >
             <THE_ICON />
             <Typography>
@@ -74,7 +74,7 @@ function useStyles() {
       width: 80,
       height: 90,
       cursor: 'pointer',
-    }
+    },
   }))();
 }
 

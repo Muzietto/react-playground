@@ -14,8 +14,8 @@
 
 ## Activities
 
-- add state variable isOpen to TopNavigation and apply it to menu popup
-
-- add state variable chosen to Header and apply it to menu items (underline chosen icon)
+- add state variable isOpen to SettingsMenu and apply it to menu popup
 
 - center and adjust Header menu items
+
+- underline current page icon

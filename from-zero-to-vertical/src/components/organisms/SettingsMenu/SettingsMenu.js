@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import Button from '@material-ui/core/Button';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
@@ -38,17 +37,17 @@ export default function SettingsMenu({ children = '' }) {
               style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
             >
               <Paper>
-                  <MenuList
-                    autoFocusItem={open}
-                    id='menu-list-grow'
-                  >
-                    {children &&
+                <MenuList
+                  autoFocusItem={open}
+                  id='menu-list-grow'
+                >
+                  {children &&
                         React.Children.map(children, child => (
                           <MenuItem onClick={() => {}}>
                             {React.cloneElement(child)}
                           </MenuItem>
                         ))}
-                  </MenuList>
+                </MenuList>
               </Paper>
             </Grow>)}
         </Popper>
