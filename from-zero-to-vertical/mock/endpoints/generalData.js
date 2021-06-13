@@ -19,4 +19,20 @@ handlers.push({ // GET /user_profiles/:userId
   },
 });
 
+handlers.push({ // GET /dictionary/:locale
+  url: '/dictionary/:locale',
+  method: 'get',
+  // eslint-disable-next-line no-unused-vars
+  callback: (req, res) => {
+
+    // extract locale from request parameters
+
+    // instantiate const DICTIONARIES from DICTIONARIES.js
+
+    // instantiate const dictionary from DICTIONARIES
+
+    // send dictionary with HTTP status 200
+  },
+});
+
 module.exports = handlers;

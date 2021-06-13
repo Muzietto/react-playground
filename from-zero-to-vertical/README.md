@@ -1,6 +1,6 @@
 # React Playground - from-zero-to-vertical
 
-## 02-useEffect
+## 04-dictionary-provider
 
 ## Usage
 
@@ -15,12 +15,8 @@
 
 ## Activities
 
-- explore mock server and its datasources; start the server (how?)
+- make sure to have at least two vertical pages
 
-- explore http client inside model dir tree; add endpoint userProfiles to client.js
+- implement endpoint /dictionary/:locale inside generalData.js
 
-- useState: create state variable userProfiles in VerticalHRPage
-
-- useEffect: invoke endpoint /user_profiles/:userId from VerticalHRPage; add the retrieved JSON to the verticalHrPageBody for debugging purposes
-
-- send userProfiles.profiles to Header as prop; create icons accordingly. You will need to implement a mapping inside endpoint /user_profiles/:userId in order to enrich the JSON data
+- implement method dictionary in client.js

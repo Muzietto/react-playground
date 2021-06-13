@@ -5,9 +5,6 @@ import SplashPage from '@src/main/SplashPage/SplashPage';
 
 render(<SplashPage />);
 
-// eslint-disable-next-line no-debugger
-debugger;
-
 // const lng = 'it-IT'; // navigator.language || navigator.userLanguage;
 // const debugMode = (ENV.NPC_ENV === 'local');
 // const isUserGold = false;
