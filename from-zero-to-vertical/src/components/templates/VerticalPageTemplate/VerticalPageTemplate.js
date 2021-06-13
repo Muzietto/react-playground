@@ -27,7 +27,7 @@ const VerticalPageTemplate = ({
 
 VerticalPageTemplate.propTypes = {
   userProfiles: PropTypes.array,
-  children: PropTypes.component,
+  children: PropTypes.node,
 };
 
 export default VerticalPageTemplate;

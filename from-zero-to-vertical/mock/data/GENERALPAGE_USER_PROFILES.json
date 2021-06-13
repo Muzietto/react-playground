@@ -1,0 +1,237 @@
+{
+  "0": {
+    "id": 990,
+    "username": "rossigold",
+    "firstName": "Mario",
+    "lastName": "Rossi GOLD",
+    "email": "mr.rossigold@domain.com",
+    "roleId": 4,
+    "statusId": 1,
+    "profiles": [
+      {
+        "profileId": 1,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 2,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 3,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 4,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 5,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+
+    ]
+  },
+  "990": {
+    "id": 990,
+    "username": "hr-standard",
+    "firstName": "Hr",
+    "lastName": "Standard",
+    "email": "hr.standard@domain.com",
+    "roleId": 3,
+    "statusId": 1,
+    "profiles": [
+      {
+        "profileId": 2,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  },
+  "991": {
+    "AAA_URL": "/user_profiles (+token)",
+    "AAA_NOTE": "standardtrentinogeneralfinance",
+    "id": 991,
+    "username": "giuseppe.verdi",
+    "firstName": "Giuseppe",
+    "lastName": "Verdi (standardtrentinogeneralfinance)",
+    "email": "giuseppe.verdi@trentinoaltoadige.it",
+    "roleId": 3,
+    "userStatusId": 1,
+    "profiles": [
+      {
+        "profileId": 4,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 1,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  },
+  "992": {
+    "AAA_NOTE": "admintrentinopayrollfinance",
+    "id": 992,
+    "username": "filippa.gialli",
+    "firstName": "Filippa",
+    "lastName": "Gialli (admintrentinopayrollfinance)",
+    "email": "filippa.gialli@trentinoaltoadige.it",
+    "roleId": 2,
+    "userStatusId": 1,
+    "profiles": [
+      {
+        "profileId": 4,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 3,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  },
+  "993": {
+    "AAA_NOTE": "superadmintrentino",
+    "id": 993,
+    "username": "superadmin.trentino",
+    "firstName": "Superadmin",
+    "lastName": "Trentino",
+    "email": "superadmin.trentino@trentinoaltoadige.it",
+    "roleId": 1,
+    "userStatusId": 1,
+    "profiles": [
+      {
+        "profileId": 3,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 4,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 1,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 2,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 5,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  },
+  "994": {
+    "AAA_NOTE": "admingiuntaregionaletaageneral",
+    "id": 994,
+    "username": "admin.giuntaregionaletaa",
+    "firstName": "Admin NO-CIRCUITS",
+    "lastName": "GiuntaRegionaleTAA",
+    "email": "admin.giuntaregionaletaa@trentinoaltoadige.it",
+    "roleId": 2,
+    "userStatusId": 1,
+    "profiles": [
+      {
+        "profileId": 1,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  },
+  "995": {
+    "AAA_NOTE": "adminconsiglioregionataalegeneralanalytics",
+    "id": 995,
+    "username": "admin.consiglioregionaletaa",
+    "firstName": "Admin",
+    "lastName": "ConsiglioRegionaleTAA",
+    "email": "admin.consiglioregionaletaa@trentinoaltoadige.it",
+    "roleId": 2,
+    "userStatusId": 1,
+    "profiles": [
+      {
+        "profileId": 1,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 5,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  },
+  "996": {
+    "AAA_NOTE": "admincameracommerciotngeneral",
+    "id": 996,
+    "username": "admin.cameracommerciotn",
+    "firstName": "Admin",
+    "lastName": "CameraCommercioTN",
+    "email": "admin.cameracommerciotn@trentinoaltoadige.it",
+    "roleId": 2,
+    "userStatusId": 1,
+    "profiles": [
+      {
+        "profileId": 1,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  },
+  "10001": {
+    "AAA_NOTE": "adminesselungageneralpayroll",
+    "id": 10001,
+    "username": "mario.rossi",
+    "firstName": "Mario",
+    "lastName": "Rossi (adminesselungageneralpayroll)",
+    "email": "mario.rossi@esselunga.it",
+    "roleId": 2,
+    "userStatusId": 1,
+    "profiles": [
+      {
+        "profileId": 3,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 1,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  },
+  "10002": {
+    "AAA_NOTE": "standardesselungahrpayroll",
+    "id": 10002,
+    "username": "luigi.bianchi",
+    "firstName": "Luigi",
+    "lastName": "Bianchi (standardesselungahrpayroll)",
+    "email": "luigi.bianchi@esselunga.it",
+    "roleId": 3,
+    "userStatusId": 1,
+    "profiles": [
+      {
+        "profileId": 3,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      },
+      {
+        "profileId": 2,
+        "profileStatusId": 1,
+        "dateStart": "2019-11-12T14:44:18"
+      }
+    ]
+  }
+}

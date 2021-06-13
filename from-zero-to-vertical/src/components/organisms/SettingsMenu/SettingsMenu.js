@@ -1,16 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { makeStyles } from '@material-ui/core/styles';
 
 export default function SettingsMenu({ children = '' }) {
   const classes = useStyles();
-
-  const open = true;
+  const [isOpen, setIsOpen] = useState(false);
 
   const anchorRef = useRef(null);
 
@@ -20,11 +20,12 @@ export default function SettingsMenu({ children = '' }) {
         <Button
           ref={anchorRef}
           className={classes.button}
+          onClick={() => { setIsOpen(!isOpen); }}
         >
           Impostazioni
         </Button>
         <Popper
-          open={open}
+          open={isOpen}
           anchorEl={anchorRef.current}
           role={undefined}
           transition
@@ -37,17 +38,19 @@ export default function SettingsMenu({ children = '' }) {
               style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
             >
               <Paper>
-                <MenuList
-                  autoFocusItem={open}
-                  id='menu-list-grow'
-                >
-                  {children &&
+                <ClickAwayListener onClickAway={() => { setIsOpen(false); }}>
+                  <MenuList
+                    autoFocusItem={open}
+                    id='menu-list-grow'
+                  >
+                    {children &&
                         React.Children.map(children, child => (
                           <MenuItem onClick={() => {}}>
                             {React.cloneElement(child)}
                           </MenuItem>
                         ))}
-                </MenuList>
+                  </MenuList>
+                </ClickAwayListener>
               </Paper>
             </Grow>)}
         </Popper>
