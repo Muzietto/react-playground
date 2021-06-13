@@ -1,6 +1,6 @@
 # React Playground - from-zero-to-vertical
 
-## 02-useEffect
+## 03-enter-react-router
 
 ## Usage
 
@@ -15,12 +15,12 @@
 
 ## Activities
 
-- explore mock server and its datasources; start the server (how?)
+- make sure to have at least two vertical pages
 
-- explore http client inside model dir tree; add endpoint userProfiles to client.js
+- check App.js and implement all Route's inside Routes.js
 
-- useState: create state variable userProfiles in VerticalHRPage
+- try out the various routes to display all the vertical pages you have implemented
 
-- useEffect: invoke endpoint /user_profiles/:userId from VerticalHRPage; add the retrieved JSON to the verticalHrPageBody for debugging purposes
+- implement links to other vertical pages inside the Header menu
 
-- send userProfiles.profiles to Header as prop; create icons accordingly. You will need to implement a mapping inside endpoint /user_profiles/:userId in order to enrich the JSON data
+- implement lazy loading of each page
