@@ -9,9 +9,11 @@ import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import Link from '@material-ui/core/Link';
+import { useDictionary } from '@src/components/others/Dictionary/Dictionary';
 
 const TopNavigation = () => {
   const classes = useStyles();
+  const _t = useDictionary();
 
   const settingsMenuItems = [
     <Link
@@ -42,12 +44,12 @@ const TopNavigation = () => {
         <Button
           startIcon={<CompareArrowsIcon />}
           className={classes.buttonLow}>
-          Cambia Utente o Gruppo
+          {_t('TOPNAVIGATION_CHANGEUSER')}
         </Button>
         <Button
           startIcon={<ArrowBackIcon />}
           className={classes.buttonLow}>
-          Torna alla vista GENERAL
+          {_t('TOPNAVIGATION_BACKTOGENERAL')}
         </Button>
 
         <SettingsMenu>

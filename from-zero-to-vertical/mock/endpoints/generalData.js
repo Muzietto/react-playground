@@ -26,12 +26,17 @@ handlers.push({ // GET /dictionary/:locale
   callback: (req, res) => {
 
     // extract locale from request parameters
+    const { locale } = req.params;
 
     // instantiate const DICTIONARIES from DICTIONARIES.js
-
-    // instantiate const dictionary from DICTIONARIES
+    const { DICTIONARIES } = require('import-fresh')('../data/DICTIONARIES.js');
 
     // send dictionary with HTTP status 200
+    const localDictionary = DICTIONARIES[locale];
+
+    // eslint-disable-next-line no-console
+    console.log('MOCK - GET /dictionary/:locale --> 200');
+    withDelay(() => res.status(200).send(localDictionary));
   },
 });
 
