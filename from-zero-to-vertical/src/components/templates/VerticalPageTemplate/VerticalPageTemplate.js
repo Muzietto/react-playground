@@ -6,13 +6,14 @@ import Header from '@src/components/molecules/Header/Header';
 
 const VerticalPageTemplate = ({
   userProfiles,
+  currentPage = '',
   children,
 }) => <Grid container direction='row' justify='center' alignItems='stretch'>
   <Grid item xs={12}>
     <TopNavigation />
   </Grid>
   <Grid item xs={12}>
-    <Header userProfiles={userProfiles} />
+    <Header userProfiles={userProfiles} currentPage={currentPage} />
   </Grid>
   <Grid item xs={12} style={{ border: '2px solid cyan' }}>
     VERTICAL CAROUSEL
@@ -28,6 +29,7 @@ const VerticalPageTemplate = ({
 VerticalPageTemplate.propTypes = {
   userProfiles: PropTypes.array,
   children: PropTypes.node,
+  currentPage: PropTypes.string,
 };
 
 export default VerticalPageTemplate;

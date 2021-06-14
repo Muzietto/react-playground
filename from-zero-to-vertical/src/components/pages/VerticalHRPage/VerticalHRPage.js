@@ -5,6 +5,8 @@ import client from '@src/model/data/client';
 
 const VerticalHRPage = () => {
 
+  const currentPage = 'HR';
+
   const [userProfiles, setUserProfiles] = useState([]);
 
   useEffect(() => {
@@ -24,6 +26,7 @@ const VerticalHRPage = () => {
   // https://stackoverflow.com/questions/67833598/material-ui-4-11-4-grid-items-in-column-require-container-direction-row-to
   return <VerticalPageTemplate
     userProfiles={userProfiles.profiles}
+    currentPage={currentPage}
   >
     {verticalHrPageBody}
   </VerticalPageTemplate>;
