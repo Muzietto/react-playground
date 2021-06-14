@@ -61,7 +61,7 @@ Header.propTypes = {
 };
 
 function useStyles() {
-  return makeStyles((/* theme */) => ({
+  return makeStyles(theme => ({
     header: {
       backgroundColor: '#313467',
       color: 'white',
@@ -74,6 +74,8 @@ function useStyles() {
       width: 80,
       height: 90,
       cursor: 'pointer',
+      textAlign: 'center',
+      paddingTop: theme.spacing(1),
     },
   }))();
 }
