@@ -14,7 +14,7 @@ const VerticalHRPage = () => {
 
   const verticalHrPageBody = <>
     <Typography variant='h1'>
-    Vertical HR Page
+    Vertical Finance Page
     </Typography>
     <pre>
       {JSON.stringify(userProfiles, null, 2)}

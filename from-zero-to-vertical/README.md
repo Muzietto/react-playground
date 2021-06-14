@@ -15,8 +15,10 @@
 
 ## Activities
 
-- make sure to have at least two vertical pages
+- make sure to have at least two vertical pages; better yet, implement a third one
 
-- implement endpoint /dictionary/:locale inside generalData.js
+- implement mock endpoint /dictionary/:locale inside generalData.js
 
-- implement method dictionary in client.js
+- implement method dictionary(locale) in client.js and invoke it inside index.js
+
+- create a Dictionary
