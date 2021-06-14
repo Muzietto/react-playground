@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,6 +14,8 @@ export default function Header({
   userProfiles = [],
   currentPage = '',
 }) {
+
+  const ROOT_URL = ENV.RESOURCE_ROOT_URL;
 
   const classes = useStyles();
 
@@ -44,7 +47,8 @@ export default function Header({
         >
           <Link
             color='inherit'
-            onClick={() => { alert(`You clicked ${profile.name}`); }}
+            component={RouterLink}
+            to={`${ROOT_URL}${profile.pageUrl}`}
           >
             <THE_ICON />
             <Typography>
@@ -94,16 +98,3 @@ function ProfileIcon(name) {
   };
   return dict[name] || null;
 }
-
-// eslint-disable-next-line no-unused-vars
-const mapper = profile => {
-  const THE_ICON = ProfileIcon(profile.iconName);
-  return <Link key={Math.random()}
-    color='inherit'
-  >
-    <THE_ICON />
-    <Typography>
-      {profile.name}
-    </Typography>
-  </Link>;
-};

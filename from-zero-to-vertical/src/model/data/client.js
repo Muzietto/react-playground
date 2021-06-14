@@ -23,10 +23,10 @@ export default {
 
 function profilesMappings(profileId) {
   return {
-    1: { name: 'general', iconName: 'general' },
-    2: { name: 'HR', iconName: 'hr' },
-    3: { name: 'payroll', iconName: 'payroll' },
-    4: { name: 'finance', iconName: 'finance' },
-    5: { name: 'Analytics Tool', iconName: 'analytics' },
+    1: { name: 'general', iconName: 'general', pageUrl: '/general' },
+    2: { name: 'HR', iconName: 'hr', pageUrl: '/hr-detail' },
+    3: { name: 'payroll', iconName: 'payroll', pageUrl: '/payroll-detail' },
+    4: { name: 'finance', iconName: 'finance', pageUrl: '/finance-detail' },
+    5: { name: 'Analytics Tool', iconName: 'analytics', pageUrl: '/analytics-tool' },
   }[profileId] || { name: 'unknown', iconName: 'unknown' };
 }
