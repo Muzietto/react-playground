@@ -11,6 +11,7 @@ import Link from '@material-ui/core/Link';
 
 export default function Header({
   userProfiles = [],
+  currentPage = '',
 }) {
 
   const classes = useStyles();
@@ -39,7 +40,7 @@ export default function Header({
         return <Grid
           item
           key={Math.random()}
-          className={classes.headerLink}
+          className={`${classes.headerLink} ${(currentPage === profile.name) ? classes.chosenHeaderLink : ''}`}
         >
           <Link
             color='inherit'
@@ -58,6 +59,7 @@ export default function Header({
 
 Header.propTypes = {
   userProfiles: PropTypes.array,
+  currentPage: PropTypes.string,
 };
 
 function useStyles() {
@@ -77,6 +79,9 @@ function useStyles() {
       // border: '1px solid white',
       textAlign: 'center',
       paddingTop: theme.spacing(1),
+    },
+    chosenHeaderLink: {
+      borderBottom: '5px solid cyan',
     },
   }))();
 }
