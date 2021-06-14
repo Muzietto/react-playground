@@ -4,6 +4,8 @@ import VerticalPageTemplate from '@src/components/templates/VerticalPageTemplate
 
 const VerticalHRPage = () => {
 
+  const currentPage = 'HR';
+
   const userProfiles = [
     { name: 'HR', iconName: 'hr' },
     { name: 'Analytics Tool', iconName: 'analytics' },
@@ -16,6 +18,7 @@ const VerticalHRPage = () => {
   // https://stackoverflow.com/questions/67833598/material-ui-4-11-4-grid-items-in-column-require-container-direction-row-to
   return <VerticalPageTemplate
     userProfiles={userProfiles}
+    currentPage={currentPage}
   >
     {verticalHrPageBody}
   </VerticalPageTemplate>;
