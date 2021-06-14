@@ -16,6 +16,6 @@
 
 - add state variable isOpen to SettingsMenu and apply it to menu popup
 
-- center and adjust Header menu items
+- center and adjust Header menu texts/icons
 
 - underline current page icon
