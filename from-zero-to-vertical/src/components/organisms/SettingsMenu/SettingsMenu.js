@@ -12,48 +12,46 @@ export default function SettingsMenu({ children = '' }) {
 
   const open = true;
 
-  const anchorRef = useRef(null);
+  const menuAnchorRef = useRef(null);
 
-  return (
-    <div className={classes.root}>
-      <div>
-        <Button
-          ref={anchorRef}
-          className={classes.button}
-        >
+  return <div className={classes.root}>
+    <div>
+      <Button
+        ref={menuAnchorRef}
+        className={classes.button}
+      >
           Impostazioni
-        </Button>
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          role={undefined}
-          transition
-          disablePortal
-          className={classes.popper}
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper>
-                <MenuList
-                  autoFocusItem={open}
-                  id='menu-list-grow'
-                >
-                  {children &&
+      </Button>
+      <Popper
+        open={open}
+        anchorEl={menuAnchorRef.current}
+        role={undefined}
+        transition
+        disablePortal
+        className={classes.popper}
+      >
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+          >
+            <Paper>
+              <MenuList
+                autoFocusItem={open}
+                id='menu-list-grow'
+              >
+                {children &&
                         React.Children.map(children, child => (
                           <MenuItem onClick={() => {}}>
                             {React.cloneElement(child)}
                           </MenuItem>
                         ))}
-                </MenuList>
-              </Paper>
-            </Grow>)}
-        </Popper>
-      </div>
+              </MenuList>
+            </Paper>
+          </Grow>)}
+      </Popper>
     </div>
-  );
+  </div>;
 }
 
 const useStyles = makeStyles(() => ({
