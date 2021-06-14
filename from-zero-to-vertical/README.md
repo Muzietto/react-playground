@@ -23,4 +23,8 @@
 
 - implement method dictionary(locale) in client.js and invoke it inside index.js
 
-- create a Dictionary wrapper component that provides the translation method _t(I18N_KEY) and use it inside some component
+- study the Dictionary component, that provides:
+  + a wrapper DictionaryProvider to be placed inside App.js
+  + the translation method _t(I18N_KEY) through the useDictionary function
+
+- use the function useDictionary inside some component

@@ -5,9 +5,12 @@ import SplashPage from '@src/main/SplashPage/SplashPage';
 
 render(<SplashPage />);
 
-// const lng = 'it-IT'; // navigator.language || navigator.userLanguage;
-// const debugMode = (ENV.NPC_ENV === 'local');
-// const isUserGold = false;
+// eslint-disable-next-line no-unused-vars
+const locale = 'it-IT'; // navigator.language || navigator.userLanguage;
+
+// invoke endpoint /dictionary/:locale in client.js
+
+// then invoke dictionary.init to insert the JSON data in the model dictionary
 
 // eslint-disable-next-line no-console
 if (ENV.NPC_ENV === 'pirelli-prod') console.log = () => {};
