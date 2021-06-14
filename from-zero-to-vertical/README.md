@@ -17,8 +17,10 @@
 
 - make sure to have at least two vertical pages; better yet, implement a third one
 
+- complete implementation of the dictionary model
+
 - implement mock endpoint /dictionary/:locale inside generalData.js
 
 - implement method dictionary(locale) in client.js and invoke it inside index.js
 
-- create a Dictionary
+- create a Dictionary wrapper component that provides the translation method _t(I18N_KEY) and use it inside some component
