@@ -7,6 +7,7 @@ import Header from '@src/components/molecules/Header/Header';
 const VerticalPageTemplate = ({
   userProfiles,
   children,
+  // https://stackoverflow.com/questions/67833598/material-ui-4-11-4-grid-items-in-column-require-container-direction-row-to
 }) => <Grid container direction='row' justify='center' alignItems='stretch'>
   <Grid item xs={12}>
     <TopNavigation />

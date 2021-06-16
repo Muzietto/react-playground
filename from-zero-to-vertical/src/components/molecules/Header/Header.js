@@ -87,16 +87,3 @@ function ProfileIcon(name) {
   };
   return dict[name] || null;
 }
-
-// eslint-disable-next-line no-unused-vars
-const mapper = profile => {
-  const THE_ICON = ProfileIcon(profile.iconName);
-  return <Link key={Math.random()}
-    color='inherit'
-  >
-    <THE_ICON />
-    <Typography>
-      {profile.name}
-    </Typography>
-  </Link>;
-};

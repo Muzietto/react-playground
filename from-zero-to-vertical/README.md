@@ -14,8 +14,10 @@
 
 ## Activities
 
-- add state variable isOpen to SettingsMenu and apply it to menu popup
+- examine Header.js and see how userProfiles get mapped into Link's
 
-- center and adjust Header menu texts/icons
+- add state variable isOpen to SettingsMenu.js and apply it to menu popup
+
+- center and adjust Header menu texts/icons (act on classes.headerLink)
 
 - underline current page icon

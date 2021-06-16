@@ -13,7 +13,6 @@ const VerticalHRPage = () => {
     Vertical HR Page
   </Typography>;
 
-  // https://stackoverflow.com/questions/67833598/material-ui-4-11-4-grid-items-in-column-require-container-direction-row-to
   return <VerticalPageTemplate
     userProfiles={userProfiles}
   >
