@@ -13,10 +13,10 @@ const userProfiles = userId => http.get(`/user_profiles/${userId}`)
     };
   });
 
-// 1) use http.get to reach the mock endpoint
-// eslint-disable-next-line no-unused-vars
-const dictionary = locale => null;
-// 2) extract field 'data' from JSON object
+// use http.get to reach the mock endpoint
+const dictionary = locale => http.get(`/dictionary/${locale}`)
+// extract field 'data' from JSON object
+  .then(json => Promise.resolve(json.data));
 
 export default {
   userProfiles,
