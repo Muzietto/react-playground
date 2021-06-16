@@ -15,8 +15,6 @@
 
 ## Activities
 
-- make sure to have at least two vertical pages; better yet, implement a third one
-
 - complete implementation of the dictionary model
 
 - implement mock endpoint /dictionary/:locale inside generalData.js
