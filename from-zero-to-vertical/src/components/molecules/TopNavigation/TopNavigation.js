@@ -10,6 +10,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import Link from '@material-ui/core/Link';
 import { useDictionary } from '@src/components/others/Dictionary/Dictionary';
+import withTooltip from '@src/components/others/withTooltip/withTooltip';
 
 const TopNavigation = () => {
   const classes = useStyles();
@@ -30,6 +31,9 @@ const TopNavigation = () => {
     </Link>,
   ];
 
+  // complete it
+  const TooltippedLogo = null;
+
   return <Grid
     container
     direction='row'
@@ -37,7 +41,7 @@ const TopNavigation = () => {
     alignItems='center'
   >
     <Grid item>
-      <EdenredLogo />
+      <TooltippedLogo />
     </Grid>
     <Grid item>
       <Breadcrumbs separator='|'>

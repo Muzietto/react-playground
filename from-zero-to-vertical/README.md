@@ -1,6 +1,6 @@
 # React Playground - from-zero-to-vertical
 
-## 04-dictionary-provider
+## 05-higher-order-components
 
 ## Usage
 
@@ -15,16 +15,6 @@
 
 ## Activities
 
-- make sure to have at least two vertical pages; better yet, implement a third one
+- create a HOC withTooltip.js that wraps any other component inside a material-ui Tooltip; provide just the popup text and the placement position
 
-- complete implementation of the dictionary model
-
-- implement mock endpoint /dictionary/:locale inside generalData.js
-
-- implement method dictionary(locale) in client.js and invoke it inside index.js
-
-- study the Dictionary component, that provides:
-  + a wrapper DictionaryProvider to be placed inside App.js
-  + the translation method _t(I18N_KEY) through the useDictionary function
-
-- use the function useDictionary inside some component
+ - use withTooltip inside TopNavigation (some hints are already provided)
