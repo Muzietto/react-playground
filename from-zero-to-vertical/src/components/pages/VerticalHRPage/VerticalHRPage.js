@@ -22,11 +22,9 @@ const VerticalHRPage = () => {
     <Grid item xs={12} style={{ border: '2px solid cyan' }}>
       VERTICAL CAROUSEL
     </Grid>
-    <Grid item xs={1}/>
     <Grid item xs={10} style={{ border: '2px solid pink' }}>
       PAGE BODY
     </Grid>
-    <Grid item xs={1}/>
     <Grid item xs={12} style={{ border: '2px solid blue' }}>
       FOOTER
     </Grid>
