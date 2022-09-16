@@ -16,7 +16,7 @@
     ]
   },
   "dependencies": {
-    "bootstrap": "^3.3.6",
+    "bootstrap": "^3.4.1",
     "requirejs": "^2.2.0"
   },
   "devDependencies": {
